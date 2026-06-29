@@ -1,0 +1,1877 @@
+{
+  "meta": {
+    "tournament": "FIFA World Cup 2026 (Canada/Mexico/USA)",
+    "stage": "Round of 32 / Dieciseisavos de final",
+    "generated_utc": "2026-06-29T13:14:45.327179Z",
+    "teams_count": 32,
+    "weights_strength_index": {
+      "fifa": 0.4,
+      "value": 0.2,
+      "form": 0.25,
+      "pedigree": 0.15
+    },
+    "elo_adjustment_coeffs": {
+      "form": 40.0,
+      "value": 25.0,
+      "pedigree": 20.0
+    },
+    "pool_aggregates": {
+      "fifa_points": {
+        "min": 1347.0,
+        "max": 1877.0
+      },
+      "log10_value": {
+        "min": 1.6924,
+        "max": 3.1818,
+        "mean": 2.5337,
+        "pstdev": 0.3861
+      },
+      "form_raw": {
+        "min": 3.0,
+        "max": 12.2,
+        "mean": 6.4625,
+        "pstdev": 2.6093
+      },
+      "pedigree_raw": {
+        "min": 0.8,
+        "max": 100,
+        "mean": 27.8562,
+        "pstdev": 29.7998
+      }
+    },
+    "sources": {
+      "qualified_teams_and_group_tables": "NBC Sports / FIFA / La Republica (final group standings)",
+      "fifa_ranking": "FIFA / football-ranking.com (11-jun-2026 oficial + live)",
+      "squad_values": "Transfermarkt via PlanetFootball/OneFootball (27-jun-2026)",
+      "round_of_32_fixtures": "DAZN / ClaroSports / MedioTiempo (28-jun-2026)"
+    },
+    "caveats": [
+      "Datos de un Mundial en curso: valores 'live' y posiciones cambian con cada jornada.",
+      "Senegal (grupo I): registro corregido a 3 pts/+3 GD segun el detalle de partidos (victoria 5-0 sobre Iraq). Ver data_notes de Senegal.",
+      "Valores Transfermarkt en EUR; existen listados equivalentes en USD con cifras distintas.",
+      "pedigree_score es un proxy reproducible (titulos+mejor resultado+presencias); subestima a equipos con multiples finales/semifinales sin titulo (NED, SWE, POR, CRO)."
+    ]
+  },
+  "teams": [
+    {
+      "team": "France",
+      "code": "FRA",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "I",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 3,
+        "points_official_2026_06_11": 1871.0,
+        "points_live_in_tournament": 1906.84,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 1520.0,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 9,
+        "goal_difference": 8,
+        "points_per_match": 3.0,
+        "gd_per_match": 2.667,
+        "form_raw_index": 12.2
+      },
+      "world_cup_history": {
+        "titles": 2,
+        "title_years": [
+          1998,
+          2018
+        ],
+        "best_finish_pre_2026": "Campeon",
+        "appearances_incl_2026": 17,
+        "defending_champion": false,
+        "pedigree_raw": 83.6,
+        "pedigree_score_0_100": 83.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.9887,
+        "norm_value": 1.0,
+        "norm_form": 1.0,
+        "norm_pedigree": 0.8347,
+        "strength_index_0_100": 97.07,
+        "effective_elo": 2038.3
+      },
+      "round_of_32": {
+        "opponent": "Suecia",
+        "opponent_code": "SWE",
+        "match_id": 77,
+        "venue": "MetLife Stadium, Nueva York/Nueva Jersey",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Argentina",
+      "code": "ARG",
+      "confederation": "CONMEBOL",
+      "qualification": {
+        "group": "J",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 1,
+        "points_official_2026_06_11": 1877.0,
+        "points_live_in_tournament": 1907.41,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 807.5,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 9,
+        "goal_difference": 7,
+        "points_per_match": 3.0,
+        "gd_per_match": 2.333,
+        "form_raw_index": 11.8
+      },
+      "world_cup_history": {
+        "titles": 3,
+        "title_years": [
+          1978,
+          1986,
+          2022
+        ],
+        "best_finish_pre_2026": "Campeon",
+        "appearances_incl_2026": 19,
+        "defending_champion": true,
+        "pedigree_raw": 100,
+        "pedigree_score_0_100": 100
+      },
+      "derived_metrics": {
+        "norm_fifa": 1.0,
+        "norm_value": 0.8156,
+        "norm_form": 0.9565,
+        "norm_pedigree": 1.0,
+        "strength_index_0_100": 95.23,
+        "effective_elo": 2031.5
+      },
+      "round_of_32": {
+        "opponent": "Cabo Verde",
+        "opponent_code": "CPV",
+        "match_id": 86,
+        "venue": "Hard Rock Stadium, Miami",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Spain",
+      "code": "ESP",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "H",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 2,
+        "points_official_2026_06_11": 1875.0,
+        "points_live_in_tournament": 1879.58,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 1220.0,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 7,
+        "goal_difference": 5,
+        "points_per_match": 2.333,
+        "gd_per_match": 1.667,
+        "form_raw_index": 9.0
+      },
+      "world_cup_history": {
+        "titles": 1,
+        "title_years": [
+          2010
+        ],
+        "best_finish_pre_2026": "Campeon",
+        "appearances_incl_2026": 17,
+        "defending_champion": false,
+        "pedigree_raw": 63.6,
+        "pedigree_score_0_100": 63.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.9962,
+        "norm_value": 0.9359,
+        "norm_form": 0.6522,
+        "norm_pedigree": 0.6331,
+        "strength_index_0_100": 84.36,
+        "effective_elo": 1973.7
+      },
+      "round_of_32": {
+        "opponent": "Austria",
+        "opponent_code": "AUT",
+        "match_id": 83,
+        "venue": "Mercedes-Benz Stadium, Atlanta",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Brazil",
+      "code": "BRA",
+      "confederation": "CONMEBOL",
+      "qualification": {
+        "group": "C",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 6,
+        "points_official_2026_06_11": 1766.0,
+        "points_live_in_tournament": 1785.2,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 928.2,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 7,
+        "goal_difference": 6,
+        "points_per_match": 2.333,
+        "gd_per_match": 2.0,
+        "form_raw_index": 9.4
+      },
+      "world_cup_history": {
+        "titles": 5,
+        "title_years": [
+          1958,
+          1962,
+          1970,
+          1994,
+          2002
+        ],
+        "best_finish_pre_2026": "Campeon",
+        "appearances_incl_2026": 23,
+        "defending_champion": false,
+        "pedigree_raw": 100,
+        "pedigree_score_0_100": 100
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.7906,
+        "norm_value": 0.8562,
+        "norm_form": 0.6957,
+        "norm_pedigree": 1.0,
+        "strength_index_0_100": 81.14,
+        "effective_elo": 1887.6
+      },
+      "round_of_32": {
+        "opponent": "Japon",
+        "opponent_code": "JPN",
+        "match_id": 76,
+        "venue": "NRG Stadium, Houston",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "England",
+      "code": "ENG",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "L",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 4,
+        "points_official_2026_06_11": 1828.0,
+        "points_live_in_tournament": 1840.46,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 1360.0,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 7,
+        "goal_difference": 4,
+        "points_per_match": 2.333,
+        "gd_per_match": 1.333,
+        "form_raw_index": 8.6
+      },
+      "world_cup_history": {
+        "titles": 1,
+        "title_years": [
+          1966
+        ],
+        "best_finish_pre_2026": "Campeon",
+        "appearances_incl_2026": 17,
+        "defending_champion": false,
+        "pedigree_raw": 63.6,
+        "pedigree_score_0_100": 63.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.9075,
+        "norm_value": 0.9676,
+        "norm_form": 0.6087,
+        "norm_pedigree": 0.6331,
+        "strength_index_0_100": 80.36,
+        "effective_elo": 1923.6
+      },
+      "round_of_32": {
+        "opponent": "DR Congo",
+        "opponent_code": "COD",
+        "match_id": 80,
+        "venue": "Mercedes-Benz Stadium, Atlanta",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Germany",
+      "code": "GER",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "E",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 10,
+        "points_official_2026_06_11": 1736.0,
+        "points_live_in_tournament": 1726.22,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 947.0,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 6,
+        "goal_difference": 6,
+        "points_per_match": 2.0,
+        "gd_per_match": 2.0,
+        "form_raw_index": 8.4
+      },
+      "world_cup_history": {
+        "titles": 4,
+        "title_years": [
+          1954,
+          1974,
+          1990,
+          2014
+        ],
+        "best_finish_pre_2026": "Campeon",
+        "appearances_incl_2026": 21,
+        "defending_champion": false,
+        "pedigree_raw": 100,
+        "pedigree_score_0_100": 100
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.734,
+        "norm_value": 0.862,
+        "norm_form": 0.587,
+        "norm_pedigree": 1.0,
+        "strength_index_0_100": 76.27,
+        "effective_elo": 1842.8
+      },
+      "round_of_32": {
+        "opponent": "Paraguay",
+        "opponent_code": "PAR",
+        "match_id": 74,
+        "venue": "Gillette Stadium, Boston",
+        "date": "2026-06-29"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Netherlands",
+      "code": "NED",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "F",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 8,
+        "points_official_2026_06_11": 1754.0,
+        "points_live_in_tournament": 1775.5,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 754.2,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 7,
+        "goal_difference": 6,
+        "points_per_match": 2.333,
+        "gd_per_match": 2.0,
+        "form_raw_index": 9.4
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Subcampeon (x3)",
+        "appearances_incl_2026": 12,
+        "defending_champion": false,
+        "pedigree_raw": 31.6,
+        "pedigree_score_0_100": 31.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.7679,
+        "norm_value": 0.7957,
+        "norm_form": 0.6957,
+        "norm_pedigree": 0.3105,
+        "strength_index_0_100": 68.68,
+        "effective_elo": 1823.8
+      },
+      "round_of_32": {
+        "opponent": "Marruecos",
+        "opponent_code": "MAR",
+        "match_id": 75,
+        "venue": "Estadio BBVA, Monterrey",
+        "date": "2026-06-29"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Portugal",
+      "code": "POR",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "K",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 5,
+        "points_official_2026_06_11": 1768.0,
+        "points_live_in_tournament": 1764.86,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 1010.0,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 5,
+        "points_per_match": 1.333,
+        "gd_per_match": 1.667,
+        "form_raw_index": 6.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Tercer puesto (1966)",
+        "appearances_incl_2026": 9,
+        "defending_champion": false,
+        "pedigree_raw": 23.2,
+        "pedigree_score_0_100": 23.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.7943,
+        "norm_value": 0.8808,
+        "norm_form": 0.3261,
+        "norm_pedigree": 0.2258,
+        "strength_index_0_100": 60.93,
+        "effective_elo": 1788.3
+      },
+      "round_of_32": {
+        "opponent": "Croacia",
+        "opponent_code": "CRO",
+        "match_id": 84,
+        "venue": "Estadio Akron, Guadalajara",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Morocco",
+      "code": "MAR",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "C",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 7,
+        "points_official_2026_06_11": 1755.0,
+        "points_live_in_tournament": 1776.4,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 447.7,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 7,
+        "goal_difference": 3,
+        "points_per_match": 2.333,
+        "gd_per_match": 1.0,
+        "form_raw_index": 8.2
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuarto puesto (2022)",
+        "appearances_incl_2026": 7,
+        "defending_champion": false,
+        "pedigree_raw": 21.6,
+        "pedigree_score_0_100": 21.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.7698,
+        "norm_value": 0.6436,
+        "norm_form": 0.5652,
+        "norm_pedigree": 0.2097,
+        "strength_index_0_100": 60.94,
+        "effective_elo": 1785.0
+      },
+      "round_of_32": {
+        "opponent": "Paises Bajos",
+        "opponent_code": "NED",
+        "match_id": 75,
+        "venue": "Estadio BBVA, Monterrey",
+        "date": "2026-06-29"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Belgium",
+      "code": "BEL",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "G",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 9,
+        "points_official_2026_06_11": 1742.0,
+        "points_live_in_tournament": 1735.42,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 547.5,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 5,
+        "goal_difference": 3,
+        "points_per_match": 1.667,
+        "gd_per_match": 1.0,
+        "form_raw_index": 6.2
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Tercer puesto (2018)",
+        "appearances_incl_2026": 15,
+        "defending_champion": false,
+        "pedigree_raw": 28.0,
+        "pedigree_score_0_100": 28.0
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.7453,
+        "norm_value": 0.7023,
+        "norm_form": 0.3478,
+        "norm_pedigree": 0.2742,
+        "strength_index_0_100": 56.67,
+        "effective_elo": 1751.4
+      },
+      "round_of_32": {
+        "opponent": "Senegal",
+        "opponent_code": "SEN",
+        "match_id": 82,
+        "venue": "Lumen Field, Seattle",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Mexico",
+      "code": "MEX",
+      "confederation": "CONCACAF",
+      "qualification": {
+        "group": "A",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 14,
+        "points_official_2026_06_11": 1687.0,
+        "points_live_in_tournament": 1736.01,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 191.85,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 9,
+        "goal_difference": 6,
+        "points_per_match": 3.0,
+        "gd_per_match": 2.0,
+        "form_raw_index": 11.4
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuartos",
+        "appearances_incl_2026": 18,
+        "defending_champion": false,
+        "pedigree_raw": 24.4,
+        "pedigree_score_0_100": 24.4
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.6415,
+        "norm_value": 0.3965,
+        "norm_form": 0.913,
+        "norm_pedigree": 0.2379,
+        "strength_index_0_100": 59.99,
+        "effective_elo": 1744.1
+      },
+      "round_of_32": {
+        "opponent": "Ecuador",
+        "opponent_code": "ECU",
+        "match_id": 79,
+        "venue": "Estadio Azteca, Ciudad de Mexico",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Croatia",
+      "code": "CRO",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "L",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 11,
+        "points_official_2026_06_11": 1715.0,
+        "points_live_in_tournament": 1723.05,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 387.3,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 6,
+        "goal_difference": 0,
+        "points_per_match": 2.0,
+        "gd_per_match": 0.0,
+        "form_raw_index": 6.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Subcampeon (2018)",
+        "appearances_incl_2026": 7,
+        "defending_champion": false,
+        "pedigree_raw": 27.6,
+        "pedigree_score_0_100": 27.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.6943,
+        "norm_value": 0.6013,
+        "norm_form": 0.3261,
+        "norm_pedigree": 0.2702,
+        "strength_index_0_100": 52.01,
+        "effective_elo": 1711.3
+      },
+      "round_of_32": {
+        "opponent": "Portugal",
+        "opponent_code": "POR",
+        "match_id": 84,
+        "venue": "Estadio Akron, Guadalajara",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "USA",
+      "code": "USA",
+      "confederation": "CONCACAF",
+      "qualification": {
+        "group": "D",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 17,
+        "points_official_2026_06_11": 1671.0,
+        "points_live_in_tournament": 1677.17,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 385.6,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 6,
+        "goal_difference": 4,
+        "points_per_match": 2.0,
+        "gd_per_match": 1.333,
+        "form_raw_index": 7.6
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Semifinal (1930)",
+        "appearances_incl_2026": 12,
+        "defending_champion": false,
+        "pedigree_raw": 25.6,
+        "pedigree_score_0_100": 25.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.6113,
+        "norm_value": 0.6,
+        "norm_form": 0.5,
+        "norm_pedigree": 0.25,
+        "strength_index_0_100": 52.7,
+        "effective_elo": 1690.4
+      },
+      "round_of_32": {
+        "opponent": "Bosnia y Herzegovina",
+        "opponent_code": "BIH",
+        "match_id": 81,
+        "venue": "Levi's Stadium, San Francisco",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Switzerland",
+      "code": "SUI",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "B",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 19,
+        "points_official_2026_06_11": 1650.0,
+        "points_live_in_tournament": 1676.0,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 332.5,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 7,
+        "goal_difference": 4,
+        "points_per_match": 2.333,
+        "gd_per_match": 1.333,
+        "form_raw_index": 8.6
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuartos",
+        "appearances_incl_2026": 13,
+        "defending_champion": false,
+        "pedigree_raw": 20.4,
+        "pedigree_score_0_100": 20.4
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.5717,
+        "norm_value": 0.5568,
+        "norm_form": 0.6087,
+        "norm_pedigree": 0.1976,
+        "strength_index_0_100": 52.18,
+        "effective_elo": 1677.0
+      },
+      "round_of_32": {
+        "opponent": "Argelia",
+        "opponent_code": "ALG",
+        "match_id": 85,
+        "venue": "BC Place, Vancouver",
+        "date": "2026-07-02"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Colombia",
+      "code": "COL",
+      "confederation": "CONMEBOL",
+      "qualification": {
+        "group": "K",
+        "finish_position": 1,
+        "finish_type": "group_winner",
+        "finish_label_es": "1ro de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 13,
+        "points_official_2026_06_11": 1698.0,
+        "points_live_in_tournament": 1729.3,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 302.35,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 6,
+        "goal_difference": 3,
+        "points_per_match": 2.0,
+        "gd_per_match": 1.0,
+        "form_raw_index": 7.2
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuartos (2014)",
+        "appearances_incl_2026": 7,
+        "defending_champion": false,
+        "pedigree_raw": 15.6,
+        "pedigree_score_0_100": 15.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.6623,
+        "norm_value": 0.5291,
+        "norm_form": 0.4565,
+        "norm_pedigree": 0.1492,
+        "strength_index_0_100": 50.72,
+        "effective_elo": 1697.6
+      },
+      "round_of_32": {
+        "opponent": "Ghana",
+        "opponent_code": "GHA",
+        "match_id": 87,
+        "venue": "Arrowhead Stadium, Kansas City",
+        "date": "2026-07-02"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Japan",
+      "code": "JPN",
+      "confederation": "AFC",
+      "qualification": {
+        "group": "F",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 18,
+        "points_official_2026_06_11": 1662.0,
+        "points_live_in_tournament": 1673.68,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 270.85,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 5,
+        "goal_difference": 4,
+        "points_per_match": 1.667,
+        "gd_per_match": 1.333,
+        "form_raw_index": 6.6
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Octavos",
+        "appearances_incl_2026": 8,
+        "defending_champion": false,
+        "pedigree_raw": 11.4,
+        "pedigree_score_0_100": 11.4
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.5943,
+        "norm_value": 0.497,
+        "norm_form": 0.3913,
+        "norm_pedigree": 0.1069,
+        "strength_index_0_100": 45.1,
+        "effective_elo": 1646.5
+      },
+      "round_of_32": {
+        "opponent": "Brasil",
+        "opponent_code": "BRA",
+        "match_id": 76,
+        "venue": "NRG Stadium, Houston",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Norway",
+      "code": "NOR",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "I",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 31,
+        "points_official_2026_06_11": 1557.0,
+        "points_live_in_tournament": 1594.04,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 589.9,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 6,
+        "goal_difference": 1,
+        "points_per_match": 2.0,
+        "gd_per_match": 0.333,
+        "form_raw_index": 6.4
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Octavos (1998)",
+        "appearances_incl_2026": 4,
+        "defending_champion": false,
+        "pedigree_raw": 8.2,
+        "pedigree_score_0_100": 8.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.3962,
+        "norm_value": 0.724,
+        "norm_form": 0.3696,
+        "norm_pedigree": 0.0746,
+        "strength_index_0_100": 40.69,
+        "effective_elo": 1558.2
+      },
+      "round_of_32": {
+        "opponent": "Cote d'Ivoire",
+        "opponent_code": "CIV",
+        "match_id": 78,
+        "venue": "AT&T Stadium, Dallas",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Cote d'Ivoire",
+      "code": "CIV",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "E",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 33,
+        "points_official_2026_06_11": 1541.0,
+        "points_live_in_tournament": 1565.48,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 522.1,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 6,
+        "goal_difference": 2,
+        "points_per_match": 2.0,
+        "gd_per_match": 0.667,
+        "form_raw_index": 6.8
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Fase de grupos",
+        "appearances_incl_2026": 4,
+        "defending_champion": false,
+        "pedigree_raw": 3.2,
+        "pedigree_score_0_100": 3.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.366,
+        "norm_value": 0.6884,
+        "norm_form": 0.413,
+        "norm_pedigree": 0.0242,
+        "strength_index_0_100": 39.1,
+        "effective_elo": 1541.5
+      },
+      "round_of_32": {
+        "opponent": "Noruega",
+        "opponent_code": "NOR",
+        "match_id": null,
+        "venue": null,
+        "date": null
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Ecuador",
+      "code": "ECU",
+      "confederation": "CONMEBOL",
+      "qualification": {
+        "group": "E",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 23,
+        "points_official_2026_06_11": 1599.0,
+        "points_live_in_tournament": 1592.59,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 368.7,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 0,
+        "points_per_match": 1.333,
+        "gd_per_match": 0.0,
+        "form_raw_index": 4.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Octavos (2006)",
+        "appearances_incl_2026": 5,
+        "defending_champion": false,
+        "pedigree_raw": 9.0,
+        "pedigree_score_0_100": 9.0
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.4755,
+        "norm_value": 0.587,
+        "norm_form": 0.1087,
+        "norm_pedigree": 0.0827,
+        "strength_index_0_100": 34.71,
+        "effective_elo": 1550.7
+      },
+      "round_of_32": {
+        "opponent": "Mexico",
+        "opponent_code": "MEX",
+        "match_id": 79,
+        "venue": "Estadio Azteca, Ciudad de Mexico",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Austria",
+      "code": "AUT",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "J",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 24,
+        "points_official_2026_06_11": 1597.0,
+        "points_live_in_tournament": 1598.82,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 245.2,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 0,
+        "points_per_match": 1.333,
+        "gd_per_match": 0.0,
+        "form_raw_index": 4.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Tercer puesto (1954)",
+        "appearances_incl_2026": 8,
+        "defending_champion": false,
+        "pedigree_raw": 22.4,
+        "pedigree_score_0_100": 22.4
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.4717,
+        "norm_value": 0.468,
+        "norm_form": 0.1087,
+        "norm_pedigree": 0.2177,
+        "strength_index_0_100": 34.21,
+        "effective_elo": 1546.3
+      },
+      "round_of_32": {
+        "opponent": "Espana",
+        "opponent_code": "ESP",
+        "match_id": 83,
+        "venue": "Mercedes-Benz Stadium, Atlanta",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Senegal",
+      "code": "SEN",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "I",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 15,
+        "points_official_2026_06_11": 1684.0,
+        "points_live_in_tournament": 1653.43,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 478.1,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 3,
+        "goal_difference": 3,
+        "points_per_match": 1.0,
+        "gd_per_match": 1.0,
+        "form_raw_index": 4.2
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuartos (2002)",
+        "appearances_incl_2026": 4,
+        "defending_champion": false,
+        "pedigree_raw": 13.2,
+        "pedigree_score_0_100": 13.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.6358,
+        "norm_value": 0.6627,
+        "norm_form": 0.1304,
+        "norm_pedigree": 0.125,
+        "strength_index_0_100": 43.82,
+        "effective_elo": 1574.6
+      },
+      "round_of_32": {
+        "opponent": "Belgica",
+        "opponent_code": "BEL",
+        "match_id": 82,
+        "venue": "Lumen Field, Seattle",
+        "date": "2026-07-01"
+      },
+      "data_notes": [
+        "RESUELTO: el registro de grupo I se corrige al detalle de partidos. Senegal 5-0 Iraq (victoria) ademas de las derrotas ante Francia y Noruega: 3 pts, 1V-0E-2D, GD +3. (La tabla NBC marcaba erroneamente 0 pts/-3 GD.)"
+      ]
+    },
+    {
+      "team": "Sweden",
+      "code": "SWE",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "F",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 38,
+        "points_official_2026_06_11": 1510.0,
+        "points_live_in_tournament": 1525.58,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 406.08,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 0,
+        "points_per_match": 1.333,
+        "gd_per_match": 0.0,
+        "form_raw_index": 4.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Subcampeon (1958)",
+        "appearances_incl_2026": 13,
+        "defending_champion": false,
+        "pedigree_raw": 32.4,
+        "pedigree_score_0_100": 32.4
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.3075,
+        "norm_value": 0.6151,
+        "norm_form": 0.1087,
+        "norm_pedigree": 0.3185,
+        "strength_index_0_100": 32.09,
+        "effective_elo": 1480.1
+      },
+      "round_of_32": {
+        "opponent": "Francia",
+        "opponent_code": "FRA",
+        "match_id": 77,
+        "venue": "MetLife Stadium, Nueva York/Nueva Jersey",
+        "date": "2026-06-30"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Canada",
+      "code": "CAN",
+      "confederation": "CONCACAF",
+      "qualification": {
+        "group": "B",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 30,
+        "points_official_2026_06_11": 1559.0,
+        "points_live_in_tournament": 1571.34,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 198.65,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 5,
+        "points_per_match": 1.333,
+        "gd_per_match": 1.667,
+        "form_raw_index": 6.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Fase de grupos",
+        "appearances_incl_2026": 3,
+        "defending_champion": false,
+        "pedigree_raw": 2.4,
+        "pedigree_score_0_100": 2.4
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.4,
+        "norm_value": 0.4067,
+        "norm_form": 0.3261,
+        "norm_pedigree": 0.0161,
+        "strength_index_0_100": 32.53,
+        "effective_elo": 1519.6
+      },
+      "round_of_32": {
+        "opponent": "Sudafrica",
+        "opponent_code": "RSA",
+        "match_id": 73,
+        "venue": "SoFi Stadium, Los Angeles",
+        "date": "2026-06-28"
+      },
+      "data_notes": [
+        "Primera ronda eliminatoria de su historia"
+      ]
+    },
+    {
+      "team": "Algeria",
+      "code": "ALG",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "J",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 28,
+        "points_official_2026_06_11": 1571.0,
+        "points_live_in_tournament": 1576.8,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 256.9,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": -2,
+        "points_per_match": 1.333,
+        "gd_per_match": -0.667,
+        "form_raw_index": 3.2
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Octavos (2014)",
+        "appearances_incl_2026": 5,
+        "defending_champion": false,
+        "pedigree_raw": 9.0,
+        "pedigree_score_0_100": 9.0
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.4226,
+        "norm_value": 0.4816,
+        "norm_form": 0.0217,
+        "norm_pedigree": 0.0827,
+        "strength_index_0_100": 28.32,
+        "effective_elo": 1500.3
+      },
+      "round_of_32": {
+        "opponent": "Suiza",
+        "opponent_code": "SUI",
+        "match_id": 85,
+        "venue": "BC Place, Vancouver",
+        "date": "2026-07-02"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Egypt",
+      "code": "EGY",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "G",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 29,
+        "points_official_2026_06_11": 1562.0,
+        "points_live_in_tournament": 1584.71,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 116.48,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 5,
+        "goal_difference": 2,
+        "points_per_match": 1.667,
+        "gd_per_match": 0.667,
+        "form_raw_index": 5.8
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Fase de grupos",
+        "appearances_incl_2026": 4,
+        "defending_champion": false,
+        "pedigree_raw": 3.2,
+        "pedigree_score_0_100": 3.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.4057,
+        "norm_value": 0.251,
+        "norm_form": 0.3043,
+        "norm_pedigree": 0.0242,
+        "strength_index_0_100": 29.22,
+        "effective_elo": 1505.0
+      },
+      "round_of_32": {
+        "opponent": "Australia",
+        "opponent_code": "AUS",
+        "match_id": 88,
+        "venue": "AT&T Stadium, Dallas",
+        "date": "2026-07-02"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Australia",
+      "code": "AUS",
+      "confederation": "AFC",
+      "qualification": {
+        "group": "D",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 27,
+        "points_official_2026_06_11": 1579.0,
+        "points_live_in_tournament": 1581.35,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 77.45,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 0,
+        "points_per_match": 1.333,
+        "gd_per_match": 0.0,
+        "form_raw_index": 4.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Octavos (2006,2022)",
+        "appearances_incl_2026": 7,
+        "defending_champion": false,
+        "pedigree_raw": 10.6,
+        "pedigree_score_0_100": 10.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.4377,
+        "norm_value": 0.132,
+        "norm_form": 0.1087,
+        "norm_pedigree": 0.0988,
+        "strength_index_0_100": 24.34,
+        "effective_elo": 1487.9
+      },
+      "round_of_32": {
+        "opponent": "Egipto",
+        "opponent_code": "EGY",
+        "match_id": 88,
+        "venue": "AT&T Stadium, Dallas",
+        "date": "2026-07-02"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Paraguay",
+      "code": "PAR",
+      "confederation": "CONMEBOL",
+      "qualification": {
+        "group": "D",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 41,
+        "points_official_2026_06_11": 1505.0,
+        "points_live_in_tournament": 1520.59,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 153.65,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": -2,
+        "points_per_match": 1.333,
+        "gd_per_match": -0.667,
+        "form_raw_index": 3.2
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuartos (2010)",
+        "appearances_incl_2026": 9,
+        "defending_champion": false,
+        "pedigree_raw": 17.2,
+        "pedigree_score_0_100": 17.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.2981,
+        "norm_value": 0.3318,
+        "norm_form": 0.0217,
+        "norm_pedigree": 0.1653,
+        "strength_index_0_100": 21.58,
+        "effective_elo": 1425.3
+      },
+      "round_of_32": {
+        "opponent": "Alemania",
+        "opponent_code": "GER",
+        "match_id": 74,
+        "venue": "Gillette Stadium, Boston",
+        "date": "2026-06-29"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "DR Congo",
+      "code": "COD",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "K",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 46,
+        "points_official_2026_06_11": 1474.0,
+        "points_live_in_tournament": 1495.48,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 143.9,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 1,
+        "points_per_match": 1.333,
+        "gd_per_match": 0.333,
+        "form_raw_index": 4.4
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Fase de grupos (1974, como Zaire)",
+        "appearances_incl_2026": 2,
+        "defending_champion": false,
+        "pedigree_raw": 1.6,
+        "pedigree_score_0_100": 1.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.2396,
+        "norm_value": 0.3126,
+        "norm_form": 0.1522,
+        "norm_pedigree": 0.0081,
+        "strength_index_0_100": 19.77,
+        "effective_elo": 1400.4
+      },
+      "round_of_32": {
+        "opponent": "Inglaterra",
+        "opponent_code": "ENG",
+        "match_id": 80,
+        "venue": "Mercedes-Benz Stadium, Atlanta",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Ghana",
+      "code": "GHA",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "L",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 73,
+        "points_official_2026_06_11": 1347.0,
+        "points_live_in_tournament": 1398.57,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 234.5,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": 0,
+        "points_per_match": 1.333,
+        "gd_per_match": 0.0,
+        "form_raw_index": 4.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Cuartos (2010)",
+        "appearances_incl_2026": 4,
+        "defending_champion": false,
+        "pedigree_raw": 13.2,
+        "pedigree_score_0_100": 13.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.0,
+        "norm_value": 0.455,
+        "norm_form": 0.1087,
+        "norm_pedigree": 0.125,
+        "strength_index_0_100": 13.69,
+        "effective_elo": 1288.8
+      },
+      "round_of_32": {
+        "opponent": "Colombia",
+        "opponent_code": "COL",
+        "match_id": 87,
+        "venue": "Arrowhead Stadium, Kansas City",
+        "date": "2026-07-02"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Bosnia y Herzegovina",
+      "code": "BIH",
+      "confederation": "UEFA",
+      "qualification": {
+        "group": "B",
+        "finish_position": 3,
+        "finish_type": "best_third",
+        "finish_label_es": "mejor tercero"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 64,
+        "points_official_2026_06_11": 1387.0,
+        "points_live_in_tournament": 1408.93,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 146.4,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": -1,
+        "points_per_match": 1.333,
+        "gd_per_match": -0.333,
+        "form_raw_index": 3.6
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Fase de grupos (2014)",
+        "appearances_incl_2026": 2,
+        "defending_champion": false,
+        "pedigree_raw": 1.6,
+        "pedigree_score_0_100": 1.6
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.0755,
+        "norm_value": 0.3177,
+        "norm_form": 0.0652,
+        "norm_pedigree": 0.0081,
+        "strength_index_0_100": 11.13,
+        "effective_elo": 1301.7
+      },
+      "round_of_32": {
+        "opponent": "Estados Unidos",
+        "opponent_code": "USA",
+        "match_id": 81,
+        "venue": "Levi's Stadium, San Francisco",
+        "date": "2026-07-01"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Sudafrica",
+      "code": "RSA",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "A",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 60,
+        "points_official_2026_06_11": 1428.0,
+        "points_live_in_tournament": 1451.24,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 49.25,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 4,
+        "goal_difference": -1,
+        "points_per_match": 1.333,
+        "gd_per_match": -0.333,
+        "form_raw_index": 3.6
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Fase de grupos (anfitrion 2010)",
+        "appearances_incl_2026": 4,
+        "defending_champion": false,
+        "pedigree_raw": 3.2,
+        "pedigree_score_0_100": 3.2
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.1528,
+        "norm_value": 0.0,
+        "norm_form": 0.0652,
+        "norm_pedigree": 0.0242,
+        "strength_index_0_100": 8.11,
+        "effective_elo": 1313.1
+      },
+      "round_of_32": {
+        "opponent": "Canada",
+        "opponent_code": "CAN",
+        "match_id": 73,
+        "venue": "SoFi Stadium, Los Angeles",
+        "date": "2026-06-28"
+      },
+      "data_notes": []
+    },
+    {
+      "team": "Cape Verde",
+      "code": "CPV",
+      "confederation": "CAF",
+      "qualification": {
+        "group": "H",
+        "finish_position": 2,
+        "finish_type": "runner_up",
+        "finish_label_es": "2do de grupo"
+      },
+      "fifa_ranking": {
+        "rank_official_2026_06_11": 67,
+        "points_official_2026_06_11": 1371.0,
+        "points_live_in_tournament": 1402.97,
+        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+      },
+      "squad_value_transfermarkt": {
+        "value_eur_millions": 49.25,
+        "as_of": "2026-06-27",
+        "currency": "EUR"
+      },
+      "world_cup_2026_performance": {
+        "stage_reached": "Round of 32 (dieciseisavos)",
+        "group_matches_played": 3,
+        "points": 3,
+        "goal_difference": 0,
+        "points_per_match": 1.0,
+        "gd_per_match": 0.0,
+        "form_raw_index": 3.0
+      },
+      "world_cup_history": {
+        "titles": 0,
+        "title_years": [],
+        "best_finish_pre_2026": "Debut",
+        "appearances_incl_2026": 1,
+        "defending_champion": false,
+        "pedigree_raw": 0.8,
+        "pedigree_score_0_100": 0.8
+      },
+      "derived_metrics": {
+        "norm_fifa": 0.0453,
+        "norm_value": 0.0,
+        "norm_form": 0.0,
+        "norm_pedigree": 0.0,
+        "strength_index_0_100": 1.82,
+        "effective_elo": 1245.3
+      },
+      "round_of_32": {
+        "opponent": "Argentina",
+        "opponent_code": "ARG",
+        "match_id": 86,
+        "venue": "Hard Rock Stadium, Miami",
+        "date": "2026-06-30"
+      },
+      "data_notes": [
+        "Debutante absoluto en Mundiales"
+      ]
+    }
+  ]
+}
