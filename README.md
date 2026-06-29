@@ -165,21 +165,6 @@ a un camino más fácil. Sobre miles de torneos, Argentina levanta la copa más 
 
 ---
 
-## 🇸🇳 Nota sobre Senegal (grupo I)
-
-El dataset traía una discrepancia: la tabla NBC marcaba a Senegal con `0 pts / −3 DG`,
-pero el detalle de partidos registraba una **victoria 5-0 sobre Irak**. Se resolvió
-adoptando el detalle de partidos:
-
-**Senegal:** 3 PJ · 1 V · 0 E · 2 D · **3 pts** · DG **+3** (derrotas ante Francia y
-Noruega + goleada a Irak).
-
-Como Senegal tenía el mínimo del pool de `form_raw`, al corregirlo se recalcularon
-`norm_form`, `SI` y `eELO` de los 32 equipos. Senegal subió del puesto 21 al 17 por
-Strength Index. Queda registrado en `data_notes` del equipo y en los `caveats` del `meta`.
-
----
-
 ## 🔁 Reproducir todo
 
 ```bash

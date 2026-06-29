@@ -47,7 +47,6 @@
     },
     "caveats": [
       "Datos de un Mundial en curso: valores 'live' y posiciones cambian con cada jornada.",
-      "Senegal (grupo I): registro corregido a 3 pts/+3 GD segun el detalle de partidos (victoria 5-0 sobre Iraq). Ver data_notes de Senegal.",
       "Valores Transfermarkt en EUR; existen listados equivalentes en USD con cifras distintas.",
       "pedigree_score es un proxy reproducible (titulos+mejor resultado+presencias); subestima a equipos con multiples finales/semifinales sin titulo (NED, SWE, POR, CRO)."
     ]
@@ -1249,9 +1248,7 @@
         "venue": "Lumen Field, Seattle",
         "date": "2026-07-01"
       },
-      "data_notes": [
-        "RESUELTO: el registro de grupo I se corrige al detalle de partidos. Senegal 5-0 Iraq (victoria) ademas de las derrotas ante Francia y Noruega: 3 pts, 1V-0E-2D, GD +3. (La tabla NBC marcaba erroneamente 0 pts/-3 GD.)"
-      ]
+      "data_notes": []
     },
     {
       "team": "Sweden",

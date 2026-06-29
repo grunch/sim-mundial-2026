@@ -194,7 +194,6 @@ P de avanzar (incluye prórroga/penales). Cruces parejos donde el modelo inviert
 ## 10. Limitaciones y advertencias (importante)
 
 - **Torneo en curso:** las cifras `live` y las posiciones cambian con cada jornada; el dataset es una foto al 28–29 jun 2026.
-- **Senegal (grupo I):** discrepancia **resuelta**. Se adopta el detalle de partidos (victoria 5-0 sobre Irak más las derrotas ante Francia y Noruega): **3 pts, 1V-0E-2D, DG +3** (`form_raw` 4.2). La tabla NBC marcaba erróneamente 0 pts/−3 DG. Al corregir el piso del pool de `form_raw` (de −1.2 a 3.0), se recalcularon `norm_form`, `SI` y `eELO` de los 32 equipos; Senegal sube del puesto 21 al 17.
 - **Pedigrí:** es un proxy reproducible (títulos + mejor resultado + presencias). **Subestima** a finalistas/semifinalistas sin título (Países Bajos, Suecia, Portugal, Croacia). Si te importa el palmarés, suבe el peso o reemplaza la fórmula.
 - **El modelo no captura**: lesiones/suspensiones del partido concreto, descanso entre rondas, sede/localía real, motivación, ni el estilo táctico del rival. Trátalo como una **línea base cuantitativa**, no como verdad.
 - **Transfermarkt en EUR**: hay listados equivalentes en USD con cifras distintas; no mezclar monedas.
