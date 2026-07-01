@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Motor de prediccion cabeza a cabeza para el Mundial 2026 (dieciseisavos).
-Consume mundial2026_r32_dataset.json y devuelve probabilidades para un duelo A vs B.
+Head-to-head prediction engine for the World Cup 2026 (Round of 32).
+Consumes worldcup2026_r32_dataset.json and returns probabilities for an A vs B tie.
 
-Dos metodos:
-  A) Elo efectivo (recomendado): usa 'effective_elo' (ranking FIFA Elo + ajustes por
-     forma, valor de plantilla y palmares). Formula FIFA/Elo, denominador D=600.
-  B) Strength Index logistico: usa 'strength_index_0_100' con escala S=12.
+Two methods:
+  A) Effective Elo (recommended): uses 'effective_elo' (FIFA Elo ranking + adjustments
+     for form, squad value and honours). FIFA/Elo formula, denominator D=600.
+  B) Logistic Strength Index: uses 'strength_index_0_100' with scale S=12.
 
-En llave directa (a partido unico con prorroga y penales) se reporta P(avanzar).
-Para 90' se separa una banda de empate con el parametro draw_band.
+In a direct tie (single match with extra time and penalties) P(advance) is reported.
+For regular time, a draw band is split out with the draw_band parameter.
 """
 import json, sys, math
 
-D = 600.0   # denominador Elo estilo FIFA
-S = 12.0    # escala logistica del Strength Index
+D = 600.0   # FIFA-style Elo denominator
+S = 12.0    # logistic scale of the Strength Index
 
-with open("mundial2026_r32_dataset.json", encoding="utf-8") as f:
+with open("worldcup2026_r32_dataset.json", encoding="utf-8") as f:
     DATA = json.load(f)
 BY_CODE = {t["code"]: t for t in DATA["teams"]}
 BY_NAME = {t["team"].lower(): t for t in DATA["teams"]}
@@ -28,7 +28,7 @@ def find(key):
     if k.lower() in BY_NAME: return BY_NAME[k.lower()]
     for t in DATA["teams"]:
         if k.lower() in t["team"].lower(): return t
-    raise KeyError(f"Equipo no encontrado: {key}")
+    raise KeyError(f"Team not found: {key}")
 
 def p_elo(ra, rb):
     return 1.0 / (1.0 + 10 ** (-(ra - rb) / D))
@@ -44,7 +44,7 @@ def predict(a_key, b_key, draw_band=0.0):
     sb = B["derived_metrics"]["strength_index_0_100"]
     pa_elo = p_elo(ra, rb)
     pa_si  = p_si(sa, sb)
-    # probabilidad combinada (media de ambos metodos) para avanzar (incluye prorroga/penales)
+    # combined probability (average of both methods) to advance (incl. extra time/penalties)
     pa_adv = (pa_elo + pa_si) / 2.0
     res = {
       "A": A["team"], "B": B["team"],
@@ -54,9 +54,9 @@ def predict(a_key, b_key, draw_band=0.0):
       "P_A_advance":     round(pa_adv, 3),
       "P_B_advance":     round(1 - pa_adv, 3),
     }
-    if draw_band > 0:  # version 90' con empate
-        # reparte una banda de empate proporcional a la cercania
-        closeness = 1 - abs(pa_adv - 0.5) * 2  # 1 si parejo, 0 si paliza
+    if draw_band > 0:  # regular-time version with a draw
+        # split a draw band proportional to how close the tie is
+        closeness = 1 - abs(pa_adv - 0.5) * 2  # 1 if even, 0 if a rout
         pdraw = draw_band * closeness
         res["P_draw_90"] = round(pdraw, 3)
         res["P_A_win_90"] = round(pa_adv * (1 - pdraw), 3)
@@ -71,7 +71,7 @@ def fmt(r):
     fav = r['A'] if r['P_A_advance'] >= 0.5 else r['B']
     return line + f"  -> {fav}"
 
-# 16 cruces oficiales de dieciseisavos
+# 16 official Round of 32 ties
 TIES = [
  ("CAN","RSA"), ("GER","PAR"), ("NED","MAR"), ("BRA","JPN"),
  ("FRA","SWE"), ("CIV","NOR"), ("MEX","ECU"), ("ENG","COD"),
@@ -86,9 +86,9 @@ if __name__ == "__main__":
               ensure_ascii=False, indent=2))
     else:
         print("="*104)
-        print("PRONOSTICO DIECISEISAVOS - MUNDIAL 2026  (P de avanzar, incl. prorroga/penales)")
+        print("ROUND OF 32 FORECAST - WORLD CUP 2026  (P of advancing, incl. extra time/penalties)")
         print("="*104)
         for a,b in TIES:
             print(fmt(predict(a,b)))
-        print("\nUso individual:  python3 predict.py ARG CPV         (llave directa)")
-        print("                 python3 predict.py ARG CPV 0.26    (con banda de empate a 90')")
+        print("\nSingle use:  python3 predict.py ARG CPV         (direct tie)")
+        print("             python3 predict.py ARG CPV 0.26    (with a regular-time draw band)")

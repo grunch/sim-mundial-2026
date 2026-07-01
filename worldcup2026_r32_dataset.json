@@ -1,7 +1,7 @@
 {
   "meta": {
     "tournament": "FIFA World Cup 2026 (Canada/Mexico/USA)",
-    "stage": "Round of 32 / Dieciseisavos de final",
+    "stage": "Round of 32",
     "generated_utc": "2026-06-29T13:14:45.327179Z",
     "teams_count": 32,
     "weights_strength_index": {
@@ -41,14 +41,14 @@
     },
     "sources": {
       "qualified_teams_and_group_tables": "NBC Sports / FIFA / La Republica (final group standings)",
-      "fifa_ranking": "FIFA / football-ranking.com (11-jun-2026 oficial + live)",
+      "fifa_ranking": "FIFA / football-ranking.com (11-jun-2026 official + live)",
       "squad_values": "Transfermarkt via PlanetFootball/OneFootball (27-jun-2026)",
       "round_of_32_fixtures": "DAZN / ClaroSports / MedioTiempo (28-jun-2026)"
     },
     "caveats": [
-      "Datos de un Mundial en curso: valores 'live' y posiciones cambian con cada jornada.",
-      "Valores Transfermarkt en EUR; existen listados equivalentes en USD con cifras distintas.",
-      "pedigree_score es un proxy reproducible (titulos+mejor resultado+presencias); subestima a equipos con multiples finales/semifinales sin titulo (NED, SWE, POR, CRO)."
+      "Data from an ongoing World Cup: 'live' values and standings change with each matchday.",
+      "Transfermarkt values in EUR; equivalent USD listings exist with different figures.",
+      "pedigree_score is a reproducible proxy (titles + best finish + appearances); it underestimates teams with multiple finals/semifinals but no title (NED, SWE, POR, CRO)."
     ]
   },
   "teams": [
@@ -60,13 +60,13 @@
         "group": "I",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 3,
         "points_official_2026_06_11": 1871.0,
         "points_live_in_tournament": 1906.84,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 1520.0,
@@ -74,7 +74,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 9,
         "goal_difference": 8,
@@ -88,7 +88,7 @@
           1998,
           2018
         ],
-        "best_finish_pre_2026": "Campeon",
+        "best_finish_pre_2026": "Champion",
         "appearances_incl_2026": 17,
         "defending_champion": false,
         "pedigree_raw": 83.6,
@@ -106,7 +106,7 @@
         "opponent": "Suecia",
         "opponent_code": "SWE",
         "match_id": 77,
-        "venue": "MetLife Stadium, Nueva York/Nueva Jersey",
+        "venue": "MetLife Stadium, New York/New Jersey",
         "date": "2026-06-30"
       },
       "data_notes": []
@@ -119,13 +119,13 @@
         "group": "J",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 1,
         "points_official_2026_06_11": 1877.0,
         "points_live_in_tournament": 1907.41,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 807.5,
@@ -133,7 +133,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 9,
         "goal_difference": 7,
@@ -148,7 +148,7 @@
           1986,
           2022
         ],
-        "best_finish_pre_2026": "Campeon",
+        "best_finish_pre_2026": "Champion",
         "appearances_incl_2026": 19,
         "defending_champion": true,
         "pedigree_raw": 100,
@@ -179,13 +179,13 @@
         "group": "H",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 2,
         "points_official_2026_06_11": 1875.0,
         "points_live_in_tournament": 1879.58,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 1220.0,
@@ -193,7 +193,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 7,
         "goal_difference": 5,
@@ -206,7 +206,7 @@
         "title_years": [
           2010
         ],
-        "best_finish_pre_2026": "Campeon",
+        "best_finish_pre_2026": "Champion",
         "appearances_incl_2026": 17,
         "defending_champion": false,
         "pedigree_raw": 63.6,
@@ -237,13 +237,13 @@
         "group": "C",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 6,
         "points_official_2026_06_11": 1766.0,
         "points_live_in_tournament": 1785.2,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 928.2,
@@ -251,7 +251,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 7,
         "goal_difference": 6,
@@ -268,7 +268,7 @@
           1994,
           2002
         ],
-        "best_finish_pre_2026": "Campeon",
+        "best_finish_pre_2026": "Champion",
         "appearances_incl_2026": 23,
         "defending_champion": false,
         "pedigree_raw": 100,
@@ -299,13 +299,13 @@
         "group": "L",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 4,
         "points_official_2026_06_11": 1828.0,
         "points_live_in_tournament": 1840.46,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 1360.0,
@@ -313,7 +313,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 7,
         "goal_difference": 4,
@@ -326,7 +326,7 @@
         "title_years": [
           1966
         ],
-        "best_finish_pre_2026": "Campeon",
+        "best_finish_pre_2026": "Champion",
         "appearances_incl_2026": 17,
         "defending_champion": false,
         "pedigree_raw": 63.6,
@@ -357,13 +357,13 @@
         "group": "E",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 10,
         "points_official_2026_06_11": 1736.0,
         "points_live_in_tournament": 1726.22,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 947.0,
@@ -371,7 +371,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 6,
         "goal_difference": 6,
@@ -387,7 +387,7 @@
           1990,
           2014
         ],
-        "best_finish_pre_2026": "Campeon",
+        "best_finish_pre_2026": "Champion",
         "appearances_incl_2026": 21,
         "defending_champion": false,
         "pedigree_raw": 100,
@@ -418,13 +418,13 @@
         "group": "F",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 8,
         "points_official_2026_06_11": 1754.0,
         "points_live_in_tournament": 1775.5,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 754.2,
@@ -432,7 +432,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 7,
         "goal_difference": 6,
@@ -443,7 +443,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Subcampeon (x3)",
+        "best_finish_pre_2026": "Runner-up (x3)",
         "appearances_incl_2026": 12,
         "defending_champion": false,
         "pedigree_raw": 31.6,
@@ -474,13 +474,13 @@
         "group": "K",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 5,
         "points_official_2026_06_11": 1768.0,
         "points_live_in_tournament": 1764.86,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 1010.0,
@@ -488,7 +488,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 5,
@@ -499,7 +499,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Tercer puesto (1966)",
+        "best_finish_pre_2026": "Third place (1966)",
         "appearances_incl_2026": 9,
         "defending_champion": false,
         "pedigree_raw": 23.2,
@@ -530,13 +530,13 @@
         "group": "C",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 7,
         "points_official_2026_06_11": 1755.0,
         "points_live_in_tournament": 1776.4,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 447.7,
@@ -544,7 +544,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 7,
         "goal_difference": 3,
@@ -555,7 +555,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuarto puesto (2022)",
+        "best_finish_pre_2026": "Fourth place (2022)",
         "appearances_incl_2026": 7,
         "defending_champion": false,
         "pedigree_raw": 21.6,
@@ -586,13 +586,13 @@
         "group": "G",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 9,
         "points_official_2026_06_11": 1742.0,
         "points_live_in_tournament": 1735.42,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 547.5,
@@ -600,7 +600,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 5,
         "goal_difference": 3,
@@ -611,7 +611,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Tercer puesto (2018)",
+        "best_finish_pre_2026": "Third place (2018)",
         "appearances_incl_2026": 15,
         "defending_champion": false,
         "pedigree_raw": 28.0,
@@ -642,13 +642,13 @@
         "group": "A",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 14,
         "points_official_2026_06_11": 1687.0,
         "points_live_in_tournament": 1736.01,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 191.85,
@@ -656,7 +656,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 9,
         "goal_difference": 6,
@@ -667,7 +667,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuartos",
+        "best_finish_pre_2026": "Quarterfinals",
         "appearances_incl_2026": 18,
         "defending_champion": false,
         "pedigree_raw": 24.4,
@@ -685,7 +685,7 @@
         "opponent": "Ecuador",
         "opponent_code": "ECU",
         "match_id": 79,
-        "venue": "Estadio Azteca, Ciudad de Mexico",
+        "venue": "Estadio Azteca, Mexico City",
         "date": "2026-06-30"
       },
       "data_notes": []
@@ -698,13 +698,13 @@
         "group": "L",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 11,
         "points_official_2026_06_11": 1715.0,
         "points_live_in_tournament": 1723.05,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 387.3,
@@ -712,7 +712,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 6,
         "goal_difference": 0,
@@ -723,7 +723,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Subcampeon (2018)",
+        "best_finish_pre_2026": "Runner-up (2018)",
         "appearances_incl_2026": 7,
         "defending_champion": false,
         "pedigree_raw": 27.6,
@@ -754,13 +754,13 @@
         "group": "D",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 17,
         "points_official_2026_06_11": 1671.0,
         "points_live_in_tournament": 1677.17,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 385.6,
@@ -768,7 +768,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 6,
         "goal_difference": 4,
@@ -794,7 +794,7 @@
         "effective_elo": 1690.4
       },
       "round_of_32": {
-        "opponent": "Bosnia y Herzegovina",
+        "opponent": "Bosnia and Herzegovina",
         "opponent_code": "BIH",
         "match_id": 81,
         "venue": "Levi's Stadium, San Francisco",
@@ -810,13 +810,13 @@
         "group": "B",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 19,
         "points_official_2026_06_11": 1650.0,
         "points_live_in_tournament": 1676.0,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 332.5,
@@ -824,7 +824,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 7,
         "goal_difference": 4,
@@ -835,7 +835,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuartos",
+        "best_finish_pre_2026": "Quarterfinals",
         "appearances_incl_2026": 13,
         "defending_champion": false,
         "pedigree_raw": 20.4,
@@ -866,13 +866,13 @@
         "group": "K",
         "finish_position": 1,
         "finish_type": "group_winner",
-        "finish_label_es": "1ro de grupo"
+        "finish_label": "1st in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 13,
         "points_official_2026_06_11": 1698.0,
         "points_live_in_tournament": 1729.3,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 302.35,
@@ -880,7 +880,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 6,
         "goal_difference": 3,
@@ -891,7 +891,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuartos (2014)",
+        "best_finish_pre_2026": "Quarterfinals (2014)",
         "appearances_incl_2026": 7,
         "defending_champion": false,
         "pedigree_raw": 15.6,
@@ -922,13 +922,13 @@
         "group": "F",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 18,
         "points_official_2026_06_11": 1662.0,
         "points_live_in_tournament": 1673.68,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 270.85,
@@ -936,7 +936,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 5,
         "goal_difference": 4,
@@ -947,7 +947,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Octavos",
+        "best_finish_pre_2026": "Round of 16",
         "appearances_incl_2026": 8,
         "defending_champion": false,
         "pedigree_raw": 11.4,
@@ -978,13 +978,13 @@
         "group": "I",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 31,
         "points_official_2026_06_11": 1557.0,
         "points_live_in_tournament": 1594.04,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 589.9,
@@ -992,7 +992,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 6,
         "goal_difference": 1,
@@ -1003,7 +1003,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Octavos (1998)",
+        "best_finish_pre_2026": "Round of 16 (1998)",
         "appearances_incl_2026": 4,
         "defending_champion": false,
         "pedigree_raw": 8.2,
@@ -1034,13 +1034,13 @@
         "group": "E",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 33,
         "points_official_2026_06_11": 1541.0,
         "points_live_in_tournament": 1565.48,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 522.1,
@@ -1048,7 +1048,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 6,
         "goal_difference": 2,
@@ -1059,7 +1059,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Fase de grupos",
+        "best_finish_pre_2026": "Group stage",
         "appearances_incl_2026": 4,
         "defending_champion": false,
         "pedigree_raw": 3.2,
@@ -1090,13 +1090,13 @@
         "group": "E",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 23,
         "points_official_2026_06_11": 1599.0,
         "points_live_in_tournament": 1592.59,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 368.7,
@@ -1104,7 +1104,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 0,
@@ -1115,7 +1115,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Octavos (2006)",
+        "best_finish_pre_2026": "Round of 16 (2006)",
         "appearances_incl_2026": 5,
         "defending_champion": false,
         "pedigree_raw": 9.0,
@@ -1133,7 +1133,7 @@
         "opponent": "Mexico",
         "opponent_code": "MEX",
         "match_id": 79,
-        "venue": "Estadio Azteca, Ciudad de Mexico",
+        "venue": "Estadio Azteca, Mexico City",
         "date": "2026-06-30"
       },
       "data_notes": []
@@ -1146,13 +1146,13 @@
         "group": "J",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 24,
         "points_official_2026_06_11": 1597.0,
         "points_live_in_tournament": 1598.82,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 245.2,
@@ -1160,7 +1160,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 0,
@@ -1171,7 +1171,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Tercer puesto (1954)",
+        "best_finish_pre_2026": "Third place (1954)",
         "appearances_incl_2026": 8,
         "defending_champion": false,
         "pedigree_raw": 22.4,
@@ -1202,13 +1202,13 @@
         "group": "I",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 15,
         "points_official_2026_06_11": 1684.0,
         "points_live_in_tournament": 1653.43,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 478.1,
@@ -1216,7 +1216,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 3,
         "goal_difference": 3,
@@ -1227,7 +1227,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuartos (2002)",
+        "best_finish_pre_2026": "Quarterfinals (2002)",
         "appearances_incl_2026": 4,
         "defending_champion": false,
         "pedigree_raw": 13.2,
@@ -1258,13 +1258,13 @@
         "group": "F",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 38,
         "points_official_2026_06_11": 1510.0,
         "points_live_in_tournament": 1525.58,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 406.08,
@@ -1272,7 +1272,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 0,
@@ -1283,7 +1283,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Subcampeon (1958)",
+        "best_finish_pre_2026": "Runner-up (1958)",
         "appearances_incl_2026": 13,
         "defending_champion": false,
         "pedigree_raw": 32.4,
@@ -1301,7 +1301,7 @@
         "opponent": "Francia",
         "opponent_code": "FRA",
         "match_id": 77,
-        "venue": "MetLife Stadium, Nueva York/Nueva Jersey",
+        "venue": "MetLife Stadium, New York/New Jersey",
         "date": "2026-06-30"
       },
       "data_notes": []
@@ -1314,13 +1314,13 @@
         "group": "B",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 30,
         "points_official_2026_06_11": 1559.0,
         "points_live_in_tournament": 1571.34,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 198.65,
@@ -1328,7 +1328,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 5,
@@ -1339,7 +1339,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Fase de grupos",
+        "best_finish_pre_2026": "Group stage",
         "appearances_incl_2026": 3,
         "defending_champion": false,
         "pedigree_raw": 2.4,
@@ -1354,7 +1354,7 @@
         "effective_elo": 1519.6
       },
       "round_of_32": {
-        "opponent": "Sudafrica",
+        "opponent": "South Africa",
         "opponent_code": "RSA",
         "match_id": 73,
         "venue": "SoFi Stadium, Los Angeles",
@@ -1372,13 +1372,13 @@
         "group": "J",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 28,
         "points_official_2026_06_11": 1571.0,
         "points_live_in_tournament": 1576.8,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 256.9,
@@ -1386,7 +1386,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": -2,
@@ -1397,7 +1397,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Octavos (2014)",
+        "best_finish_pre_2026": "Round of 16 (2014)",
         "appearances_incl_2026": 5,
         "defending_champion": false,
         "pedigree_raw": 9.0,
@@ -1428,13 +1428,13 @@
         "group": "G",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 29,
         "points_official_2026_06_11": 1562.0,
         "points_live_in_tournament": 1584.71,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 116.48,
@@ -1442,7 +1442,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 5,
         "goal_difference": 2,
@@ -1453,7 +1453,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Fase de grupos",
+        "best_finish_pre_2026": "Group stage",
         "appearances_incl_2026": 4,
         "defending_champion": false,
         "pedigree_raw": 3.2,
@@ -1484,13 +1484,13 @@
         "group": "D",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 27,
         "points_official_2026_06_11": 1579.0,
         "points_live_in_tournament": 1581.35,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 77.45,
@@ -1498,7 +1498,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 0,
@@ -1509,7 +1509,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Octavos (2006,2022)",
+        "best_finish_pre_2026": "Round of 16 (2006,2022)",
         "appearances_incl_2026": 7,
         "defending_champion": false,
         "pedigree_raw": 10.6,
@@ -1540,13 +1540,13 @@
         "group": "D",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 41,
         "points_official_2026_06_11": 1505.0,
         "points_live_in_tournament": 1520.59,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 153.65,
@@ -1554,7 +1554,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": -2,
@@ -1565,7 +1565,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuartos (2010)",
+        "best_finish_pre_2026": "Quarterfinals (2010)",
         "appearances_incl_2026": 9,
         "defending_champion": false,
         "pedigree_raw": 17.2,
@@ -1596,13 +1596,13 @@
         "group": "K",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 46,
         "points_official_2026_06_11": 1474.0,
         "points_live_in_tournament": 1495.48,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 143.9,
@@ -1610,7 +1610,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 1,
@@ -1621,7 +1621,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Fase de grupos (1974, como Zaire)",
+        "best_finish_pre_2026": "Group stage (1974, as Zaire)",
         "appearances_incl_2026": 2,
         "defending_champion": false,
         "pedigree_raw": 1.6,
@@ -1652,13 +1652,13 @@
         "group": "L",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 73,
         "points_official_2026_06_11": 1347.0,
         "points_live_in_tournament": 1398.57,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 234.5,
@@ -1666,7 +1666,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": 0,
@@ -1677,7 +1677,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Cuartos (2010)",
+        "best_finish_pre_2026": "Quarterfinals (2010)",
         "appearances_incl_2026": 4,
         "defending_champion": false,
         "pedigree_raw": 13.2,
@@ -1701,20 +1701,20 @@
       "data_notes": []
     },
     {
-      "team": "Bosnia y Herzegovina",
+      "team": "Bosnia and Herzegovina",
       "code": "BIH",
       "confederation": "UEFA",
       "qualification": {
         "group": "B",
         "finish_position": 3,
         "finish_type": "best_third",
-        "finish_label_es": "mejor tercero"
+        "finish_label": "best third"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 64,
         "points_official_2026_06_11": 1387.0,
         "points_live_in_tournament": 1408.93,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 146.4,
@@ -1722,7 +1722,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": -1,
@@ -1733,7 +1733,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Fase de grupos (2014)",
+        "best_finish_pre_2026": "Group stage (2014)",
         "appearances_incl_2026": 2,
         "defending_champion": false,
         "pedigree_raw": 1.6,
@@ -1757,20 +1757,20 @@
       "data_notes": []
     },
     {
-      "team": "Sudafrica",
+      "team": "South Africa",
       "code": "RSA",
       "confederation": "CAF",
       "qualification": {
         "group": "A",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 60,
         "points_official_2026_06_11": 1428.0,
         "points_live_in_tournament": 1451.24,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 49.25,
@@ -1778,7 +1778,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 4,
         "goal_difference": -1,
@@ -1789,7 +1789,7 @@
       "world_cup_history": {
         "titles": 0,
         "title_years": [],
-        "best_finish_pre_2026": "Fase de grupos (anfitrion 2010)",
+        "best_finish_pre_2026": "Group stage (host 2010)",
         "appearances_incl_2026": 4,
         "defending_champion": false,
         "pedigree_raw": 3.2,
@@ -1820,13 +1820,13 @@
         "group": "H",
         "finish_position": 2,
         "finish_type": "runner_up",
-        "finish_label_es": "2do de grupo"
+        "finish_label": "2nd in group"
       },
       "fifa_ranking": {
         "rank_official_2026_06_11": 67,
         "points_official_2026_06_11": 1371.0,
         "points_live_in_tournament": 1402.97,
-        "source_note": "Puntos oficiales del 11-jun-2026 (base pre-Mundial, sistema Elo de la FIFA). 'points_live' refleja la evolucion durante el torneo."
+        "source_note": "Official points as of 2026-06-11 (pre-World Cup base, FIFA Elo system). 'points_live' reflects the evolution during the tournament."
       },
       "squad_value_transfermarkt": {
         "value_eur_millions": 49.25,
@@ -1834,7 +1834,7 @@
         "currency": "EUR"
       },
       "world_cup_2026_performance": {
-        "stage_reached": "Round of 32 (dieciseisavos)",
+        "stage_reached": "Round of 32",
         "group_matches_played": 3,
         "points": 3,
         "goal_difference": 0,

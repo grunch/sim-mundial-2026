@@ -1,215 +1,216 @@
-# Simulador Mundial 2026 — Dieciseisavos a la final
+# World Cup 2026 Simulator — Round of 32 to the Final
 
-Modelo cuantitativo, reproducible y auditable para pronosticar los cruces
-eliminatorios de la **Copa del Mundo FIFA 2026** (Canadá / México / EE. UU.),
-desde la fase de **32 equipos (Round of 32 / dieciseisavos)** hasta el campeón.
+A quantitative, reproducible and auditable model to forecast the knockout ties of the
+**FIFA World Cup 2026** (Canada / Mexico / USA), from the **32-team stage
+(Round of 32)** to the champion.
 
-Cada selección tiene un perfil con datos crudos (ranking FIFA, valor de plantilla,
-rendimiento en grupos, palmarés) y métricas derivadas con **fórmulas explícitas**.
-A partir de ahí, un motor cabeza a cabeza estima la probabilidad de que un equipo
-elimine a otro, y dos simuladores resuelven el cuadro completo.
+Each national team has a profile with raw data (FIFA ranking, squad value, group
+performance, honours) and derived metrics with **explicit formulas**. From there, a
+head-to-head engine estimates the probability that one team eliminates another, and
+two simulators resolve the full bracket.
 
 ---
 
-## 📁 Archivos del proyecto
+## 📁 Project files
 
-| Archivo | Qué es |
+| File | What it is |
 |---|---|
-| `mundial2026_r32_dataset.json` | **Fuente de verdad.** Los 32 equipos con datos crudos y métricas derivadas. |
-| `mundial2026_montecarlo.json` | Salida de `simulate_bracket.py`: probabilidad de cada equipo de alcanzar cada ronda. |
-| `predict.py` | Motor cabeza a cabeza: probabilidad de que A elimine a B en un duelo directo. |
-| `simulate_bracket.py` | **Montecarlo agregado:** juega el torneo N veces y cuenta quién es campeón con qué frecuencia. |
-| `bracket.py` | **Cuadro único predicho:** dibuja el bracket ronda por ronda; avanza el favorito y los **empates se juegan a penales por azar**, así que **cada corrida puede dar otro campeón** (`--seed` para reproducir uno). Con `--marcador [N]` añade el marcador más probable de cada partido (Poisson, % exacto). Con `--reales` respeta los resultados ya jugados y solo predice lo que falta. |
-| `resultados_bracket.json` | **Resultados reales** de la fase eliminatoria (16vos y 8vos): marcador, ganador y clasificados de cada cruce ya jugado. Lo consume `bracket.py --reales`. |
-| `spec_mundial2026.md` | Especificación técnica completa (fórmulas, fuentes, esquema JSON). |
+| `worldcup2026_r32_dataset.json` | **Source of truth.** The 32 teams with raw data and derived metrics. |
+| `worldcup2026_montecarlo.json` | Output of `simulate_bracket.py`: each team's probability of reaching each round. |
+| `predict.py` | Head-to-head engine: probability that A eliminates B in a direct tie. |
+| `simulate_bracket.py` | **Aggregate Monte Carlo:** plays the tournament N times and counts how often each team is champion. |
+| `bracket.py` | **Single predicted bracket:** draws the bracket round by round; the favorite advances and **draws are decided on penalties at random**, so **every run can give a different champion** (`--seed` to reproduce one). With `--scoreline [N]` it adds the most likely scoreline of each match (Poisson, exact %). With `--results` it honors the ties already played and only predicts what is left. |
+| `results_bracket.json` | **Real results** of the knockout stage (Round of 32 and Round of 16): scoreline, winner and qualified teams of each tie already played. Consumed by `bracket.py --results`. |
+| `spec_worldcup2026.md` | Full technical specification (formulas, sources, JSON schema). |
 
-> ⚙️ El generador del dataset (`build_dataset.py`, citado en el spec) no está incluido;
-> la fuente de verdad es el JSON, que ya trae todas las métricas calculadas.
+> ⚙️ The dataset generator (`build_dataset.py`, cited in the spec) is not included;
+> the source of truth is the JSON, which already carries all computed metrics.
 
 ---
 
-## 🚀 Inicio rápido
+## 🚀 Quick start
 
-Requisitos: **Python 3** (solo librería estándar, sin dependencias externas).
+Requirements: **Python 3** (standard library only, no external dependencies).
 
 ```bash
-# 1) Pronóstico de un duelo directo (P de avanzar, incl. prórroga/penales)
-python3 predict.py ARG CPV          # Argentina vs Cabo Verde
-python3 predict.py BEL SEN 0.28     # Bélgica vs Senegal, versión 90' con banda de empate
+# 1) Forecast a direct tie (P of advancing, incl. extra time/penalties)
+python3 predict.py ARG CPV          # Argentina vs Cape Verde
+python3 predict.py BEL SEN 0.28     # Belgium vs Senegal, regular-time version with a draw band
 
-# 2) Los 16 cruces oficiales de dieciseisavos
+# 2) The 16 official Round of 32 ties
 python3 predict.py
 
-# 3) Montecarlo: ¿quién es campeón con más frecuencia? (N torneos)
+# 3) Monte Carlo: who is champion most often? (N tournaments)
 python3 simulate_bracket.py 200000
 
-# 4) Cuadro completo dibujado, ronda por ronda hasta la final
-python3 bracket.py                  # cuadro predicho; empates a penales por azar (--seed)
-python3 bracket.py --marcador       # + marcador más probable de cada cruce (2-0, 21%)
-python3 bracket.py --marcador 3     # + los 3 marcadores más probables por cruce
-python3 bracket.py --reales         # usa resultados reales ya jugados; predice el resto
+# 4) Full bracket drawn, round by round to the final
+python3 bracket.py                  # predicted bracket; draws to penalties at random (--seed)
+python3 bracket.py --scoreline      # + most likely scoreline of each tie (2-0, 21%)
+python3 bracket.py --scoreline 3    # + the 3 most likely scorelines per tie
+python3 bracket.py --results        # use real results already played; predict the rest
 ```
 
 ---
 
-## 🧠 Cómo funciona el modelo
+## 🧠 How the model works
 
-### Datos crudos (4 ejes + historial)
+### Raw data (4 axes + history)
 
-1. **Ranking FIFA** — puntos oficiales (sistema Elo de la FIFA, denominador 600).
-2. **Valor de plantilla** — Transfermarkt, en millones de EUR.
-3. **Rendimiento en grupos 2026** — `points` y `goal_difference`.
-4. **Palmarés mundialista** — títulos, mejor resultado histórico, participaciones.
+1. **FIFA ranking** — official points (FIFA Elo system, denominator 600).
+2. **Squad value** — Transfermarkt, in millions of EUR.
+3. **2026 group performance** — `points` and `goal_difference`.
+4. **World Cup honours** — titles, best historical finish, appearances.
 
-### Métricas derivadas (todas normalizadas sobre el pool de 32)
+### Derived metrics (all normalized over the pool of 32)
 
 ```
-norm_fifa  = minmax(puntos_oficiales_FIFA)
-norm_value = minmax(log10(valor_plantilla))         # log: el valor está muy sesgado
+norm_fifa  = minmax(official_FIFA_points)
+norm_value = minmax(log10(squad_value))             # log: value is heavily skewed
 norm_form  = minmax(form_raw),  form_raw = points + 0.4 · goal_difference
 norm_pedigree = minmax(pedigree_raw)
 
 Strength Index (0–100) = 100 · (0.40·norm_fifa + 0.20·norm_value
                                 + 0.25·norm_form + 0.15·norm_pedigree)
 
-effective_elo = puntos_FIFA + 40·z(form_raw) + 25·z(log10_value) + 20·z(pedigree_raw)
+effective_elo = FIFA_points + 40·z(form_raw) + 25·z(log10_value) + 20·z(pedigree_raw)
 ```
 
-(`minmax` = reescala a [0,1]; `z` = puntaje estándar respecto al pool.)
+(`minmax` = rescale to [0,1]; `z` = standard score relative to the pool.)
 
-### Probabilidad de un duelo (motor)
+### Tie probability (engine)
 
-Se promedian **dos métodos independientes**:
+**Two independent methods** are averaged:
 
 ```
-Método A (Elo):  P(A) = 1 / (1 + 10^(-(eELO_A − eELO_B)/600))
-Método B (SI):   P(A) = 1 / (1 + 10^(-(SI_A − SI_B)/12))
-P(A avanza)  =  (P_A_elo + P_A_si) / 2          # incluye prórroga y penales
+Method A (Elo):  P(A) = 1 / (1 + 10^(-(eELO_A − eELO_B)/600))
+Method B (SI):   P(A) = 1 / (1 + 10^(-(SI_A − SI_B)/12))
+P(A advances)  =  (P_A_elo + P_A_si) / 2          # includes extra time and penalties
 ```
 
-Detalles completos y fuentes en [`spec_mundial2026.md`](./spec_mundial2026.md).
+Full details and sources in [`spec_worldcup2026.md`](./spec_worldcup2026.md).
 
 ---
 
-## ⚔️ `simulate_bracket.py` vs `bracket.py` — leen el torneo distinto
+## ⚔️ `simulate_bracket.py` vs `bracket.py` — they read the tournament differently
 
-Las dos usan **la misma probabilidad por partido**, pero responden preguntas diferentes.
-Es normal que **no coincida el campeón** entre una y otra.
+Both use **the same per-match probability**, but answer different questions.
+It is normal that **the champion does not match** between them.
 
-### `simulate_bracket.py` — "¿quién gana MÁS torneos?"
+### `simulate_bracket.py` — "who wins MORE tournaments?"
 
-Juega el cuadro completo N veces. En cada partido tira un dado (`random() < P`),
-así que **a veces el favorito pierde** (como en la vida real). Cuenta en qué
-fracción de los N torneos cada equipo llega a cada ronda y es campeón.
+Plays the full bracket N times. In each match it rolls a die (`random() < P`), so
+**sometimes the favorite loses** (as in real life). It counts in what fraction of the
+N tournaments each team reaches each round and is champion.
 
-Captura el **camino**: un equipo con sorteo fácil llega más lejos aunque no sea el
-mejor en duelo directo.
+It captures the **path**: a team with an easy draw goes further even if it is not the
+best in a direct tie.
 
-### `bracket.py` — "un cuadro predicho, con los penales jugados a azar"
+### `bracket.py` — "one predicted bracket, with penalties played at random"
 
-Resuelve **un solo cuadro** ronda por ronda. En cada cruce mira el **marcador más
-probable** (modelo Poisson, ver abajo):
+Resolves **a single bracket** round by round. In each tie it looks at the **most
+likely scoreline** (Poisson model, see below):
 
-- Si **no** es empate → avanza el favorito (gana en los 90', determinista).
-- Si **es empate** → va a **penales**, y el ganador se decide **por azar**: una
-  moneda ponderada por la fuerza (`p_adv`), de modo que **el menos favorito también
-  puede pasar**. Esos cruces se marcan `(pen)`.
+- If it is **not** a draw → the favorite advances (wins in regular time, deterministic).
+- If it **is a draw** → it goes to **penalties**, and the winner is decided **at
+  random**: a coin weighted by strength (`p_adv`), so **the underdog can also go
+  through**. Those ties are flagged `(pen)`.
 
-Como los penales son azar, **cada corrida puede dar otro campeón**: si la final
-queda 1-1, a veces gana Francia y a veces Argentina. Por defecto el azar es **real**
-(semilla del sistema); la cabecera imprime la semilla usada para que puedas
-**reproducir** ese cuadro exacto con `--seed`.
+Since penalties are random, **every run can give a different champion**: if the final
+ends 1-1, sometimes France wins and sometimes Argentina. By default the randomness is
+**real** (system seed); the header prints the seed used so you can **reproduce** that
+exact bracket with `--seed`.
 
 ```bash
-python3 bracket.py                  # cuadro NUEVO cada vez (penales al azar)
-python3 bracket.py                  # ...corre de nuevo y el campeón puede cambiar
-python3 bracket.py --seed 7         # reproducible: misma semilla → mismo cuadro
+python3 bracket.py                  # NEW bracket every run (penalties at random)
+python3 bracket.py                  # ...run again and the champion may change
+python3 bracket.py --seed 7         # reproducible: same seed → same bracket
 ```
 
-*(Para "¿quién gana MÁS torneos?" sobre miles de realizaciones como esta, usa
+*(For "who wins MORE tournaments?" across thousands of realizations like this one, use
 `simulate_bracket.py`.)*
 
-#### Marcadores con `--marcador [N]`
+#### Scorelines with `--scoreline [N]`
 
-Predice además el **marcador** de cada cruce con un modelo de goles **Poisson**
-derivado del Elo: `λ_fav` y `λ_rival` se obtienen de la supremacía en Elo, y la
-probabilidad **exacta** de cada resultado es `P(i-j) = Poisson(i; λ_fav)·Poisson(j; λ_rival)`.
+It also predicts the **scoreline** of each tie with a **Poisson** goal model derived
+from the Elo: `λ_fav` and `λ_rival` come from the Elo supremacy, and the **exact**
+probability of each result is `P(i-j) = Poisson(i; λ_fav)·Poisson(j; λ_rival)`.
 
-- `N` = cuántos marcadores más probables mostrar por partido (por defecto 1).
-- Es **analítico, no por iteraciones**: el `%` es exacto e instantáneo. Simular N
-  partidos solo aproximaría ese número con ruido (con `N=3`, `2-0 (66%)` sería estadística falsa).
-- El marcador más probable de un favorito aplastante **no** es 4-0: la probabilidad
-  se reparte. Argentina vs Cabo Verde → más probable **2-0, pero solo 21%** (gana 98%).
-- Empate como marcador más probable → se marca `→pen`: ese cruce se decide en
-  **penales por azar** (ver arriba), no automáticamente al favorito.
-
-```bash
-python3 bracket.py --marcador       # [86] *Argentina vs Cabo Verde -> Argentina (97.7%) | 2-0 (21.4%)
-python3 bracket.py --marcador 3     # ... | 2-0 (21.4%) · 1-0 (17.8%) · 3-0 (17.1%)
-```
-
-#### Resultados reales con `--reales [ARCHIVO]`
-
-Por defecto **todo** el cuadro se predice. Con `--reales` se lee
-`resultados_bracket.json` (o el `ARCHIVO` que se indique) y en cada cruce que **ya
-tenga resultado real** (`played: true`) **no se predice**: avanza el equipo que
-avanzó de verdad y se imprime el marcador real, marcado `(real)` / `(real, pen)`.
-Los cruces sin resultado se siguen prediciendo como siempre (favorito / penales por
-azar), incluidos los octavos que dependen de esos ganadores reales.
-
-- El emparejamiento se hace por **código de equipo** (`code` en el JSON), no por nombre.
-- El archivo contiene `round_of_32` y `round_of_16`; cada partido lleva `home`/`away`
-  (`team`, `code`, `score`, `penalties`), `decided_by`, `played` y `winner`.
+- `N` = how many top scorelines to show per match (default 1).
+- It is **analytic, not iterative**: the `%` is exact and instant. Simulating N
+  matches would only approximate that number with noise (with `N=3`, `2-0 (66%)` would be false statistics).
+- The most likely scoreline of an overwhelming favorite is **not** 4-0: the
+  probability spreads out. Argentina vs Cape Verde → most likely **2-0, but only 21%** (wins 98%).
+- A draw as the most likely scoreline → flagged `->pen`: that tie is decided on
+  **penalties at random** (see above), not automatically to the favorite.
 
 ```bash
-python3 bracket.py --reales             # [74] Alemania vs Paraguay -> Paraguay 1-1 (real, pen)
-python3 bracket.py --reales datos.json  # lee los resultados reales de otro archivo
-python3 bracket.py --reales --marcador  # marca los reales; predice el resto con marcador
+python3 bracket.py --scoreline      # [86] Argentina vs Cape Verde -> Argentina (97.7%) | 2-0 (21.4%)
+python3 bracket.py --scoreline 3    # ... | 2-0 (21.4%) · 1-0 (17.8%) · 3-0 (17.1%)
 ```
 
-### Ejemplo real de la diferencia
+#### Real results with `--results [FILE]`
 
-| Pregunta | Herramienta | Campeón |
+By default the **whole** bracket is predicted. With `--results` it reads
+`results_bracket.json` (or the given `FILE`) and every tie that **already has a real
+result** (`played: true`) is **not predicted**: the team that really advanced goes
+through and the real scoreline is printed, flagged `(real)` / `(real, pen)`. Ties
+without a result are still predicted as usual (favorite / penalties at random),
+including the Round of 16 ties that depend on those real winners.
+
+- Matching is done by **team code** (`code` in the JSON), not by name.
+- The file contains `round_of_32` and `round_of_16`; each match carries `home`/`away`
+  (`team`, `code`, `score`, `penalties`), `decided_by`, `played` and `winner`.
+
+```bash
+python3 bracket.py --results             # [74] Germany vs Paraguay -> Paraguay 1-1 (real, pen)
+python3 bracket.py --results data.json   # read the real results from another file
+python3 bracket.py --results --scoreline # marks the real ties; predicts the rest with scorelines
+```
+
+### A real example of the difference
+
+| Question | Tool | Champion |
 |---|---|---|
-| ¿Quién levanta la copa más veces? | `simulate_bracket.py` | **Argentina** (~39%) |
-| ¿Cómo queda UN cuadro (penales a azar)? | `bracket.py --seed 2026` | **Francia** |
+| Who lifts the cup most often? | `simulate_bracket.py` | **Argentina** (~39%) |
+| How does ONE bracket end (penalties at random)? | `bracket.py --seed 2026` | **France** |
 
-¿Por qué? Argentina y Francia están en mitades opuestas (solo se cruzan en la final).
-En la final **Francia es favorita por poco (~55%)**, así que en muchas semillas gana
-Francia — pero al jugarse los empates a penales, otras semillas dan otro campeón.
-Pero la mitad de Francia es brutal (España, Alemania, Países Bajos), así que **Francia
-solo llega a la final el 54% de las veces**, mientras **Argentina llega el 65%** gracias
-a un camino más fácil. Sobre miles de torneos, Argentina levanta la copa más seguido.
+Why? Argentina and France are in opposite halves (they only meet in the final). In
+the final **France is a slight favorite (~55%)**, so in many seeds France wins — but
+with draws played on penalties, other seeds give a different champion. But France's
+half is brutal (Spain, Germany, Netherlands), so **France only reaches the final 54%
+of the time**, while **Argentina reaches it 65%** thanks to an easier path. Across
+thousands of tournaments, Argentina lifts the cup more often.
 
-> 📌 **Ser campeón del cuadro de favoritos ≠ ser el campeón más probable.** El sorteo
-> pesa tanto como la calidad.
+> 📌 **Being champion of the favorites' bracket ≠ being the most likely champion.** The
+> draw matters as much as quality.
 
 ---
 
-## 🔁 Reproducir todo
+## 🔁 Reproduce everything
 
 ```bash
-python3 predict.py                  # 16 pronósticos de dieciseisavos
-python3 simulate_bracket.py 200000  # Montecarlo → regenera mundial2026_montecarlo.json
-python3 bracket.py                  # cuadro completo dibujado (empates a penales por azar)
+python3 predict.py                  # 16 Round of 32 forecasts
+python3 simulate_bracket.py 200000  # Monte Carlo → regenerates worldcup2026_montecarlo.json
+python3 bracket.py                  # full bracket drawn (draws to penalties at random)
 ```
 
 ---
 
-## ⚠️ Limitaciones
+## ⚠️ Limitations
 
-- **Torneo en curso:** las cifras y posiciones son una foto al **28–29 jun 2026**.
-- El modelo es una **línea base cuantitativa**, no una verdad: no captura lesiones,
-  suspensiones, descanso entre rondas, localía real, motivación ni táctica del rival.
-- El `pedigree_score` es un proxy reproducible; subestima a finalistas/semifinalistas
-  sin título (Países Bajos, Suecia, Portugal, Croacia).
-- Valores Transfermarkt en EUR (no mezclar con listados en USD).
+- **Ongoing tournament:** figures and standings are a snapshot at **28–29 Jun 2026**.
+- The model is a **quantitative baseline**, not a truth: it does not capture injuries,
+  suspensions, rest between rounds, real home advantage, motivation or the opponent's
+  tactics.
+- The `pedigree_score` is a reproducible proxy; it underestimates finalists/semifinalists
+  without a title (Netherlands, Sweden, Portugal, Croatia).
+- Transfermarkt values in EUR (do not mix with USD listings).
 
 ---
 
-## 📐 Códigos de equipo
+## 📐 Team codes
 
-Se usan códigos de 3 letras (FIFA) en `predict.py` y en el dataset: `ARG`, `FRA`,
+3-letter (FIFA) codes are used in `predict.py` and in the dataset: `ARG`, `FRA`,
 `ESP`, `BRA`, `ENG`, `GER`, `NED`, `POR`, `MAR`, `BEL`, `MEX`, `CRO`, `USA`, `SUI`,
 `COL`, `JPN`, `NOR`, `CIV`, `ECU`, `AUT`, `SEN`, `SWE`, `CAN`, `ALG`, `EGY`, `AUS`,
 `PAR`, `COD`, `GHA`, `BIH`, `RSA`, `CPV`.
