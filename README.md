@@ -214,3 +214,10 @@ python3 bracket.py                  # full bracket drawn (draws to penalties at 
 `ESP`, `BRA`, `ENG`, `GER`, `NED`, `POR`, `MAR`, `BEL`, `MEX`, `CRO`, `USA`, `SUI`,
 `COL`, `JPN`, `NOR`, `CIV`, `ECU`, `AUT`, `SEN`, `SWE`, `CAN`, `ALG`, `EGY`, `AUS`,
 `PAR`, `COD`, `GHA`, `BIH`, `RSA`, `CPV`.
+
+---
+
+## 📜 License
+
+This project is licensed under the **GNU General Public License v3.0**. See the
+[`LICENSE`](./LICENSE) file for the full text.
