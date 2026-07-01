@@ -12,6 +12,7 @@ Ejecutar DESDE la carpeta del repo (bracket.py lee el dataset por ruta relativa)
     python3 test_bracket.py
 """
 import io
+import os
 import random
 import unittest
 from contextlib import redirect_stdout
@@ -142,9 +143,12 @@ class TestResolveCuadro(unittest.TestCase):
     """resolve: juega el cuadro entero con azar de penales."""
 
     def test_resuelve_todos_los_partidos(self):
-        W, PROB, MATCH, PENS = bracket.resolve(random.Random(bracket.DEFAULT_SEED))
+        W, PROB, MATCH, PENS, REAL = bracket.resolve(random.Random(bracket.DEFAULT_SEED))
         self.assertEqual(set(W), set(bracket.ORDER))
         self.assertEqual(set(PENS), set(bracket.ORDER))
+        self.assertEqual(set(REAL), set(bracket.ORDER))
+        # Sin resultados reales, todos los cruces son predichos (REAL[mid] is None)
+        self.assertTrue(all(REAL[mid] is None for mid in bracket.ORDER))
 
     def test_misma_semilla_da_el_mismo_cuadro(self):
         a = bracket.resolve(random.Random(7))[0]
@@ -156,17 +160,17 @@ class TestResolveCuadro(unittest.TestCase):
         self.assertGreater(len(brackets), 1)   # el azar de penales mueve resultados
 
     def test_cada_ganador_es_uno_de_los_dos_del_cruce(self):
-        W, _, MATCH, _ = bracket.resolve(random.Random(7))
+        W, _, MATCH, _, _ = bracket.resolve(random.Random(7))
         for mid in bracket.ORDER:
             self.assertIn(W[mid], MATCH[mid])
 
     def test_algun_cruce_se_decide_en_penales(self):
-        _, _, _, PENS = bracket.resolve(random.Random(bracket.DEFAULT_SEED))
+        _, _, _, PENS, _ = bracket.resolve(random.Random(bracket.DEFAULT_SEED))
         self.assertTrue(any(PENS.values()))
 
     def test_un_menos_favorito_puede_avanzar_por_penales(self):
         # En algun cruce a penales el ganador tiene prob < 0.5 (no era el favorito)
-        W, PROB, _, PENS = bracket.resolve(random.Random(bracket.DEFAULT_SEED))
+        W, PROB, _, PENS, _ = bracket.resolve(random.Random(bracket.DEFAULT_SEED))
         upsets = [mid for mid in bracket.ORDER if PENS[mid] and PROB[mid] < 0.5]
         self.assertTrue(upsets)
 
@@ -175,22 +179,53 @@ class TestParseArgs(unittest.TestCase):
     """parse_args: --marcador [N] y --seed S (en cualquier orden)."""
 
     def test_sin_argumentos_usa_defaults(self):
-        self.assertEqual(bracket.parse_args([]), (False, 1, bracket.DEFAULT_SEED))
+        self.assertEqual(bracket.parse_args([]), (False, 1, bracket.DEFAULT_SEED, None))
 
     def test_flag_marcador_sin_n(self):
-        self.assertEqual(bracket.parse_args(["--marcador"]), (True, 1, bracket.DEFAULT_SEED))
+        self.assertEqual(bracket.parse_args(["--marcador"]), (True, 1, bracket.DEFAULT_SEED, None))
 
     def test_flag_marcador_con_n(self):
-        self.assertEqual(bracket.parse_args(["--marcador", "3"]), (True, 3, bracket.DEFAULT_SEED))
+        self.assertEqual(bracket.parse_args(["--marcador", "3"]), (True, 3, bracket.DEFAULT_SEED, None))
 
     def test_alias_corto_m(self):
-        self.assertEqual(bracket.parse_args(["-m", "2"]), (True, 2, bracket.DEFAULT_SEED))
+        self.assertEqual(bracket.parse_args(["-m", "2"]), (True, 2, bracket.DEFAULT_SEED, None))
 
     def test_seed_cambia_la_semilla(self):
-        self.assertEqual(bracket.parse_args(["--seed", "7"]), (False, 1, 7))
+        self.assertEqual(bracket.parse_args(["--seed", "7"]), (False, 1, 7, None))
 
     def test_marcador_y_seed_combinados_en_cualquier_orden(self):
-        self.assertEqual(bracket.parse_args(["--seed", "7", "-m", "3"]), (True, 3, 7))
+        self.assertEqual(bracket.parse_args(["--seed", "7", "-m", "3"]), (True, 3, 7, None))
+
+    def test_reales_sin_archivo_usa_el_default(self):
+        self.assertEqual(
+            bracket.parse_args(["--reales"]),
+            (False, 1, bracket.DEFAULT_SEED, bracket.DEFAULT_RESULTS_FILE),
+        )
+
+    def test_reales_con_archivo_explicito(self):
+        self.assertEqual(
+            bracket.parse_args(["--reales", "otros.json"]),
+            (False, 1, bracket.DEFAULT_SEED, "otros.json"),
+        )
+
+    def test_alias_corto_r(self):
+        self.assertEqual(
+            bracket.parse_args(["-r"]),
+            (False, 1, bracket.DEFAULT_SEED, bracket.DEFAULT_RESULTS_FILE),
+        )
+
+    def test_reales_combinado_con_seed_y_marcador(self):
+        self.assertEqual(
+            bracket.parse_args(["--reales", "--seed", "7", "-m", "2"]),
+            (True, 2, 7, bracket.DEFAULT_RESULTS_FILE),
+        )
+
+    def test_reales_no_consume_una_bandera_siguiente(self):
+        # tras --reales viene otra bandera, no un archivo -> usa el default
+        self.assertEqual(
+            bracket.parse_args(["--reales", "--marcador"]),
+            (True, 1, bracket.DEFAULT_SEED, bracket.DEFAULT_RESULTS_FILE),
+        )
 
     def test_n_cero_es_invalido(self):
         with self.assertRaises(SystemExit):
@@ -203,6 +238,84 @@ class TestParseArgs(unittest.TestCase):
     def test_argumento_desconocido_es_invalido(self):
         with self.assertRaises(SystemExit):
             bracket.parse_args(["--bogus"])
+
+
+class TestResultadosReales(unittest.TestCase):
+    """load_real_results y resolve/main con resultados reales (--reales)."""
+
+    def _write(self, matches):
+        """Escribe un JSON minimo de resultados y devuelve su ruta temporal."""
+        import json
+        import tempfile
+        payload = {"round_of_32": {"matches": matches}, "round_of_16": {"matches": []}}
+        fd, path = tempfile.mkstemp(suffix=".json")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(payload, f)
+        self.addCleanup(os.remove, path)
+        return path
+
+    def _played(self, home, hc, hg, away, ac, ag, winner, decided_by="regular", pens_h=None, pens_a=None):
+        return {
+            "home": {"team": home, "code": hc, "score": hg, "penalties": pens_h},
+            "away": {"team": away, "code": ac, "score": ag, "penalties": pens_a},
+            "decided_by": decided_by, "played": True, "winner": winner,
+        }
+
+    def test_lee_solo_partidos_jugados(self):
+        path = self._write([
+            self._played("Brasil", "BRA", 2, "Japon", "JPN", 1, "Brasil"),
+            {"home": {"team": "Portugal", "code": "POR", "score": None, "penalties": None},
+             "away": {"team": "Croacia", "code": "CRO", "score": None, "penalties": None},
+             "decided_by": None, "played": False, "winner": None},
+        ])
+        real = bracket.load_real_results(path)
+        self.assertIn(frozenset(("BRA", "JPN")), real)
+        self.assertNotIn(frozenset(("POR", "CRO")), real)
+
+    def test_extrae_ganador_marcador_y_penales(self):
+        path = self._write([
+            self._played("Alemania", "GER", 1, "Paraguay", "PAR", 1, "Paraguay",
+                         decided_by="penalties", pens_h=3, pens_a=4),
+        ])
+        real = bracket.load_real_results(path)
+        r = real[frozenset(("GER", "PAR"))]
+        self.assertEqual(r["winner"], "PAR")
+        self.assertTrue(r["pens"])
+        self.assertEqual(r["goals"], {"GER": 1, "PAR": 1})
+
+    def test_ignora_ganador_inconsistente(self):
+        path = self._write([
+            self._played("Brasil", "BRA", 2, "Japon", "JPN", 1, "Marte"),
+        ])
+        self.assertEqual(bracket.load_real_results(path), {})
+
+    def test_resolve_usa_el_ganador_real_no_predice(self):
+        # Marruecos avanza por resultado real aunque NO sea el favorito del modelo
+        real = {frozenset(("NED", "MAR")): {"winner": "MAR", "pens": True,
+                                            "goals": {"NED": 1, "MAR": 1}}}
+        W, PROB, MATCH, PENS, REAL = bracket.resolve(random.Random(7), real)
+        # cruce 75 es NED vs MAR en el BRACKET oficial
+        self.assertEqual(W[75], "MAR")
+        self.assertEqual(PROB[75], 1.0)
+        self.assertIsNotNone(REAL[75])
+        self.assertTrue(PENS[75])
+
+    def test_resolve_sin_real_es_identico_al_comportamiento_previo(self):
+        W_real = bracket.resolve(random.Random(7), {})[0]
+        W_none = bracket.resolve(random.Random(7))[0]
+        self.assertEqual(W_real, W_none)
+
+    def test_main_con_reales_marca_los_cruces_reales(self):
+        path = self._write([
+            self._played("Alemania", "GER", 1, "Paraguay", "PAR", 1, "Paraguay",
+                         decided_by="penalties", pens_h=3, pens_a=4),
+        ])
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            bracket.main(["--reales", path, "--seed", "7"])
+        out = buf.getvalue()
+        self.assertIn("(real)", out)
+        self.assertIn("resultado real ya jugado", out)
 
 
 class TestSalidaMain(unittest.TestCase):

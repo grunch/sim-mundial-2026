@@ -19,7 +19,8 @@ elimine a otro, y dos simuladores resuelven el cuadro completo.
 | `mundial2026_montecarlo.json` | Salida de `simulate_bracket.py`: probabilidad de cada equipo de alcanzar cada ronda. |
 | `predict.py` | Motor cabeza a cabeza: probabilidad de que A elimine a B en un duelo directo. |
 | `simulate_bracket.py` | **Montecarlo agregado:** juega el torneo N veces y cuenta quién es campeón con qué frecuencia. |
-| `bracket.py` | **Cuadro único predicho:** dibuja el bracket ronda por ronda; avanza el favorito y los **empates se juegan a penales por azar**, así que **cada corrida puede dar otro campeón** (`--seed` para reproducir uno). Con `--marcador [N]` añade el marcador más probable de cada partido (Poisson, % exacto). |
+| `bracket.py` | **Cuadro único predicho:** dibuja el bracket ronda por ronda; avanza el favorito y los **empates se juegan a penales por azar**, así que **cada corrida puede dar otro campeón** (`--seed` para reproducir uno). Con `--marcador [N]` añade el marcador más probable de cada partido (Poisson, % exacto). Con `--reales` respeta los resultados ya jugados y solo predice lo que falta. |
+| `resultados_bracket.json` | **Resultados reales** de la fase eliminatoria (16vos y 8vos): marcador, ganador y clasificados de cada cruce ya jugado. Lo consume `bracket.py --reales`. |
 | `spec_mundial2026.md` | Especificación técnica completa (fórmulas, fuentes, esquema JSON). |
 
 > ⚙️ El generador del dataset (`build_dataset.py`, citado en el spec) no está incluido;
@@ -46,6 +47,7 @@ python3 simulate_bracket.py 200000
 python3 bracket.py                  # cuadro predicho; empates a penales por azar (--seed)
 python3 bracket.py --marcador       # + marcador más probable de cada cruce (2-0, 21%)
 python3 bracket.py --marcador 3     # + los 3 marcadores más probables por cruce
+python3 bracket.py --reales         # usa resultados reales ya jugados; predice el resto
 ```
 
 ---
@@ -144,6 +146,25 @@ probabilidad **exacta** de cada resultado es `P(i-j) = Poisson(i; λ_fav)·Poiss
 ```bash
 python3 bracket.py --marcador       # [86] *Argentina vs Cabo Verde -> Argentina (97.7%) | 2-0 (21.4%)
 python3 bracket.py --marcador 3     # ... | 2-0 (21.4%) · 1-0 (17.8%) · 3-0 (17.1%)
+```
+
+#### Resultados reales con `--reales [ARCHIVO]`
+
+Por defecto **todo** el cuadro se predice. Con `--reales` se lee
+`resultados_bracket.json` (o el `ARCHIVO` que se indique) y en cada cruce que **ya
+tenga resultado real** (`played: true`) **no se predice**: avanza el equipo que
+avanzó de verdad y se imprime el marcador real, marcado `(real)` / `(real, pen)`.
+Los cruces sin resultado se siguen prediciendo como siempre (favorito / penales por
+azar), incluidos los octavos que dependen de esos ganadores reales.
+
+- El emparejamiento se hace por **código de equipo** (`code` en el JSON), no por nombre.
+- El archivo contiene `round_of_32` y `round_of_16`; cada partido lleva `home`/`away`
+  (`team`, `code`, `score`, `penalties`), `decided_by`, `played` y `winner`.
+
+```bash
+python3 bracket.py --reales             # [74] Alemania vs Paraguay -> Paraguay 1-1 (real, pen)
+python3 bracket.py --reales datos.json  # lee los resultados reales de otro archivo
+python3 bracket.py --reales --marcador  # marca los reales; predice el resto con marcador
 ```
 
 ### Ejemplo real de la diferencia

@@ -24,11 +24,20 @@ Modo marcador (--marcador [N]):
 (Para "quien es campeon con mas frecuencia" sobre miles de torneos, usa
  simulate_bracket.py: esa pregunta agrega muchas realizaciones como esta.)
 
+Resultados reales (--reales [ARCHIVO]):
+    Por defecto TODO el cuadro se predice (comportamiento historico). Con --reales
+    se lee 'resultados_bracket.json' (o el ARCHIVO indicado) y en cada cruce que YA
+    tenga resultado real (played=true) NO se predice: avanza el equipo que avanzo de
+    verdad y se imprime el marcador real. Los cruces sin resultado se siguen
+    prediciendo como siempre (favorito / penales por azar).
+
 Uso:
     python3 bracket.py                       # cuadro NUEVO cada vez (penales al azar)
     python3 bracket.py --seed 7              # reproducible: misma semilla, mismo cuadro
     python3 bracket.py --marcador            # + marcador mas probable de cada cruce
     python3 bracket.py --marcador 3 --seed 7 # top-3 marcadores y semilla fija 7
+    python3 bracket.py --reales              # usa resultados reales ya jugados
+    python3 bracket.py --reales datos.json   # lee resultados reales de otro archivo
 """
 import json, math, random, sys
 
@@ -38,6 +47,7 @@ T = 2.6     # goles totales esperados base por partido (media de knockout mundia
 C = 200.0   # puntos de Elo por gol de "supremacia" (mapea ventaja Elo -> goles)
 MAX_GOALS = 8        # tope para enumerar marcadores (la cola de Poisson es despreciable)
 DEFAULT_SEED = None  # sin --seed -> azar REAL del sistema: cada corrida puede diferir
+DEFAULT_RESULTS_FILE = "resultados_bracket.json"  # archivo de resultados reales (--reales)
 
 with open("mundial2026_r32_dataset.json", encoding="utf-8") as f:
     DATA = json.load(f)
@@ -152,18 +162,62 @@ def source_team(src, W):
     """Resuelve una fuente ('CAN' o 'W74') al codigo del equipo presente."""
     return W[int(src[1:])] if src[0] == "W" else src
 
-def resolve(rng):
+def load_real_results(path):
+    """Lee resultados reales de un archivo JSON (formato resultados_bracket.json).
+
+    Devuelve un dict {frozenset({codeA, codeB}): resultado} con SOLO los cruces ya
+    jugados (played=true). Cada 'resultado' es:
+        {"winner": code, "pens": bool, "goals": {code: goles, ...}}
+    La clave es el par de codigos, asi el cuadro reconoce el partido sin depender
+    del orden ni de los ids internos. Se ignoran partidos sin codigo, sin marcar
+    como jugados o cuyo ganador no coincide con ninguno de los dos equipos.
+    """
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    real = {}
+    for stage in ("round_of_32", "round_of_16"):
+        for m in data.get(stage, {}).get("matches", []):
+            if not m.get("played"):
+                continue
+            home, away = m.get("home", {}), m.get("away", {})
+            hc, ac = home.get("code"), away.get("code")
+            if not hc or not ac:
+                continue
+            winner_name = m.get("winner")
+            if winner_name == home.get("team"):
+                wc = hc
+            elif winner_name == away.get("team"):
+                wc = ac
+            else:
+                continue   # ganador inconsistente con los equipos: se ignora
+            real[frozenset((hc, ac))] = {
+                "winner": wc,
+                "pens": m.get("decided_by") == "penalties",
+                "goals": {hc: home.get("score"), ac: away.get("score")},
+            }
+    return real
+
+def resolve(rng, real=None):
     """Juega el cuadro entero con el generador 'rng' (azar de penales).
 
-    Devuelve winner[id], prob[id], match[id]=(a,b), pens[id]=bool.
+    Si 'real' (dict de load_real_results) trae un cruce ya jugado, se usa el
+    resultado real y NO se predice; el resto se predice como siempre.
+
+    Devuelve winner[id], prob[id], match[id]=(a,b), pens[id]=bool,
+    real[id]=(dict de resultado real o None).
     """
-    W, PROB, MATCH, PENS = {}, {}, {}, {}
+    real = real or {}
+    W, PROB, MATCH, PENS, REAL = {}, {}, {}, {}, {}
     for mid in ORDER:
         sa, sb = BRACKET[mid]
         a, b = source_team(sa, W), source_team(sb, W)
-        win, prob, pens = decide(a, b, rng)
-        W[mid], PROB[mid], MATCH[mid], PENS[mid] = win, prob, (a, b), pens
-    return W, PROB, MATCH, PENS
+        result = real.get(frozenset((a, b)))
+        if result is not None:
+            win, prob, pens = result["winner"], 1.0, result["pens"]
+        else:
+            win, prob, pens = decide(a, b, rng)
+        W[mid], PROB[mid], MATCH[mid], PENS[mid], REAL[mid] = win, prob, (a, b), pens, result
+    return W, PROB, MATCH, PENS, REAL
 
 def _is_int(s):
     try:
@@ -173,12 +227,14 @@ def _is_int(s):
         return False
 
 def parse_args(argv):
-    """Lee la CLI (flags en cualquier orden). Devuelve (marcador, n, seed).
+    """Lee la CLI (flags en cualquier orden). Devuelve (marcador, n, seed, real_path).
 
         --marcador | -m [N]   activa marcadores; N = cuantos mostrar (default 1)
         --seed S              semilla del azar de penales (default DEFAULT_SEED)
+        --reales | -r [ARCH]  usa resultados reales; ARCH = archivo (default
+                              DEFAULT_RESULTS_FILE). Sin la bandera, real_path=None.
     """
-    marcador, n, seed = False, 1, DEFAULT_SEED
+    marcador, n, seed, real_path = False, 1, DEFAULT_SEED, None
     i = 0
     while i < len(argv):
         tok = argv[i]
@@ -190,18 +246,44 @@ def parse_args(argv):
             if i + 1 >= len(argv) or not _is_int(argv[i + 1]):
                 sys.exit("--seed requiere un entero")
             seed = int(argv[i + 1]); i += 1
+        elif tok in ("--reales", "-r"):
+            real_path = DEFAULT_RESULTS_FILE
+            # ARCH opcional: el siguiente token, si no es otra bandera ni un entero
+            if i + 1 < len(argv) and not argv[i + 1].startswith("-") and not _is_int(argv[i + 1]):
+                real_path = argv[i + 1]; i += 1
         else:
             sys.exit(f"Argumento no reconocido: {tok!r}")
         i += 1
     if n < 1:
         sys.exit("N debe ser >= 1")
-    return marcador, n, seed
+    return marcador, n, seed, real_path
+
+def _match_line(mid, MATCH, W, PROB, PENS, REAL, marcador, n):
+    """Construye la linea impresa de un cruce.
+
+    Cruce con resultado real: muestra el marcador real y la etiqueta (real).
+    Cruce predicho: muestra la probabilidad (y, con --marcador, el modelo Poisson).
+    """
+    a, b = MATCH[mid]
+    win = W[mid]
+    head = f"  [{mid}] {es(a):<20} vs {es(b):<20}  ->  {es(win):<18}"
+    result = REAL[mid]
+    if result is not None:
+        goals = result["goals"]
+        tag = " (real, pen)" if PENS[mid] else " (real)"
+        return f"{head} {goals[a]}-{goals[b]}{tag}"
+    tag = " (pen)" if PENS[mid] else ""
+    line = f"{head} ({PROB[mid]*100:4.1f}%){tag}"
+    if marcador:
+        line += f"   | {fmt_scorelines(a, b, n)}"   # orden mostrado: a vs b
+    return line
 
 def main(argv=None):
-    marcador, n, seed = parse_args(sys.argv[1:] if argv is None else argv)
+    marcador, n, seed, real_path = parse_args(sys.argv[1:] if argv is None else argv)
+    real = load_real_results(real_path) if real_path else {}
     # Sin --seed: semilla aleatoria del sistema -> cada corrida puede dar otro campeon.
     used_seed = seed if seed is not None else random.randrange(1_000_000_000)
-    W, PROB, MATCH, PENS = resolve(random.Random(used_seed))
+    W, PROB, MATCH, PENS, REAL = resolve(random.Random(used_seed), real)
 
     print("=" * 72)
     print("MUNDIAL 2026 — CUADRO PREDICHO")
@@ -211,6 +293,9 @@ def main(argv=None):
     else:
         print(f"semilla de penales: {used_seed} (fija)")
     print("    (pen) = cruce decidido en penales")
+    if real:
+        n_real = sum(1 for mid in ORDER if REAL[mid] is not None)
+        print(f"    (real) = resultado real ya jugado ({n_real} cruces desde {real_path}; no se predicen)")
     if marcador:
         print(f"+ marcador mas probable (Poisson, top-{n}); goles del favorito primero")
     print("metodo: promedio(Elo efectivo D=600, Strength Index S=12)")
@@ -221,14 +306,7 @@ def main(argv=None):
         print(f"\n{label}")
         print("-" * 72)
         for mid in ids:
-            a, b = MATCH[mid]
-            win = W[mid]
-            tag = " (pen)" if PENS[mid] else ""
-            line = (f"  [{mid}] {es(a):<20} vs {es(b):<20}"
-                    f"  ->  {es(win):<18} ({PROB[mid]*100:4.1f}%){tag}")
-            if marcador:
-                line += f"   | {fmt_scorelines(a, b, n)}"   # orden mostrado: a vs b
-            print(line)
+            print(_match_line(mid, MATCH, W, PROB, PENS, REAL, marcador, n))
 
     champ = W[104]
     print("\n" + "=" * 72)
@@ -241,10 +319,16 @@ def main(argv=None):
             continue
         a, b = MATCH[mid]
         rival = b if champ == a else a
-        tag = " (pen)" if PENS[mid] else ""
-        line = f"  {round_of[mid]:<26} vs {es(rival):<20} ({PROB[mid]*100:4.1f}%){tag}"
-        if marcador:
-            line += f"   | {fmt_scorelines(champ, rival, n)}"   # orden mostrado: campeon vs rival
+        result = REAL[mid]
+        if result is not None:
+            goals = result["goals"]
+            tag = " (real, pen)" if PENS[mid] else " (real)"
+            line = f"  {round_of[mid]:<26} vs {es(rival):<20} {goals[champ]}-{goals[rival]}{tag}"
+        else:
+            tag = " (pen)" if PENS[mid] else ""
+            line = f"  {round_of[mid]:<26} vs {es(rival):<20} ({PROB[mid]*100:4.1f}%){tag}"
+            if marcador:
+                line += f"   | {fmt_scorelines(champ, rival, n)}"   # orden mostrado: campeon vs rival
         print(line)
 
 if __name__ == "__main__":

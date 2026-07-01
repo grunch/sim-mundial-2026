@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "tournament": "FIFA World Cup 2026 (Canada/Mexico/USA)",
+    "description": "Resultados y clasificados de la fase eliminatoria segun los datos disponibles hasta ahora.",
+    "as_of": "2026-07-01",
+    "note": "Los partidos sin resultado (played=false) aun no se han disputado; winner=null. (p.) indica definicion por penales. 'code' es el codigo de equipo usado por bracket.py.",
+    "source": "Cuadro de eliminatorias (bracket) proporcionado por el usuario"
+  },
+  "round_of_32": {
+    "stage_es": "Dieciseisavos de final (16vos)",
+    "matches": [
+      {
+        "match_id": "R32-1",
+        "date": "2026-06-29",
+        "venue": "Boston",
+        "home": { "team": "Alemania", "code": "GER", "score": 1, "penalties": 3 },
+        "away": { "team": "Paraguay", "code": "PAR", "score": 1, "penalties": 4 },
+        "decided_by": "penalties",
+        "played": true,
+        "winner": "Paraguay"
+      },
+      {
+        "match_id": "R32-2",
+        "date": "2026-06-30",
+        "venue": "Nueva York/Nueva Jersey",
+        "home": { "team": "Francia", "code": "FRA", "score": 3, "penalties": null },
+        "away": { "team": "Suecia", "code": "SWE", "score": 0, "penalties": null },
+        "decided_by": "regular",
+        "played": true,
+        "winner": "Francia"
+      },
+      {
+        "match_id": "R32-3",
+        "date": "2026-06-28",
+        "venue": "Los Angeles",
+        "home": { "team": "Sudafrica", "code": "RSA", "score": 0, "penalties": null },
+        "away": { "team": "Canada", "code": "CAN", "score": 1, "penalties": null },
+        "decided_by": "regular",
+        "played": true,
+        "winner": "Canada"
+      },
+      {
+        "match_id": "R32-4",
+        "date": "2026-06-29",
+        "venue": "Monterrey",
+        "home": { "team": "Paises Bajos", "code": "NED", "score": 1, "penalties": 2 },
+        "away": { "team": "Marruecos", "code": "MAR", "score": 1, "penalties": 3 },
+        "decided_by": "penalties",
+        "played": true,
+        "winner": "Marruecos"
+      },
+      {
+        "match_id": "R32-5",
+        "date": "2026-07-02",
+        "venue": "Toronto",
+        "home": { "team": "Portugal", "code": "POR", "score": null, "penalties": null },
+        "away": { "team": "Croacia", "code": "CRO", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-6",
+        "date": "2026-07-02",
+        "venue": "Los Angeles",
+        "home": { "team": "Espana", "code": "ESP", "score": null, "penalties": null },
+        "away": { "team": "Austria", "code": "AUT", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-7",
+        "date": "2026-07-01",
+        "venue": "San Francisco",
+        "home": { "team": "Estados Unidos", "code": "USA", "score": null, "penalties": null },
+        "away": { "team": "Bosnia y Herzegovina", "code": "BIH", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-8",
+        "date": "2026-07-01",
+        "venue": "Seattle",
+        "home": { "team": "Belgica", "code": "BEL", "score": null, "penalties": null },
+        "away": { "team": "Senegal", "code": "SEN", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-9",
+        "date": "2026-06-29",
+        "venue": "Houston",
+        "home": { "team": "Brasil", "code": "BRA", "score": 2, "penalties": null },
+        "away": { "team": "Japon", "code": "JPN", "score": 1, "penalties": null },
+        "decided_by": "regular",
+        "played": true,
+        "winner": "Brasil"
+      },
+      {
+        "match_id": "R32-10",
+        "date": "2026-06-30",
+        "venue": "Dallas",
+        "home": { "team": "Costa de Marfil", "code": "CIV", "score": 1, "penalties": null },
+        "away": { "team": "Noruega", "code": "NOR", "score": 2, "penalties": null },
+        "decided_by": "regular",
+        "played": true,
+        "winner": "Noruega"
+      },
+      {
+        "match_id": "R32-11",
+        "date": "2026-06-30",
+        "venue": "Ciudad de Mexico",
+        "home": { "team": "Mexico", "code": "MEX", "score": 2, "penalties": null },
+        "away": { "team": "Ecuador", "code": "ECU", "score": 0, "penalties": null },
+        "decided_by": "regular",
+        "played": true,
+        "winner": "Mexico"
+      },
+      {
+        "match_id": "R32-12",
+        "date": "2026-07-01",
+        "venue": "Atlanta",
+        "home": { "team": "Inglaterra", "code": "ENG", "score": null, "penalties": null },
+        "away": { "team": "R. D. del Congo", "code": "COD", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-13",
+        "date": "2026-07-03",
+        "venue": "Miami",
+        "home": { "team": "Argentina", "code": "ARG", "score": null, "penalties": null },
+        "away": { "team": "Cabo Verde", "code": "CPV", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-14",
+        "date": "2026-07-03",
+        "venue": "Dallas",
+        "home": { "team": "Australia", "code": "AUS", "score": null, "penalties": null },
+        "away": { "team": "Egipto", "code": "EGY", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-15",
+        "date": "2026-07-02",
+        "venue": "Vancouver",
+        "home": { "team": "Suiza", "code": "SUI", "score": null, "penalties": null },
+        "away": { "team": "Argelia", "code": "ALG", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R32-16",
+        "date": "2026-07-03",
+        "venue": "Kansas City",
+        "home": { "team": "Colombia", "code": "COL", "score": null, "penalties": null },
+        "away": { "team": "Ghana", "code": "GHA", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      }
+    ],
+    "qualified": ["Paraguay", "Francia", "Canada", "Marruecos", "Brasil", "Noruega", "Mexico"]
+  },
+  "round_of_16": {
+    "stage_es": "Octavos de final (8vos)",
+    "matches": [
+      {
+        "match_id": "R16-1",
+        "date": "2026-07-04",
+        "venue": "Filadelfia",
+        "home": { "team": "Paraguay", "code": "PAR", "source": "R32-1", "score": null, "penalties": null },
+        "away": { "team": "Francia", "code": "FRA", "source": "R32-2", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-2",
+        "date": "2026-07-04",
+        "venue": "Houston",
+        "home": { "team": "Canada", "code": "CAN", "source": "R32-3", "score": null, "penalties": null },
+        "away": { "team": "Marruecos", "code": "MAR", "source": "R32-4", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-3",
+        "date": "2026-07-06",
+        "venue": "Dallas",
+        "home": { "team": null, "code": null, "source": "R32-5", "score": null, "penalties": null },
+        "away": { "team": null, "code": null, "source": "R32-6", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-4",
+        "date": "2026-07-06",
+        "venue": "Seattle",
+        "home": { "team": null, "code": null, "source": "R32-7", "score": null, "penalties": null },
+        "away": { "team": null, "code": null, "source": "R32-8", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-5",
+        "date": "2026-07-05",
+        "venue": "Nueva York/Nueva Jersey",
+        "home": { "team": "Brasil", "code": "BRA", "source": "R32-9", "score": null, "penalties": null },
+        "away": { "team": "Noruega", "code": "NOR", "source": "R32-10", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-6",
+        "date": "2026-07-05",
+        "venue": "Ciudad de Mexico",
+        "home": { "team": "Mexico", "code": "MEX", "source": "R32-11", "score": null, "penalties": null },
+        "away": { "team": null, "code": null, "source": "R32-12", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-7",
+        "date": "2026-07-07",
+        "venue": "Atlanta",
+        "home": { "team": null, "code": null, "source": "R32-13", "score": null, "penalties": null },
+        "away": { "team": null, "code": null, "source": "R32-14", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      },
+      {
+        "match_id": "R16-8",
+        "date": "2026-07-07",
+        "venue": "Vancouver",
+        "home": { "team": null, "code": null, "source": "R32-15", "score": null, "penalties": null },
+        "away": { "team": null, "code": null, "source": "R32-16", "score": null, "penalties": null },
+        "decided_by": null,
+        "played": false,
+        "winner": null
+      }
+    ],
+    "qualified": []
+  }
+}
