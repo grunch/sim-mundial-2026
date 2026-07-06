@@ -29,14 +29,20 @@
       "form_raw": {
         "min": 3.0,
         "max": 12.2,
-        "mean": 6.4625,
-        "pstdev": 2.6093
+        "mean": 6.525,
+        "pstdev": 2.6352
       },
       "pedigree_raw": {
         "min": 0.8,
         "max": 100,
         "mean": 27.8562,
         "pstdev": 29.7998
+      },
+      "form_effective": {
+        "min": 2.826,
+        "max": 11.305,
+        "mean": 6.2641,
+        "pstdev": 2.3674
       }
     },
     "sources": {
@@ -51,13 +57,17 @@
       "pedigree_score is a reproducible proxy (titles + best finish + appearances); it underestimates teams with multiple finals/semifinals but no title (NED, SWE, POR, CRO)."
     ],
     "performance_model": {
-      "phase": 1,
+      "phase": 2,
       "xg_per_shot_in_box": 0.13,
       "xg_per_shot_out_box": 0.035,
       "beta_form_correction": 0.4,
       "coverage_threshold": 3,
-      "opponent_adjustment": "planned (Phase 2): the expected xGD given the opponent's pre-tournament FIFA points is the baseline, and the residual (actual - expected) is the strength-of-schedule-adjusted signal. opponent_fifa_points is captured per match now.",
-      "note": "Phase 1 stores xG-proxy intermediates and per-match opponent_fifa_points only; match probabilities are unchanged. The form correction activates per team once matches_covered >= coverage_threshold."
+      "opponent_adjustment": {
+        "method": "neutralise each match xGD to the mean opponent strength using a slope fit from the data",
+        "slope_xgd_per_fifa_point": -0.00397,
+        "reference_opponent_fifa_points": 1561.11
+      },
+      "note": "Phase 2: form_raw_adjusted (opponent-adjusted xGD blended with actual goal difference) replaces form_raw in norm_form, strength_index and effective_elo, so it now affects predictions. Per-team results-only values are kept under performance_metrics for audit."
     }
   },
   "teams": [
@@ -271,7 +281,7 @@
         "norm_form": 1.0,
         "norm_pedigree": 0.8347,
         "strength_index_0_100": 97.07,
-        "effective_elo": 2038.3
+        "effective_elo": 2035.6
       },
       "round_of_32": {
         "opponent": "Suecia",
@@ -286,14 +296,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.435,
         "xg_against_total": 1.935,
         "xg_diff_total": 2.5,
+        "xg_diff_adjusted_total": 2.408,
         "xg_diff_per_match": 0.833,
         "opponent_fifa_points_avg": 1553.41,
         "actual_gd_covered": 8,
         "form_raw_base": 12.2,
-        "form_raw_adjusted": 11.32
+        "form_raw_adjusted": 11.305,
+        "strength_index_results_only": 97.07,
+        "effective_elo_results_only": 2036.5,
+        "strength_index_adjusted": 97.07,
+        "effective_elo_adjusted": 2035.6,
+        "elo_shift": -0.9
       }
     },
     {
@@ -502,10 +519,10 @@
       "derived_metrics": {
         "norm_fifa": 1.0,
         "norm_value": 0.8156,
-        "norm_form": 0.9565,
+        "norm_form": 0.947,
         "norm_pedigree": 1.0,
-        "strength_index_0_100": 95.23,
-        "effective_elo": 2031.5
+        "strength_index_0_100": 94.99,
+        "effective_elo": 2027.2
       },
       "round_of_32": {
         "opponent": "Cabo Verde",
@@ -520,14 +537,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 3.09,
         "xg_against_total": 1.485,
         "xg_diff_total": 1.605,
+        "xg_diff_adjusted_total": 1.098,
         "xg_diff_per_match": 0.535,
         "opponent_fifa_points_avg": 1518.58,
         "actual_gd_covered": 7,
         "form_raw_base": 11.8,
-        "form_raw_adjusted": 10.937
+        "form_raw_adjusted": 10.856,
+        "strength_index_results_only": 95.23,
+        "effective_elo_results_only": 2029.7,
+        "strength_index_adjusted": 94.99,
+        "effective_elo_adjusted": 2027.2,
+        "elo_shift": -2.5
       }
     },
     {
@@ -730,10 +754,10 @@
       "derived_metrics": {
         "norm_fifa": 0.9962,
         "norm_value": 0.9359,
-        "norm_form": 0.6522,
+        "norm_form": 0.6988,
         "norm_pedigree": 0.6331,
-        "strength_index_0_100": 84.36,
-        "effective_elo": 1973.7
+        "strength_index_0_100": 85.53,
+        "effective_elo": 1976.8
       },
       "round_of_32": {
         "opponent": "Austria",
@@ -748,14 +772,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 5.155,
         "xg_against_total": 0.87,
         "xg_diff_total": 4.285,
+        "xg_diff_adjusted_total": 3.441,
         "xg_diff_per_match": 1.428,
         "opponent_fifa_points_avg": 1490.26,
         "actual_gd_covered": 5,
         "form_raw_base": 9.0,
-        "form_raw_adjusted": 8.886
+        "form_raw_adjusted": 8.751,
+        "strength_index_results_only": 84.37,
+        "effective_elo_results_only": 1972.3,
+        "strength_index_adjusted": 85.53,
+        "effective_elo_adjusted": 1976.8,
+        "elo_shift": 4.5
       }
     },
     {
@@ -965,10 +996,10 @@
       "derived_metrics": {
         "norm_fifa": 0.7906,
         "norm_value": 0.8562,
-        "norm_form": 0.6957,
+        "norm_form": 0.673,
         "norm_pedigree": 1.0,
-        "strength_index_0_100": 81.14,
-        "effective_elo": 1887.6
+        "strength_index_0_100": 80.57,
+        "effective_elo": 1880.8
       },
       "round_of_32": {
         "opponent": "Japon",
@@ -983,14 +1014,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.38,
         "xg_against_total": 3.22,
         "xg_diff_total": 1.16,
+        "xg_diff_adjusted_total": 0.575,
         "xg_diff_per_match": 0.387,
         "opponent_fifa_points_avg": 1512.0,
         "actual_gd_covered": 6,
         "form_raw_base": 9.4,
-        "form_raw_adjusted": 8.626
+        "form_raw_adjusted": 8.532,
+        "strength_index_results_only": 81.14,
+        "effective_elo_results_only": 1886.2,
+        "strength_index_adjusted": 80.57,
+        "effective_elo_adjusted": 1880.8,
+        "elo_shift": -5.4
       }
     },
     {
@@ -1194,10 +1232,10 @@
       "derived_metrics": {
         "norm_fifa": 0.9075,
         "norm_value": 0.9676,
-        "norm_form": 0.6087,
+        "norm_form": 0.6773,
         "norm_pedigree": 0.6331,
-        "strength_index_0_100": 80.36,
-        "effective_elo": 1923.6
+        "strength_index_0_100": 82.08,
+        "effective_elo": 1929.8
       },
       "round_of_32": {
         "opponent": "DR Congo",
@@ -1212,14 +1250,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 6.4,
         "xg_against_total": 2.205,
         "xg_diff_total": 4.195,
+        "xg_diff_adjusted_total": 3.804,
         "xg_diff_per_match": 1.398,
         "opponent_fifa_points_avg": 1528.29,
         "actual_gd_covered": 4,
         "form_raw_base": 8.6,
-        "form_raw_adjusted": 8.631
+        "form_raw_adjusted": 8.569,
+        "strength_index_results_only": 80.37,
+        "effective_elo_results_only": 1922.3,
+        "strength_index_adjusted": 82.08,
+        "effective_elo_adjusted": 1929.8,
+        "elo_shift": 7.5
       }
     },
     {
@@ -1431,10 +1476,10 @@
       "derived_metrics": {
         "norm_fifa": 0.734,
         "norm_value": 0.862,
-        "norm_form": 0.587,
+        "norm_form": 0.5824,
         "norm_pedigree": 1.0,
-        "strength_index_0_100": 76.27,
-        "effective_elo": 1842.8
+        "strength_index_0_100": 76.16,
+        "effective_elo": 1838.4
       },
       "round_of_32": {
         "opponent": "Paraguay",
@@ -1449,14 +1494,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 5.275,
         "xg_against_total": 2.265,
         "xg_diff_total": 3.01,
+        "xg_diff_adjusted_total": 2.023,
         "xg_diff_per_match": 1.003,
         "opponent_fifa_points_avg": 1478.26,
         "actual_gd_covered": 6,
         "form_raw_base": 8.4,
-        "form_raw_adjusted": 7.922
+        "form_raw_adjusted": 7.764,
+        "strength_index_results_only": 76.27,
+        "effective_elo_results_only": 1841.5,
+        "strength_index_adjusted": 76.16,
+        "effective_elo_adjusted": 1838.4,
+        "elo_shift": -3.1
       }
     },
     {
@@ -1663,10 +1715,10 @@
       "derived_metrics": {
         "norm_fifa": 0.7679,
         "norm_value": 0.7957,
-        "norm_form": 0.6957,
+        "norm_form": 0.689,
         "norm_pedigree": 0.3105,
-        "strength_index_0_100": 68.68,
-        "effective_elo": 1823.8
+        "strength_index_0_100": 68.51,
+        "effective_elo": 1819.4
       },
       "round_of_32": {
         "opponent": "Marruecos",
@@ -1681,14 +1733,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.44,
         "xg_against_total": 2.875,
         "xg_diff_total": 1.565,
+        "xg_diff_adjusted_total": 1.426,
         "xg_diff_per_match": 0.522,
         "opponent_fifa_points_avg": 1549.47,
         "actual_gd_covered": 6,
         "form_raw_base": 9.4,
-        "form_raw_adjusted": 8.69
+        "form_raw_adjusted": 8.668,
+        "strength_index_results_only": 68.68,
+        "effective_elo_results_only": 1822.4,
+        "strength_index_adjusted": 68.51,
+        "effective_elo_adjusted": 1819.4,
+        "elo_shift": -3.0
       }
     },
     {
@@ -1890,10 +1949,10 @@
       "derived_metrics": {
         "norm_fifa": 0.7943,
         "norm_value": 0.8808,
-        "norm_form": 0.3261,
+        "norm_form": 0.3945,
         "norm_pedigree": 0.2258,
-        "strength_index_0_100": 60.93,
-        "effective_elo": 1788.3
+        "strength_index_0_100": 62.64,
+        "effective_elo": 1793.8
       },
       "round_of_32": {
         "opponent": "Croacia",
@@ -1908,14 +1967,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 3.385,
         "xg_against_total": 3.36,
         "xg_diff_total": 0.025,
+        "xg_diff_adjusted_total": -0.184,
         "xg_diff_per_match": 0.008,
         "opponent_fifa_points_avg": 1543.58,
         "actual_gd_covered": 5,
         "form_raw_base": 7.0,
-        "form_raw_adjusted": 6.204
+        "form_raw_adjusted": 6.171,
+        "strength_index_results_only": 63.64,
+        "effective_elo_results_only": 1802.6,
+        "strength_index_adjusted": 62.64,
+        "effective_elo_adjusted": 1793.8,
+        "elo_shift": -8.8
       }
     },
     {
@@ -2118,10 +2184,10 @@
       "derived_metrics": {
         "norm_fifa": 0.7698,
         "norm_value": 0.6436,
-        "norm_form": 0.5652,
+        "norm_form": 0.6042,
         "norm_pedigree": 0.2097,
-        "strength_index_0_100": 60.94,
-        "effective_elo": 1785.0
+        "strength_index_0_100": 61.91,
+        "effective_elo": 1786.9
       },
       "round_of_32": {
         "opponent": "Paises Bajos",
@@ -2136,14 +2202,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.625,
         "xg_against_total": 2.655,
         "xg_diff_total": 1.97,
+        "xg_diff_adjusted_total": 1.429,
         "xg_diff_per_match": 0.657,
         "opponent_fifa_points_avg": 1515.67,
         "actual_gd_covered": 3,
         "form_raw_base": 8.2,
-        "form_raw_adjusted": 8.035
+        "form_raw_adjusted": 7.949,
+        "strength_index_results_only": 60.94,
+        "effective_elo_results_only": 1783.8,
+        "strength_index_adjusted": 61.91,
+        "effective_elo_adjusted": 1786.9,
+        "elo_shift": 3.1
       }
     },
     {
@@ -2345,10 +2418,10 @@
       "derived_metrics": {
         "norm_fifa": 0.7453,
         "norm_value": 0.7023,
-        "norm_form": 0.3478,
+        "norm_form": 0.4364,
         "norm_pedigree": 0.2742,
-        "strength_index_0_100": 56.67,
-        "effective_elo": 1751.4
+        "strength_index_0_100": 58.88,
+        "effective_elo": 1759.8
       },
       "round_of_32": {
         "opponent": "Senegal",
@@ -2363,14 +2436,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 7.495,
         "xg_against_total": 2.75,
         "xg_diff_total": 4.745,
+        "xg_diff_adjusted_total": 3.535,
         "xg_diff_per_match": 1.582,
         "opponent_fifa_points_avg": 1459.53,
         "actual_gd_covered": 4,
         "form_raw_base": 6.6,
-        "form_raw_adjusted": 6.719
+        "form_raw_adjusted": 6.526,
+        "strength_index_results_only": 57.75,
+        "effective_elo_results_only": 1756.5,
+        "strength_index_adjusted": 58.88,
+        "effective_elo_adjusted": 1759.8,
+        "elo_shift": 3.3
       }
     },
     {
@@ -2573,10 +2653,10 @@
       "derived_metrics": {
         "norm_fifa": 0.6415,
         "norm_value": 0.3965,
-        "norm_form": 0.913,
+        "norm_form": 0.9106,
         "norm_pedigree": 0.2379,
-        "strength_index_0_100": 59.99,
-        "effective_elo": 1744.1
+        "strength_index_0_100": 59.92,
+        "effective_elo": 1740.8
       },
       "round_of_32": {
         "opponent": "Ecuador",
@@ -2591,14 +2671,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 3.41,
         "xg_against_total": 2.11,
         "xg_diff_total": 1.3,
+        "xg_diff_adjusted_total": 0.67,
         "xg_diff_per_match": 0.433,
         "opponent_fifa_points_avg": 1508.21,
         "actual_gd_covered": 6,
         "form_raw_base": 11.4,
-        "form_raw_adjusted": 10.648
+        "form_raw_adjusted": 10.547,
+        "strength_index_results_only": 59.98,
+        "effective_elo_results_only": 1742.4,
+        "strength_index_adjusted": 59.92,
+        "effective_elo_adjusted": 1740.8,
+        "elo_shift": -1.6
       }
     },
     {
@@ -2800,10 +2887,10 @@
       "derived_metrics": {
         "norm_fifa": 0.6943,
         "norm_value": 0.6013,
-        "norm_form": 0.3261,
+        "norm_form": 0.3352,
         "norm_pedigree": 0.2702,
-        "strength_index_0_100": 52.01,
-        "effective_elo": 1711.3
+        "strength_index_0_100": 52.23,
+        "effective_elo": 1708.3
       },
       "round_of_32": {
         "opponent": "Portugal",
@@ -2818,14 +2905,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 1.885,
         "xg_against_total": 4.015,
         "xg_diff_total": -2.13,
+        "xg_diff_adjusted_total": -2.072,
         "xg_diff_per_match": -0.71,
         "opponent_fifa_points_avg": 1565.96,
         "actual_gd_covered": 0,
         "form_raw_base": 6.0,
-        "form_raw_adjusted": 5.659
+        "form_raw_adjusted": 5.668,
+        "strength_index_results_only": 52.0,
+        "effective_elo_results_only": 1710.4,
+        "strength_index_adjusted": 52.23,
+        "effective_elo_adjusted": 1708.3,
+        "elo_shift": -2.1
       }
     },
     {
@@ -3030,10 +3124,10 @@
       "derived_metrics": {
         "norm_fifa": 0.6113,
         "norm_value": 0.6,
-        "norm_form": 0.5,
+        "norm_form": 0.5396,
         "norm_pedigree": 0.25,
-        "strength_index_0_100": 52.7,
-        "effective_elo": 1690.4
+        "strength_index_0_100": 53.69,
+        "effective_elo": 1692.1
       },
       "round_of_32": {
         "opponent": "Bosnia and Herzegovina",
@@ -3048,14 +3142,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.96,
         "xg_against_total": 2.23,
         "xg_diff_total": 2.73,
+        "xg_diff_adjusted_total": 2.755,
         "xg_diff_per_match": 0.91,
         "opponent_fifa_points_avg": 1563.24,
         "actual_gd_covered": 4,
         "form_raw_base": 7.6,
-        "form_raw_adjusted": 7.397
+        "form_raw_adjusted": 7.401,
+        "strength_index_results_only": 52.7,
+        "effective_elo_results_only": 1689.2,
+        "strength_index_adjusted": 53.69,
+        "effective_elo_adjusted": 1692.1,
+        "elo_shift": 2.9
       }
     },
     {
@@ -3259,10 +3360,10 @@
       "derived_metrics": {
         "norm_fifa": 0.5717,
         "norm_value": 0.5568,
-        "norm_form": 0.6087,
+        "norm_form": 0.6204,
         "norm_pedigree": 0.1976,
-        "strength_index_0_100": 52.18,
-        "effective_elo": 1677.0
+        "strength_index_0_100": 52.48,
+        "effective_elo": 1675.0
       },
       "round_of_32": {
         "opponent": "Argelia",
@@ -3277,14 +3378,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.615,
         "xg_against_total": 2.645,
         "xg_diff_total": 1.97,
+        "xg_diff_adjusted_total": 0.785,
         "xg_diff_per_match": 0.657,
         "opponent_fifa_points_avg": 1461.61,
         "actual_gd_covered": 4,
         "form_raw_base": 8.6,
-        "form_raw_adjusted": 8.275
+        "form_raw_adjusted": 8.086,
+        "strength_index_results_only": 52.19,
+        "effective_elo_results_only": 1675.7,
+        "strength_index_adjusted": 52.48,
+        "effective_elo_adjusted": 1675.0,
+        "elo_shift": -0.7
       }
     },
     {
@@ -3484,10 +3592,10 @@
       "derived_metrics": {
         "norm_fifa": 0.6623,
         "norm_value": 0.5291,
-        "norm_form": 0.4565,
+        "norm_form": 0.6419,
         "norm_pedigree": 0.1492,
-        "strength_index_0_100": 50.72,
-        "effective_elo": 1697.6
+        "strength_index_0_100": 55.36,
+        "effective_elo": 1720.2
       },
       "round_of_32": {
         "opponent": "Ghana",
@@ -3502,14 +3610,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 5.485,
         "xg_against_total": 2.12,
         "xg_diff_total": 3.365,
+        "xg_diff_adjusted_total": 3.434,
         "xg_diff_per_match": 1.122,
         "opponent_fifa_points_avg": 1566.91,
         "actual_gd_covered": 3,
         "form_raw_base": 8.2,
-        "form_raw_adjusted": 8.258
+        "form_raw_adjusted": 8.269,
+        "strength_index_results_only": 53.44,
+        "effective_elo_results_only": 1711.8,
+        "strength_index_adjusted": 55.36,
+        "effective_elo_adjusted": 1720.2,
+        "elo_shift": 8.4
       }
     },
     {
@@ -3713,10 +3828,10 @@
       "derived_metrics": {
         "norm_fifa": 0.5943,
         "norm_value": 0.497,
-        "norm_form": 0.3913,
+        "norm_form": 0.3796,
         "norm_pedigree": 0.1069,
-        "strength_index_0_100": 45.1,
-        "effective_elo": 1646.5
+        "strength_index_0_100": 44.81,
+        "effective_elo": 1640.7
       },
       "round_of_32": {
         "opponent": "Brasil",
@@ -3731,14 +3846,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.725,
         "xg_against_total": 2.42,
         "xg_diff_total": 0.305,
+        "xg_diff_adjusted_total": 0.532,
         "xg_diff_per_match": 0.102,
         "opponent_fifa_points_avg": 1580.14,
         "actual_gd_covered": 4,
         "form_raw_base": 6.6,
-        "form_raw_adjusted": 6.009
+        "form_raw_adjusted": 6.045,
+        "strength_index_results_only": 45.1,
+        "effective_elo_results_only": 1645.6,
+        "strength_index_adjusted": 44.81,
+        "effective_elo_adjusted": 1640.7,
+        "elo_shift": -4.9
       }
     },
     {
@@ -3943,10 +4065,10 @@
       "derived_metrics": {
         "norm_fifa": 0.3962,
         "norm_value": 0.724,
-        "norm_form": 0.3696,
+        "norm_form": 0.4179,
         "norm_pedigree": 0.0746,
-        "strength_index_0_100": 40.69,
-        "effective_elo": 1558.2
+        "strength_index_0_100": 41.89,
+        "effective_elo": 1560.9
       },
       "round_of_32": {
         "opponent": "Cote d'Ivoire",
@@ -3961,14 +4083,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 3.885,
         "xg_against_total": 4.235,
         "xg_diff_total": -0.35,
+        "xg_diff_adjusted_total": 0.805,
         "xg_diff_per_match": -0.117,
         "opponent_fifa_points_avg": 1658.08,
         "actual_gd_covered": 1,
         "form_raw_base": 6.4,
-        "form_raw_adjusted": 6.184
+        "form_raw_adjusted": 6.369,
+        "strength_index_results_only": 40.69,
+        "effective_elo_results_only": 1557.3,
+        "strength_index_adjusted": 41.89,
+        "effective_elo_adjusted": 1560.9,
+        "elo_shift": 3.6
       }
     },
     {
@@ -4169,10 +4298,10 @@
       "derived_metrics": {
         "norm_fifa": 0.366,
         "norm_value": 0.6884,
-        "norm_form": 0.413,
+        "norm_form": 0.4216,
         "norm_pedigree": 0.0242,
-        "strength_index_0_100": 39.1,
-        "effective_elo": 1541.5
+        "strength_index_0_100": 39.31,
+        "effective_elo": 1538.7
       },
       "round_of_32": {
         "opponent": "Noruega",
@@ -4187,14 +4316,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.89,
         "xg_against_total": 3.17,
         "xg_diff_total": -0.28,
+        "xg_diff_adjusted_total": -0.493,
         "xg_diff_per_match": -0.093,
         "opponent_fifa_points_avg": 1543.26,
         "actual_gd_covered": 2,
         "form_raw_base": 6.8,
-        "form_raw_adjusted": 6.435
+        "form_raw_adjusted": 6.401,
+        "strength_index_results_only": 39.1,
+        "effective_elo_results_only": 1540.5,
+        "strength_index_adjusted": 39.31,
+        "effective_elo_adjusted": 1538.7,
+        "elo_shift": -1.8
       }
     },
     {
@@ -4391,10 +4527,10 @@
       "derived_metrics": {
         "norm_fifa": 0.4755,
         "norm_value": 0.587,
-        "norm_form": 0.1087,
+        "norm_form": 0.16,
         "norm_pedigree": 0.0827,
-        "strength_index_0_100": 34.71,
-        "effective_elo": 1550.7
+        "strength_index_0_100": 36.0,
+        "effective_elo": 1553.3
       },
       "round_of_32": {
         "opponent": "Mexico",
@@ -4409,14 +4545,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.555,
         "xg_against_total": 2.97,
         "xg_diff_total": 1.585,
+        "xg_diff_adjusted_total": 1.142,
         "xg_diff_per_match": 0.528,
         "opponent_fifa_points_avg": 1523.92,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 4.254
+        "form_raw_adjusted": 4.183,
+        "strength_index_results_only": 34.72,
+        "effective_elo_results_only": 1550.2,
+        "strength_index_adjusted": 36.0,
+        "effective_elo_adjusted": 1553.3,
+        "elo_shift": 3.1
       }
     },
     {
@@ -4618,10 +4761,10 @@
       "derived_metrics": {
         "norm_fifa": 0.4717,
         "norm_value": 0.468,
-        "norm_form": 0.1087,
+        "norm_form": 0.1321,
         "norm_pedigree": 0.2177,
-        "strength_index_0_100": 34.21,
-        "effective_elo": 1546.3
+        "strength_index_0_100": 34.8,
+        "effective_elo": 1544.8
       },
       "round_of_32": {
         "opponent": "Espana",
@@ -4636,14 +4779,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.465,
         "xg_against_total": 3.41,
         "xg_diff_total": -0.945,
+        "xg_diff_adjusted_total": -0.34,
         "xg_diff_per_match": -0.315,
         "opponent_fifa_points_avg": 1611.91,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 3.849
+        "form_raw_adjusted": 3.946,
+        "strength_index_results_only": 34.21,
+        "effective_elo_results_only": 1545.7,
+        "strength_index_adjusted": 34.8,
+        "effective_elo_adjusted": 1544.8,
+        "elo_shift": -0.9
       }
     },
     {
@@ -4848,10 +4998,10 @@
       "derived_metrics": {
         "norm_fifa": 0.6358,
         "norm_value": 0.6627,
-        "norm_form": 0.1304,
+        "norm_form": 0.1242,
         "norm_pedigree": 0.125,
-        "strength_index_0_100": 43.82,
-        "effective_elo": 1574.6
+        "strength_index_0_100": 43.67,
+        "effective_elo": 1643.3
       },
       "round_of_32": {
         "opponent": "Belgica",
@@ -4866,14 +5016,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.695,
         "xg_against_total": 2.855,
         "xg_diff_total": 1.84,
+        "xg_diff_adjusted_total": 2.491,
         "xg_diff_per_match": 0.613,
         "opponent_fifa_points_avg": 1615.75,
         "actual_gd_covered": 2,
         "form_raw_base": 3.8,
-        "form_raw_adjusted": 3.774
+        "form_raw_adjusted": 3.879,
+        "strength_index_results_only": 42.73,
+        "effective_elo_results_only": 1642.2,
+        "strength_index_adjusted": 43.67,
+        "effective_elo_adjusted": 1643.3,
+        "elo_shift": 1.1
       }
     },
     {
@@ -5077,10 +5234,10 @@
       "derived_metrics": {
         "norm_fifa": 0.3075,
         "norm_value": 0.6151,
-        "norm_form": 0.1087,
+        "norm_form": 0.1826,
         "norm_pedigree": 0.3185,
-        "strength_index_0_100": 32.09,
-        "effective_elo": 1480.1
+        "strength_index_0_100": 33.94,
+        "effective_elo": 1486.0
       },
       "round_of_32": {
         "opponent": "Francia",
@@ -5095,14 +5252,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 3.49,
         "xg_against_total": 1.98,
         "xg_diff_total": 1.51,
+        "xg_diff_adjusted_total": 2.34,
         "xg_diff_per_match": 0.503,
         "opponent_fifa_points_avg": 1630.8,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 4.242
+        "form_raw_adjusted": 4.374,
+        "strength_index_results_only": 32.1,
+        "effective_elo_results_only": 1479.6,
+        "strength_index_adjusted": 33.94,
+        "effective_elo_adjusted": 1486.0,
+        "elo_shift": 6.4
       }
     },
     {
@@ -5307,10 +5471,10 @@
       "derived_metrics": {
         "norm_fifa": 0.4,
         "norm_value": 0.4067,
-        "norm_form": 0.3261,
+        "norm_form": 0.3496,
         "norm_pedigree": 0.0161,
-        "strength_index_0_100": 32.53,
-        "effective_elo": 1519.6
+        "strength_index_0_100": 33.11,
+        "effective_elo": 1518.6
       },
       "round_of_32": {
         "opponent": "South Africa",
@@ -5327,14 +5491,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 6.115,
         "xg_against_total": 1.605,
         "xg_diff_total": 4.51,
+        "xg_diff_adjusted_total": 3.686,
         "xg_diff_per_match": 1.503,
         "opponent_fifa_points_avg": 1491.94,
         "actual_gd_covered": 5,
         "form_raw_base": 6.0,
-        "form_raw_adjusted": 5.922
+        "form_raw_adjusted": 5.79,
+        "strength_index_results_only": 32.53,
+        "effective_elo_results_only": 1518.7,
+        "strength_index_adjusted": 33.11,
+        "effective_elo_adjusted": 1518.6,
+        "elo_shift": -0.1
       }
     },
     {
@@ -5535,10 +5706,10 @@
       "derived_metrics": {
         "norm_fifa": 0.4226,
         "norm_value": 0.4816,
-        "norm_form": 0.0217,
+        "norm_form": 0.1112,
         "norm_pedigree": 0.0827,
-        "strength_index_0_100": 28.32,
-        "effective_elo": 1500.3
+        "strength_index_0_100": 30.56,
+        "effective_elo": 1508.2
       },
       "round_of_32": {
         "opponent": "Suiza",
@@ -5553,14 +5724,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 3.16,
         "xg_against_total": 2.31,
         "xg_diff_total": 0.85,
+        "xg_diff_adjusted_total": 1.558,
         "xg_diff_per_match": 0.283,
         "opponent_fifa_points_avg": 1620.58,
         "actual_gd_covered": -2,
         "form_raw_base": 3.2,
-        "form_raw_adjusted": 3.656
+        "form_raw_adjusted": 3.769,
+        "strength_index_results_only": 28.32,
+        "effective_elo_results_only": 1499.8,
+        "strength_index_adjusted": 30.56,
+        "effective_elo_adjusted": 1508.2,
+        "elo_shift": 8.4
       }
     },
     {
@@ -5762,10 +5940,10 @@
       "derived_metrics": {
         "norm_fifa": 0.4057,
         "norm_value": 0.251,
-        "norm_form": 0.3043,
+        "norm_form": 0.3186,
         "norm_pedigree": 0.0242,
-        "strength_index_0_100": 29.22,
-        "effective_elo": 1505.0
+        "strength_index_0_100": 29.57,
+        "effective_elo": 1502.7
       },
       "round_of_32": {
         "opponent": "Australia",
@@ -5780,14 +5958,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 4.53,
         "xg_against_total": 3.74,
         "xg_diff_total": 0.79,
+        "xg_diff_adjusted_total": 0.295,
         "xg_diff_per_match": 0.263,
         "opponent_fifa_points_avg": 1519.53,
         "actual_gd_covered": 2,
         "form_raw_base": 5.8,
-        "form_raw_adjusted": 5.606
+        "form_raw_adjusted": 5.527,
+        "strength_index_results_only": 29.22,
+        "effective_elo_results_only": 1504.2,
+        "strength_index_adjusted": 29.57,
+        "effective_elo_adjusted": 1502.7,
+        "elo_shift": -1.5
       }
     },
     {
@@ -5984,10 +6169,10 @@
       "derived_metrics": {
         "norm_fifa": 0.4377,
         "norm_value": 0.132,
-        "norm_form": 0.1087,
+        "norm_form": 0.1158,
         "norm_pedigree": 0.0988,
-        "strength_index_0_100": 24.34,
-        "effective_elo": 1487.9
+        "strength_index_0_100": 24.53,
+        "effective_elo": 1484.2
       },
       "round_of_32": {
         "opponent": "Egipto",
@@ -6002,14 +6187,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.43,
         "xg_against_total": 4.02,
         "xg_diff_total": -1.59,
+        "xg_diff_adjusted_total": -1.199,
         "xg_diff_per_match": -0.53,
         "opponent_fifa_points_avg": 1593.91,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 3.746
+        "form_raw_adjusted": 3.808,
+        "strength_index_results_only": 24.35,
+        "effective_elo_results_only": 1487.3,
+        "strength_index_adjusted": 24.53,
+        "effective_elo_adjusted": 1484.2,
+        "elo_shift": -3.1
       }
     },
     {
@@ -6207,10 +6399,10 @@
       "derived_metrics": {
         "norm_fifa": 0.2981,
         "norm_value": 0.3318,
-        "norm_form": 0.0217,
+        "norm_form": 0.0237,
         "norm_pedigree": 0.1653,
-        "strength_index_0_100": 21.58,
-        "effective_elo": 1425.3
+        "strength_index_0_100": 21.63,
+        "effective_elo": 1420.7
       },
       "round_of_32": {
         "opponent": "Alemania",
@@ -6225,14 +6417,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 1.755,
         "xg_against_total": 5.52,
         "xg_diff_total": -3.765,
+        "xg_diff_adjusted_total": -3.081,
         "xg_diff_per_match": -1.255,
         "opponent_fifa_points_avg": 1618.58,
         "actual_gd_covered": -2,
         "form_raw_base": 3.2,
-        "form_raw_adjusted": 2.918
+        "form_raw_adjusted": 3.027,
+        "strength_index_results_only": 21.58,
+        "effective_elo_results_only": 1424.9,
+        "strength_index_adjusted": 21.63,
+        "effective_elo_adjusted": 1420.7,
+        "elo_shift": -4.2
       }
     },
     {
@@ -6432,10 +6631,10 @@
       "derived_metrics": {
         "norm_fifa": 0.2396,
         "norm_value": 0.3126,
-        "norm_form": 0.1522,
+        "norm_form": 0.1839,
         "norm_pedigree": 0.0081,
-        "strength_index_0_100": 19.77,
-        "effective_elo": 1400.4
+        "strength_index_0_100": 20.55,
+        "effective_elo": 1400.3
       },
       "round_of_32": {
         "opponent": "Inglaterra",
@@ -6450,14 +6649,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.71,
         "xg_against_total": 2.76,
         "xg_diff_total": -0.05,
+        "xg_diff_adjusted_total": 0.908,
         "xg_diff_per_match": -0.017,
         "opponent_fifa_points_avg": 1641.58,
         "actual_gd_covered": 1,
         "form_raw_base": 4.4,
-        "form_raw_adjusted": 4.232
+        "form_raw_adjusted": 4.385,
+        "strength_index_results_only": 19.76,
+        "effective_elo_results_only": 1399.8,
+        "strength_index_adjusted": 20.55,
+        "effective_elo_adjusted": 1400.3,
+        "elo_shift": 0.5
       }
     },
     {
@@ -6655,10 +6861,10 @@
       "derived_metrics": {
         "norm_fifa": 0.0,
         "norm_value": 0.455,
-        "norm_form": 0.1087,
+        "norm_form": 0.1329,
         "norm_pedigree": 0.125,
-        "strength_index_0_100": 13.69,
-        "effective_elo": 1288.8
+        "strength_index_0_100": 14.3,
+        "effective_elo": 1287.5
       },
       "round_of_32": {
         "opponent": "Colombia",
@@ -6673,14 +6879,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 1.7,
         "xg_against_total": 3.515,
         "xg_diff_total": -1.815,
+        "xg_diff_adjusted_total": -0.296,
         "xg_diff_per_match": -0.605,
         "opponent_fifa_points_avg": 1688.63,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 3.71
+        "form_raw_adjusted": 3.953,
+        "strength_index_results_only": 13.69,
+        "effective_elo_results_only": 1288.2,
+        "strength_index_adjusted": 14.3,
+        "effective_elo_adjusted": 1287.5,
+        "elo_shift": -0.7
       }
     },
     {
@@ -6882,10 +7095,10 @@
       "derived_metrics": {
         "norm_fifa": 0.0755,
         "norm_value": 0.3177,
-        "norm_form": 0.0652,
+        "norm_form": 0.0807,
         "norm_pedigree": 0.0081,
-        "strength_index_0_100": 11.13,
-        "effective_elo": 1301.7
+        "strength_index_0_100": 11.51,
+        "effective_elo": 1299.0
       },
       "round_of_32": {
         "opponent": "Estados Unidos",
@@ -6900,14 +7113,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.085,
         "xg_against_total": 3.505,
         "xg_diff_total": -1.42,
+        "xg_diff_adjusted_total": -1.561,
         "xg_diff_per_match": -0.473,
         "opponent_fifa_points_avg": 1549.27,
         "actual_gd_covered": -1,
         "form_raw_base": 3.6,
-        "form_raw_adjusted": 3.533
+        "form_raw_adjusted": 3.51,
+        "strength_index_results_only": 11.13,
+        "effective_elo_results_only": 1301.1,
+        "strength_index_adjusted": 11.51,
+        "effective_elo_adjusted": 1299.0,
+        "elo_shift": -2.1
       }
     },
     {
@@ -7105,10 +7325,10 @@
       "derived_metrics": {
         "norm_fifa": 0.1528,
         "norm_value": 0.0,
-        "norm_form": 0.0652,
+        "norm_form": 0.091,
         "norm_pedigree": 0.0242,
-        "strength_index_0_100": 8.11,
-        "effective_elo": 1313.1
+        "strength_index_0_100": 8.75,
+        "effective_elo": 1311.9
       },
       "round_of_32": {
         "opponent": "Canada",
@@ -7123,14 +7343,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.295,
         "xg_against_total": 3.705,
         "xg_diff_total": -1.41,
+        "xg_diff_adjusted_total": -1.012,
         "xg_diff_per_match": -0.47,
         "opponent_fifa_points_avg": 1594.54,
         "actual_gd_covered": -1,
         "form_raw_base": 3.6,
-        "form_raw_adjusted": 3.534
+        "form_raw_adjusted": 3.598,
+        "strength_index_results_only": 8.11,
+        "effective_elo_results_only": 1312.6,
+        "strength_index_adjusted": 8.75,
+        "effective_elo_adjusted": 1311.9,
+        "elo_shift": -0.7
       }
     },
     {
@@ -7329,8 +7556,8 @@
         "norm_value": 0.0,
         "norm_form": 0.0,
         "norm_pedigree": 0.0,
-        "strength_index_0_100": 1.82,
-        "effective_elo": 1245.3
+        "strength_index_0_100": 1.81,
+        "effective_elo": 1240.3
       },
       "round_of_32": {
         "opponent": "Argentina",
@@ -7347,14 +7574,21 @@
         "coverage_threshold": 3,
         "correction_active": true,
         "beta": 0.4,
+        "opponent_adjusted": true,
         "xg_for_total": 2.39,
         "xg_against_total": 4.635,
         "xg_diff_total": -2.245,
+        "xg_diff_adjusted_total": -1.088,
         "xg_diff_per_match": -0.748,
         "opponent_fifa_points_avg": 1658.26,
         "actual_gd_covered": 0,
         "form_raw_base": 3.0,
-        "form_raw_adjusted": 2.641
+        "form_raw_adjusted": 2.826,
+        "strength_index_results_only": 1.81,
+        "effective_elo_results_only": 1244.9,
+        "strength_index_adjusted": 1.81,
+        "effective_elo_adjusted": 1240.3,
+        "elo_shift": -4.6
       }
     }
   ]
