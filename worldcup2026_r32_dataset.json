@@ -257,7 +257,45 @@
         "goal_difference": 6,
         "points_per_match": 2.333,
         "gd_per_match": 2.0,
-        "form_raw_index": 9.4
+        "form_raw_index": 9.4,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-13",
+            "opponent": "Morocco",
+            "opponent_code": "MAR",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Vinicius Junior 32'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 5,
+              "possession_pct": 54,
+              "passes": 499,
+              "pass_accuracy_pct": 87,
+              "fouls": 16,
+              "yellow_cards": 2,
+              "red_cards": 0,
+              "offsides": 0,
+              "corners": 6
+            },
+            "opponent_stats": {
+              "shots": 13,
+              "shots_on_target": 4,
+              "possession_pct": 46,
+              "passes": 474,
+              "pass_accuracy_pct": 88,
+              "fouls": 14,
+              "yellow_cards": 0,
+              "red_cards": 0,
+              "offsides": 1,
+              "corners": 2
+            }
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 5,
@@ -550,7 +588,45 @@
         "goal_difference": 3,
         "points_per_match": 2.333,
         "gd_per_match": 1.0,
-        "form_raw_index": 8.2
+        "form_raw_index": 8.2,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-13",
+            "opponent": "Brazil",
+            "opponent_code": "BRA",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Ismael Saibari 21'"
+            ],
+            "team_stats": {
+              "shots": 13,
+              "shots_on_target": 4,
+              "possession_pct": 46,
+              "passes": 474,
+              "pass_accuracy_pct": 88,
+              "fouls": 14,
+              "yellow_cards": 0,
+              "red_cards": 0,
+              "offsides": 1,
+              "corners": 2
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 5,
+              "possession_pct": 54,
+              "passes": 499,
+              "pass_accuracy_pct": 87,
+              "fouls": 16,
+              "yellow_cards": 2,
+              "red_cards": 0,
+              "offsides": 0,
+              "corners": 6
+            }
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
