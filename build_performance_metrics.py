@@ -32,6 +32,7 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "JOR": 1387.74,
     "PAN": 1522.88,
     "CUW": 1294.77,
+    "UZB": 1458.73,
 }
 
 

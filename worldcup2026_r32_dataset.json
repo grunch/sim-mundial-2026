@@ -1904,7 +1904,62 @@
         "goal_difference": 3,
         "points_per_match": 2.0,
         "gd_per_match": 1.0,
-        "form_raw_index": 7.2
+        "form_raw_index": 7.2,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "Uzbekistan",
+            "opponent_code": "UZB",
+            "goals_for": 3,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Daniel Munoz 40'",
+              "Luis Diaz 65'",
+              "J. Campaz 90'"
+            ],
+            "team_stats": {
+              "shots": 15,
+              "shots_on_target": 4,
+              "shots_off_target": 7,
+              "shots_blocked": 4,
+              "shots_in_box": 10,
+              "shots_out_box": 5,
+              "gk_saves": 1,
+              "possession_pct": 61,
+              "passes": 519,
+              "passes_completed": 444,
+              "pass_accuracy_pct": 86,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 11,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 2,
+              "shots_off_target": 4,
+              "shots_blocked": 2,
+              "shots_in_box": 4,
+              "shots_out_box": 4,
+              "gk_saves": 1,
+              "possession_pct": 39,
+              "passes": 319,
+              "passes_completed": 243,
+              "pass_accuracy_pct": 76,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 14,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.475,
+            "xg_proxy_against": 0.66,
+            "opponent_fifa_points": 1458.73
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1930,7 +1985,21 @@
         "venue": "Arrowhead Stadium, Kansas City",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.475,
+        "xg_against_total": 0.66,
+        "xg_diff_total": 0.815,
+        "xg_diff_per_match": 0.815,
+        "opponent_fifa_points_avg": 1458.73,
+        "actual_gd_covered": 2,
+        "form_raw_base": 7.2,
+        "form_raw_adjusted": 7.2
+      }
     },
     {
       "team": "Japan",
