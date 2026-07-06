@@ -2104,6 +2104,57 @@
             "xg_proxy_for": 0.73,
             "xg_proxy_against": 2.67,
             "opponent_fifa_points": 1828.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-23",
+            "opponent": "Panama",
+            "opponent_code": "PAN",
+            "goals_for": 1,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Ante Budimir 54'"
+            ],
+            "team_stats": {
+              "shots": 6,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 4,
+              "shots_out_box": 2,
+              "gk_saves": 1,
+              "possession_pct": 58,
+              "passes": 512,
+              "passes_completed": 432,
+              "pass_accuracy_pct": 84,
+              "corners": 2,
+              "offsides": 2,
+              "fouls": 12,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 1,
+              "shots_off_target": 5,
+              "shots_blocked": 2,
+              "shots_in_box": 6,
+              "shots_out_box": 2,
+              "gk_saves": 1,
+              "possession_pct": 42,
+              "passes": 352,
+              "passes_completed": 277,
+              "pass_accuracy_pct": 79,
+              "corners": 7,
+              "offsides": 1,
+              "fouls": 19,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.59,
+            "xg_proxy_against": 0.85,
+            "opponent_fifa_points": 1522.88
           }
         ]
       },
@@ -2133,16 +2184,16 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 0.73,
-        "xg_against_total": 2.67,
-        "xg_diff_total": -1.94,
-        "xg_diff_per_match": -1.94,
-        "opponent_fifa_points_avg": 1828.0,
-        "actual_gd_covered": -2,
+        "xg_for_total": 1.32,
+        "xg_against_total": 3.52,
+        "xg_diff_total": -2.2,
+        "xg_diff_per_match": -1.1,
+        "opponent_fifa_points_avg": 1675.44,
+        "actual_gd_covered": -1,
         "form_raw_base": 6.0,
         "form_raw_adjusted": 6.0
       }
