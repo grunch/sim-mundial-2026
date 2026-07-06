@@ -1726,7 +1726,46 @@
         "goal_difference": 0,
         "points_per_match": 1.333,
         "gd_per_match": 0.0,
-        "form_raw_index": 4.0
+        "form_raw_index": 4.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-14",
+            "opponent": "Turkey",
+            "opponent_code": "TUR",
+            "goals_for": 2,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Nestory Irankunda 27'",
+              "Connor Metcalfe 75'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 4,
+              "possession_pct": 37,
+              "passes": 273,
+              "pass_accuracy_pct": 75,
+              "fouls": 12,
+              "yellow_cards": 0,
+              "red_cards": 0,
+              "offsides": 1,
+              "corners": 5
+            },
+            "opponent_stats": {
+              "shots": 28,
+              "shots_on_target": 7,
+              "possession_pct": 63,
+              "passes": 679,
+              "pass_accuracy_pct": 91,
+              "fouls": 4,
+              "yellow_cards": 1,
+              "red_cards": 0,
+              "offsides": 3,
+              "corners": 8
+            }
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
