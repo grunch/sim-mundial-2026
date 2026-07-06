@@ -165,15 +165,14 @@ def zscore(x, mean, pstdev):
     return (x - mean) / pstdev if pstdev else 0.0
 
 
-def strength_index(norm_fifa, norm_value, norm_form, norm_pedigree, weights):
-    """Composite Strength Index (0-100) from the four normalised axes."""
+def strength_index(norm_fifa, norm_value, norm_form, weights):
+    """Composite Strength Index (0-100) from the three normalised axes."""
     return 100.0 * (weights["fifa"] * norm_fifa
                     + weights["value"] * norm_value
-                    + weights["form"] * norm_form
-                    + weights["pedigree"] * norm_pedigree)
+                    + weights["form"] * norm_form)
 
 
-def effective_elo(fifa_points, z_form, z_value, z_pedigree, coeffs):
-    """Effective Elo: real FIFA Elo adjusted by the form/value/pedigree axes."""
+def effective_elo(fifa_points, z_form, z_value, coeffs):
+    """Effective Elo: real FIFA Elo adjusted by the form/value axes."""
     return (fifa_points + coeffs["form"] * z_form
-            + coeffs["value"] * z_value + coeffs["pedigree"] * z_pedigree)
+            + coeffs["value"] * z_value)
