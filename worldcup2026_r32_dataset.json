@@ -266,7 +266,60 @@
         "goal_difference": 6,
         "points_per_match": 2.333,
         "gd_per_match": 2.0,
-        "form_raw_index": 9.4
+        "form_raw_index": 9.4,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-13",
+            "opponent": "Morocco",
+            "opponent_code": "MAR",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Vinicius Junior 32'"
+            ],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 5,
+              "shots_off_target": 4,
+              "shots_blocked": 3,
+              "shots_in_box": 9,
+              "shots_out_box": 3,
+              "gk_saves": 2,
+              "possession_pct": 51,
+              "passes": 514,
+              "passes_completed": 449,
+              "pass_accuracy_pct": 87,
+              "corners": 6,
+              "offsides": 0,
+              "fouls": 16,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 14,
+              "shots_on_target": 3,
+              "shots_off_target": 5,
+              "shots_blocked": 6,
+              "shots_in_box": 7,
+              "shots_out_box": 7,
+              "gk_saves": 4,
+              "possession_pct": 49,
+              "passes": 486,
+              "passes_completed": 419,
+              "pass_accuracy_pct": 86,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 14,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.275,
+            "xg_proxy_against": 1.155,
+            "opponent_fifa_points": 1755.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 5,
@@ -298,7 +351,21 @@
         "venue": "NRG Stadium, Houston",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.275,
+        "xg_against_total": 1.155,
+        "xg_diff_total": 0.12,
+        "xg_diff_per_match": 0.12,
+        "opponent_fifa_points_avg": 1755.0,
+        "actual_gd_covered": 0,
+        "form_raw_base": 9.4,
+        "form_raw_adjusted": 9.4
+      }
     },
     {
       "team": "England",
@@ -559,7 +626,60 @@
         "goal_difference": 3,
         "points_per_match": 2.333,
         "gd_per_match": 1.0,
-        "form_raw_index": 8.2
+        "form_raw_index": 8.2,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-13",
+            "opponent": "Brazil",
+            "opponent_code": "BRA",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Ismael Saibari 21'"
+            ],
+            "team_stats": {
+              "shots": 14,
+              "shots_on_target": 3,
+              "shots_off_target": 5,
+              "shots_blocked": 6,
+              "shots_in_box": 7,
+              "shots_out_box": 7,
+              "gk_saves": 4,
+              "possession_pct": 49,
+              "passes": 486,
+              "passes_completed": 419,
+              "pass_accuracy_pct": 86,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 14,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 12,
+              "shots_on_target": 5,
+              "shots_off_target": 4,
+              "shots_blocked": 3,
+              "shots_in_box": 9,
+              "shots_out_box": 3,
+              "gk_saves": 2,
+              "possession_pct": 51,
+              "passes": 514,
+              "passes_completed": 449,
+              "pass_accuracy_pct": 87,
+              "corners": 6,
+              "offsides": 0,
+              "fouls": 16,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.155,
+            "xg_proxy_against": 1.275,
+            "opponent_fifa_points": 1766.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -585,7 +705,21 @@
         "venue": "Estadio BBVA, Monterrey",
         "date": "2026-06-29"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.155,
+        "xg_against_total": 1.275,
+        "xg_diff_total": -0.12,
+        "xg_diff_per_match": -0.12,
+        "opponent_fifa_points_avg": 1766.0,
+        "actual_gd_covered": 0,
+        "form_raw_base": 8.2,
+        "form_raw_adjusted": 8.2
+      }
     },
     {
       "team": "Belgium",
