@@ -977,7 +977,60 @@
         "goal_difference": 4,
         "points_per_match": 2.333,
         "gd_per_match": 1.333,
-        "form_raw_index": 8.6
+        "form_raw_index": 8.6,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-13",
+            "opponent": "Qatar",
+            "opponent_code": "QAT",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Breel Embolo 17' (P)"
+            ],
+            "team_stats": {
+              "shots": 26,
+              "shots_on_target": 7,
+              "shots_off_target": 10,
+              "shots_blocked": 9,
+              "shots_in_box": 18,
+              "shots_out_box": 8,
+              "gk_saves": 3,
+              "possession_pct": 68,
+              "passes": 576,
+              "passes_completed": 527,
+              "pass_accuracy_pct": 91,
+              "corners": 10,
+              "offsides": 1,
+              "fouls": 11,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 6,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 0,
+              "shots_in_box": 4,
+              "shots_out_box": 2,
+              "gk_saves": 5,
+              "possession_pct": 32,
+              "passes": 278,
+              "passes_completed": 200,
+              "pass_accuracy_pct": 72,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 12,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 2.62,
+            "xg_proxy_against": 0.59,
+            "opponent_fifa_points": 1438.82
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1003,7 +1056,21 @@
         "venue": "BC Place, Vancouver",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.62,
+        "xg_against_total": 0.59,
+        "xg_diff_total": 2.03,
+        "xg_diff_per_match": 2.03,
+        "opponent_fifa_points_avg": 1438.82,
+        "actual_gd_covered": 0,
+        "form_raw_base": 8.6,
+        "form_raw_adjusted": 8.6
+      }
     },
     {
       "team": "Colombia",
