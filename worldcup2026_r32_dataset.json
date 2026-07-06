@@ -217,7 +217,62 @@
         "goal_difference": 7,
         "points_per_match": 3.0,
         "gd_per_match": 2.333,
-        "form_raw_index": 11.8
+        "form_raw_index": 11.8,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-16",
+            "opponent": "Algeria",
+            "opponent_code": "ALG",
+            "goals_for": 3,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Lionel Messi 17'",
+              "Lionel Messi 60'",
+              "Lionel Messi 76'"
+            ],
+            "team_stats": {
+              "shots": 10,
+              "shots_on_target": 6,
+              "shots_off_target": 4,
+              "shots_blocked": 0,
+              "shots_in_box": 4,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 48,
+              "passes": 561,
+              "passes_completed": 504,
+              "pass_accuracy_pct": 90,
+              "corners": 2,
+              "offsides": 3,
+              "fouls": 13,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 7,
+              "shots_on_target": 0,
+              "shots_off_target": 4,
+              "shots_blocked": 3,
+              "shots_in_box": 3,
+              "shots_out_box": 4,
+              "gk_saves": 3,
+              "possession_pct": 52,
+              "passes": 609,
+              "passes_completed": 563,
+              "pass_accuracy_pct": 92,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 8,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.73,
+            "xg_proxy_against": 0.53,
+            "opponent_fifa_points": 1571.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 3,
@@ -247,7 +302,21 @@
         "venue": "Hard Rock Stadium, Miami",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.73,
+        "xg_against_total": 0.53,
+        "xg_diff_total": 0.2,
+        "xg_diff_per_match": 0.2,
+        "opponent_fifa_points_avg": 1571.0,
+        "actual_gd_covered": 3,
+        "form_raw_base": 11.8,
+        "form_raw_adjusted": 11.8
+      }
     },
     {
       "team": "Spain",
@@ -2484,7 +2553,58 @@
         "goal_difference": -2,
         "points_per_match": 1.333,
         "gd_per_match": -0.667,
-        "form_raw_index": 3.2
+        "form_raw_index": 3.2,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-16",
+            "opponent": "Argentina",
+            "opponent_code": "ARG",
+            "goals_for": 0,
+            "goals_against": 3,
+            "result": "L",
+            "goalscorers": [],
+            "team_stats": {
+              "shots": 7,
+              "shots_on_target": 0,
+              "shots_off_target": 4,
+              "shots_blocked": 3,
+              "shots_in_box": 3,
+              "shots_out_box": 4,
+              "gk_saves": 3,
+              "possession_pct": 52,
+              "passes": 609,
+              "passes_completed": 563,
+              "pass_accuracy_pct": 92,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 8,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 10,
+              "shots_on_target": 6,
+              "shots_off_target": 4,
+              "shots_blocked": 0,
+              "shots_in_box": 4,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 48,
+              "passes": 561,
+              "passes_completed": 504,
+              "pass_accuracy_pct": 90,
+              "corners": 2,
+              "offsides": 3,
+              "fouls": 13,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.53,
+            "xg_proxy_against": 0.73,
+            "opponent_fifa_points": 1877.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -2510,7 +2630,21 @@
         "venue": "BC Place, Vancouver",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.53,
+        "xg_against_total": 0.73,
+        "xg_diff_total": -0.2,
+        "xg_diff_per_match": -0.2,
+        "opponent_fifa_points_avg": 1877.0,
+        "actual_gd_covered": -3,
+        "form_raw_base": 3.2,
+        "form_raw_adjusted": 3.2
+      }
     },
     {
       "team": "Egypt",
