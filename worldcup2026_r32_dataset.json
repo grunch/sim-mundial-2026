@@ -2122,7 +2122,62 @@
         "goal_difference": 0,
         "points_per_match": 1.333,
         "gd_per_match": 0.0,
-        "form_raw_index": 4.0
+        "form_raw_index": 4.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "Jordan",
+            "opponent_code": "JOR",
+            "goals_for": 3,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "R. Schmid 21'",
+              "Y. Al Arab 76' (og)",
+              "Marko Arnautovic 90' (P)"
+            ],
+            "team_stats": {
+              "shots": 11,
+              "shots_on_target": 4,
+              "shots_off_target": 6,
+              "shots_blocked": 1,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 3,
+              "possession_pct": 63,
+              "passes": 580,
+              "passes_completed": 487,
+              "pass_accuracy_pct": 84,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 12,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 4,
+              "shots_off_target": 5,
+              "shots_blocked": 2,
+              "shots_in_box": 7,
+              "shots_out_box": 4,
+              "gk_saves": 1,
+              "possession_pct": 37,
+              "passes": 332,
+              "passes_completed": 241,
+              "pass_accuracy_pct": 73,
+              "corners": 3,
+              "offsides": 1,
+              "fouls": 7,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.955,
+            "xg_proxy_against": 1.05,
+            "opponent_fifa_points": 1387.74
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -2148,7 +2203,21 @@
         "venue": "Mercedes-Benz Stadium, Atlanta",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.955,
+        "xg_against_total": 1.05,
+        "xg_diff_total": -0.095,
+        "xg_diff_per_match": -0.095,
+        "opponent_fifa_points_avg": 1387.74,
+        "actual_gd_covered": 2,
+        "form_raw_base": 4.0,
+        "form_raw_adjusted": 4.0
+      }
     },
     {
       "team": "Senegal",
