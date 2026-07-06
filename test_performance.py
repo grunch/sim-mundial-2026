@@ -11,7 +11,8 @@ import performance
 from performance import (adjust_xgd, compute_team_performance, effective_elo,
                         fit_opponent_adjustment, minmax, strength_index,
                         xg_proxy, zscore)
-from build_performance_metrics import (effective_form, opponent_points_lookup)
+from build_performance_metrics import (build, effective_form,
+                                       opponent_points_lookup)
 
 _DATASET_PATH = os.path.join(os.path.dirname(__file__),
                              "worldcup2026_r32_dataset.json")
@@ -230,6 +231,20 @@ class DatasetInvariantTest(unittest.TestCase):
                 self.assertIn("opponent_fifa_points", m)
                 self.assertEqual(m["opponent_fifa_points"],
                                  points[m["opponent_code"]])
+
+
+class BuildIdempotencyTest(unittest.TestCase):
+    """The committed dataset must be a fixed point of the build."""
+
+    def test_committed_dataset_equals_a_fresh_build(self):
+        # Rebuilding from the committed dataset must reproduce it byte for byte:
+        # proves the build is idempotent and that no hand-edit has drifted from
+        # what build_performance_metrics.py would generate.
+        with open(_DATASET_PATH, encoding="utf-8") as f:
+            original = f.read()
+        rebuilt = build(json.loads(original))
+        serialized = json.dumps(rebuilt, ensure_ascii=False, indent=2) + "\n"
+        self.assertEqual(serialized, original)
 
 
 if __name__ == "__main__":
