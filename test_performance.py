@@ -6,6 +6,7 @@ import os
 import unittest
 
 import math
+from typing import ClassVar
 
 import performance
 from performance import (adjust_xgd, compute_team_performance, effective_elo,
@@ -119,8 +120,8 @@ class OpponentAdjustmentTest(unittest.TestCase):
 class StrengthModelTest(unittest.TestCase):
     """Assembly validated against the spec's worked example (France)."""
 
-    WEIGHTS = {"fifa": 0.470588, "value": 0.235294, "form": 0.294118}
-    COEFFS = {"form": 40.0, "value": 25.0}
+    WEIGHTS: ClassVar[dict] = {"fifa": 0.470588, "value": 0.235294, "form": 0.294118}
+    COEFFS: ClassVar[dict] = {"form": 40.0, "value": 25.0}
 
     def test_strength_index_reproduces_france(self):
         # Pedigree removed: the three remaining weights are renormalised to 1.

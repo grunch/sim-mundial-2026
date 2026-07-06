@@ -77,7 +77,7 @@ All normalizations are computed **over the pool of the 32 teams**.
 - `norm_form  = minmax(form_raw)`, with `form_raw = points + 0.4 · goal_difference`
 
 **5.2 Pedigree (World Cup honours) — retained as history, NOT a model input**
-```
+```text
 best_pts:  Champion=30 · Runner-up=22 · Semifinal/3rd-4th=16 · Quarterfinals=10 · Round of 16=5 · Group stage=0
 pedigree_raw = titles*20 + best_pts + min(appearances,25)*0.8     (cap 100)
 ```
@@ -88,13 +88,13 @@ finalists/semifinalists without a title (Netherlands, Sweden, Portugal, Croatia)
 
 **5.3 Strength Index (SI, 0–100)** — composite index over the three remaining
 axes; the weights are renormalized to sum to 1 after dropping pedigree (0.15):
-```
+```text
 SI = 100 · ( 0.4706·norm_fifa + 0.2353·norm_value + 0.2941·norm_form )
 ```
 (exact weights: fifa 8/17, value 4/17, form 5/17.)
 
 **5.4 Effective Elo** — takes the real FIFA Elo and adjusts it with the other 2 axes (in *Elo points per standard deviation*):
-```
+```text
 effective_elo = points_official
               + 40·z(form_raw) + 25·z(log10_value)
 ```

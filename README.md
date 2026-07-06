@@ -80,7 +80,7 @@ norm_form  = minmax(form_raw_adjusted)              # performance-adjusted, see 
 Strength Index (0–100) = 100 · (0.4706·norm_fifa + 0.2353·norm_value
                                 + 0.2941·norm_form)
 
-effective_elo = FIFA_points + 40·z(form_raw) + 25·z(log10_value)
+effective_elo = FIFA_points + 40·z(form_raw_adjusted) + 25·z(log10_value)
 ```
 
 (`minmax` = rescale to [0,1]; `z` = standard score relative to the pool.)
