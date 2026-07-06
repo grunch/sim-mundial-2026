@@ -143,6 +143,59 @@
             "xg_proxy_for": 1.05,
             "xg_proxy_against": 0.59,
             "opponent_fifa_points": 1684.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-22",
+            "opponent": "Iraq",
+            "opponent_code": "IRQ",
+            "goals_for": 3,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Kylian Mbappe 14'",
+              "Kylian Mbappe 54'",
+              "Ousmane Dembele 66'"
+            ],
+            "team_stats": {
+              "shots": 19,
+              "shots_on_target": 5,
+              "shots_off_target": 10,
+              "shots_blocked": 4,
+              "shots_in_box": 12,
+              "shots_out_box": 7,
+              "gk_saves": 0,
+              "possession_pct": 56,
+              "passes": 603,
+              "passes_completed": 540,
+              "pass_accuracy_pct": 90,
+              "corners": 4,
+              "offsides": 1,
+              "fouls": 8,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 4,
+              "shots_on_target": 0,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 3,
+              "shots_out_box": 1,
+              "gk_saves": 2,
+              "possession_pct": 44,
+              "passes": 481,
+              "passes_completed": 413,
+              "pass_accuracy_pct": 86,
+              "corners": 2,
+              "offsides": 0,
+              "fouls": 4,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.805,
+            "xg_proxy_against": 0.425,
+            "opponent_fifa_points": 1419.24
           }
         ]
       },
@@ -175,16 +228,16 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 1.05,
-        "xg_against_total": 0.59,
-        "xg_diff_total": 0.46,
-        "xg_diff_per_match": 0.46,
-        "opponent_fifa_points_avg": 1684.0,
-        "actual_gd_covered": 2,
+        "xg_for_total": 2.855,
+        "xg_against_total": 1.015,
+        "xg_diff_total": 1.84,
+        "xg_diff_per_match": 0.92,
+        "opponent_fifa_points_avg": 1551.62,
+        "actual_gd_covered": 5,
         "form_raw_base": 12.2,
         "form_raw_adjusted": 12.2
       }
