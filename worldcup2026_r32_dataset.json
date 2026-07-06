@@ -49,7 +49,15 @@
       "Data from an ongoing World Cup: 'live' values and standings change with each matchday.",
       "Transfermarkt values in EUR; equivalent USD listings exist with different figures.",
       "pedigree_score is a reproducible proxy (titles + best finish + appearances); it underestimates teams with multiple finals/semifinals but no title (NED, SWE, POR, CRO)."
-    ]
+    ],
+    "performance_model": {
+      "phase": 1,
+      "xg_per_off_target_shot": 0.1,
+      "xg_per_shot_on_target": 0.34,
+      "beta_form_correction": 0.4,
+      "coverage_threshold": 3,
+      "note": "Phase 1 stores xG-proxy intermediates only; match probabilities are unchanged. The form correction activates per team once matches_covered >= coverage_threshold."
+    }
   },
   "teams": [
     {
@@ -293,7 +301,9 @@
               "red_cards": 0,
               "offsides": 1,
               "corners": 2
-            }
+            },
+            "xg_proxy_for": 2.0,
+            "xg_proxy_against": 2.26
           }
         ]
       },
@@ -327,7 +337,20 @@
         "venue": "NRG Stadium, Houston",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.0,
+        "xg_against_total": 2.26,
+        "xg_diff_total": -0.26,
+        "xg_diff_per_match": -0.26,
+        "actual_gd_covered": 0,
+        "form_raw_base": 9.4,
+        "form_raw_adjusted": 9.4
+      }
     },
     {
       "team": "England",
@@ -624,7 +647,9 @@
               "red_cards": 0,
               "offsides": 0,
               "corners": 6
-            }
+            },
+            "xg_proxy_for": 2.26,
+            "xg_proxy_against": 2.0
           }
         ]
       },
@@ -652,7 +677,20 @@
         "venue": "Estadio BBVA, Monterrey",
         "date": "2026-06-29"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.26,
+        "xg_against_total": 2.0,
+        "xg_diff_total": 0.26,
+        "xg_diff_per_match": 0.26,
+        "actual_gd_covered": 0,
+        "form_raw_base": 8.2,
+        "form_raw_adjusted": 8.2
+      }
     },
     {
       "team": "Belgium",
@@ -772,7 +810,9 @@
               "red_cards": 2,
               "offsides": 1,
               "corners": 1
-            }
+            },
+            "xg_proxy_for": 2.8,
+            "xg_proxy_against": 0.78
           }
         ]
       },
@@ -800,7 +840,20 @@
         "venue": "Estadio Azteca, Mexico City",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.8,
+        "xg_against_total": 0.78,
+        "xg_diff_total": 2.02,
+        "xg_diff_per_match": 2.02,
+        "actual_gd_covered": 2,
+        "form_raw_base": 11.4,
+        "form_raw_adjusted": 11.4
+      }
     },
     {
       "team": "Croatia",
@@ -920,7 +973,9 @@
               "red_cards": 0,
               "offsides": 1,
               "corners": 1
-            }
+            },
+            "xg_proxy_for": 3.14,
+            "xg_proxy_against": 1.28
           }
         ]
       },
@@ -948,7 +1003,20 @@
         "venue": "Levi's Stadium, San Francisco",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 3.14,
+        "xg_against_total": 1.28,
+        "xg_diff_total": 1.86,
+        "xg_diff_per_match": 1.86,
+        "actual_gd_covered": 3,
+        "form_raw_base": 7.6,
+        "form_raw_adjusted": 7.6
+      }
     },
     {
       "team": "Switzerland",
@@ -1014,7 +1082,9 @@
               "red_cards": 0,
               "offsides": 0,
               "corners": 3
-            }
+            },
+            "xg_proxy_for": 5.0,
+            "xg_proxy_against": 1.22
           }
         ]
       },
@@ -1042,7 +1112,20 @@
         "venue": "BC Place, Vancouver",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 5.0,
+        "xg_against_total": 1.22,
+        "xg_diff_total": 3.78,
+        "xg_diff_per_match": 3.78,
+        "actual_gd_covered": 0,
+        "form_raw_base": 8.6,
+        "form_raw_adjusted": 8.6
+      }
     },
     {
       "team": "Colombia",
@@ -1554,7 +1637,9 @@
               "red_cards": 0,
               "offsides": 0,
               "corners": 4
-            }
+            },
+            "xg_proxy_for": 2.02,
+            "xg_proxy_against": 1.76
           }
         ]
       },
@@ -1584,7 +1669,20 @@
       },
       "data_notes": [
         "Primera ronda eliminatoria de su historia"
-      ]
+      ],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.02,
+        "xg_against_total": 1.76,
+        "xg_diff_total": 0.26,
+        "xg_diff_per_match": 0.26,
+        "actual_gd_covered": 0,
+        "form_raw_base": 6.0,
+        "form_raw_adjusted": 6.0
+      }
     },
     {
       "team": "Algeria",
@@ -1763,7 +1861,9 @@
               "red_cards": 0,
               "offsides": 3,
               "corners": 8
-            }
+            },
+            "xg_proxy_for": 1.76,
+            "xg_proxy_against": 4.48
           }
         ]
       },
@@ -1791,7 +1891,20 @@
         "venue": "AT&T Stadium, Dallas",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.76,
+        "xg_against_total": 4.48,
+        "xg_diff_total": -2.72,
+        "xg_diff_per_match": -2.72,
+        "actual_gd_covered": 2,
+        "form_raw_base": 4.0,
+        "form_raw_adjusted": 4.0
+      }
     },
     {
       "team": "Paraguay",
@@ -1855,7 +1968,9 @@
               "red_cards": 0,
               "offsides": 2,
               "corners": 3
-            }
+            },
+            "xg_proxy_for": 1.28,
+            "xg_proxy_against": 3.14
           }
         ]
       },
@@ -1883,7 +1998,20 @@
         "venue": "Gillette Stadium, Boston",
         "date": "2026-06-29"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.28,
+        "xg_against_total": 3.14,
+        "xg_diff_total": -1.86,
+        "xg_diff_per_match": -1.86,
+        "actual_gd_covered": -3,
+        "form_raw_base": 3.2,
+        "form_raw_adjusted": 3.2
+      }
     },
     {
       "team": "DR Congo",
@@ -2059,7 +2187,9 @@
               "red_cards": 0,
               "offsides": 1,
               "corners": 9
-            }
+            },
+            "xg_proxy_for": 1.76,
+            "xg_proxy_against": 2.02
           }
         ]
       },
@@ -2087,7 +2217,20 @@
         "venue": "Levi's Stadium, San Francisco",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.76,
+        "xg_against_total": 2.02,
+        "xg_diff_total": -0.26,
+        "xg_diff_per_match": -0.26,
+        "actual_gd_covered": 0,
+        "form_raw_base": 3.6,
+        "form_raw_adjusted": 3.6
+      }
     },
     {
       "team": "South Africa",
@@ -2151,7 +2294,9 @@
               "red_cards": 1,
               "offsides": 1,
               "corners": 3
-            }
+            },
+            "xg_proxy_for": 0.78,
+            "xg_proxy_against": 2.8
           }
         ]
       },
@@ -2179,7 +2324,20 @@
         "venue": "SoFi Stadium, Los Angeles",
         "date": "2026-06-28"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.78,
+        "xg_against_total": 2.8,
+        "xg_diff_total": -2.02,
+        "xg_diff_per_match": -2.02,
+        "actual_gd_covered": -2,
+        "form_raw_base": 3.6,
+        "form_raw_adjusted": 3.6
+      }
     },
     {
       "team": "Cape Verde",
