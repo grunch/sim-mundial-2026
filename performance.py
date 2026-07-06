@@ -13,9 +13,12 @@ it has the full group stage covered with detailed stats (``COVERAGE_THRESHOLD``)
 until then ``form_raw_adjusted`` equals the untouched ``form_raw`` base.
 """
 
-# Expected goals contributed by an off-target shot and by a shot on target.
-XG_PER_OFF_TARGET_SHOT = 0.10
-XG_PER_SHOT_ON_TARGET = 0.34
+# Expected goals contributed per shot by location. Shot location is the single
+# strongest determinant of chance quality, so with the richer source we weight
+# by zone instead of by on/off target. Coefficients approximate average
+# conversion rates and are tunable (stored in meta.performance_model).
+XG_PER_SHOT_IN_BOX = 0.13
+XG_PER_SHOT_OUT_BOX = 0.035
 
 # Blend weight applied to the expected goal difference when correcting form.
 BETA = 0.4
@@ -25,13 +28,17 @@ COVERAGE_THRESHOLD = 3
 GD_WEIGHT = 0.4
 
 
-def xg_proxy(shots, shots_on_target):
-    """Expected-goals proxy for one team in one match, from shots only."""
-    off_target = shots - shots_on_target
-    if off_target < 0:
-        raise ValueError("shots_on_target cannot exceed shots")
-    return round(XG_PER_OFF_TARGET_SHOT * off_target
-                 + XG_PER_SHOT_ON_TARGET * shots_on_target, 3)
+def xg_proxy(shots_in_box, shots_out_box):
+    """Expected-goals proxy for one team in one match, from shot location.
+
+    Location (inside vs outside the box) is the dominant driver of shot
+    quality, mirroring how real xG is built, so this is closer to real
+    expected goals than an on-target-based estimate.
+    """
+    if shots_in_box < 0 or shots_out_box < 0:
+        raise ValueError("shot counts cannot be negative")
+    return round(XG_PER_SHOT_IN_BOX * shots_in_box
+                 + XG_PER_SHOT_OUT_BOX * shots_out_box, 3)
 
 
 def compute_team_performance(matches, form_raw_base, points, goal_difference,
@@ -52,10 +59,10 @@ def compute_team_performance(matches, form_raw_base, points, goal_difference,
     actual_gd_covered = 0
     opp_points = []
     for m in matches:
-        xg_for += xg_proxy(m["team_stats"]["shots"],
-                           m["team_stats"]["shots_on_target"])
-        xg_against += xg_proxy(m["opponent_stats"]["shots"],
-                               m["opponent_stats"]["shots_on_target"])
+        xg_for += xg_proxy(m["team_stats"]["shots_in_box"],
+                           m["team_stats"]["shots_out_box"])
+        xg_against += xg_proxy(m["opponent_stats"]["shots_in_box"],
+                               m["opponent_stats"]["shots_out_box"])
         actual_gd_covered += m["goals_for"] - m["goals_against"]
         if m.get("opponent_fifa_points") is not None:
             opp_points.append(m["opponent_fifa_points"])

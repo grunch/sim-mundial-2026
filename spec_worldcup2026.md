@@ -97,11 +97,13 @@ effective_elo = points_official
 **5.5 Performance metrics from per-match statistics (Phase 1)**
 
 Each group-stage match in `world_cup_2026_performance.group_stage_matches`
-stores detailed statistics (shots, shots on target, possession, passes, pass
-accuracy, fouls, cards, offsides, corners) for the team and its opponent. From
-the shot figures we derive an expected-goals proxy per team per match:
+stores detailed statistics for the team and its opponent: shot breakdown by
+outcome (on target, off target, blocked) and by location (in box, out of box),
+goalkeeper saves, possession, passes, completed passes, pass accuracy, corners,
+offsides, fouls and cards. Shot **location** is the dominant driver of chance
+quality, so the expected-goals proxy per team per match is:
 ```
-xg_proxy = 0.10 · (shots − shots_on_target) + 0.34 · shots_on_target
+xg_proxy = 0.13 · shots_in_box + 0.035 · shots_out_box
 ```
 Aggregated per team (over the matches with detailed stats) this yields
 `xg_for_total`, `xg_against_total` and `xg_diff_total`, stored in a

@@ -14,8 +14,8 @@ re-run after adding new matches. Run from the repository root:
 """
 import json
 
-from performance import (BETA, COVERAGE_THRESHOLD, XG_PER_OFF_TARGET_SHOT,
-                         XG_PER_SHOT_ON_TARGET, compute_team_performance,
+from performance import (BETA, COVERAGE_THRESHOLD, XG_PER_SHOT_IN_BOX,
+                         XG_PER_SHOT_OUT_BOX, compute_team_performance,
                          xg_proxy)
 
 PATH = "worldcup2026_r32_dataset.json"
@@ -46,8 +46,8 @@ def build(data):
     """Mutate ``data`` in place with performance intermediates; return it."""
     data["meta"]["performance_model"] = {
         "phase": 1,
-        "xg_per_off_target_shot": XG_PER_OFF_TARGET_SHOT,
-        "xg_per_shot_on_target": XG_PER_SHOT_ON_TARGET,
+        "xg_per_shot_in_box": XG_PER_SHOT_IN_BOX,
+        "xg_per_shot_out_box": XG_PER_SHOT_OUT_BOX,
         "beta_form_correction": BETA,
         "coverage_threshold": COVERAGE_THRESHOLD,
         "opponent_adjustment": ("planned (Phase 2): the expected xGD given the "
@@ -65,10 +65,10 @@ def build(data):
         perf = t["world_cup_2026_performance"]
         matches = perf.get("group_stage_matches", [])
         for m in matches:
-            m["xg_proxy_for"] = xg_proxy(m["team_stats"]["shots"],
-                                         m["team_stats"]["shots_on_target"])
-            m["xg_proxy_against"] = xg_proxy(m["opponent_stats"]["shots"],
-                                             m["opponent_stats"]["shots_on_target"])
+            m["xg_proxy_for"] = xg_proxy(m["team_stats"]["shots_in_box"],
+                                         m["team_stats"]["shots_out_box"])
+            m["xg_proxy_against"] = xg_proxy(m["opponent_stats"]["shots_in_box"],
+                                             m["opponent_stats"]["shots_out_box"])
             opp = m["opponent_code"]
             if opp not in points:
                 raise KeyError(
