@@ -430,6 +430,59 @@
             "xg_proxy_for": 1.37,
             "xg_proxy_against": 0.59,
             "opponent_fifa_points": 1597.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-27",
+            "opponent": "Jordan",
+            "opponent_code": "JOR",
+            "goals_for": 3,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Giovani Lo Celso 19'",
+              "Lautaro Martinez 31' (P)",
+              "Lionel Messi 80'"
+            ],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 4,
+              "shots_off_target": 7,
+              "shots_blocked": 1,
+              "shots_in_box": 6,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 73,
+              "passes": 799,
+              "passes_completed": 735,
+              "pass_accuracy_pct": 92,
+              "corners": 6,
+              "offsides": 3,
+              "fouls": 7,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 5,
+              "shots_on_target": 1,
+              "shots_off_target": 2,
+              "shots_blocked": 2,
+              "shots_in_box": 2,
+              "shots_out_box": 3,
+              "gk_saves": 1,
+              "possession_pct": 27,
+              "passes": 285,
+              "passes_completed": 228,
+              "pass_accuracy_pct": 80,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 13,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.99,
+            "xg_proxy_against": 0.365,
+            "opponent_fifa_points": 1387.74
           }
         ]
       },
@@ -463,18 +516,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 2.1,
-        "xg_against_total": 1.12,
-        "xg_diff_total": 0.98,
-        "xg_diff_per_match": 0.49,
-        "opponent_fifa_points_avg": 1584.0,
-        "actual_gd_covered": 5,
+        "xg_for_total": 3.09,
+        "xg_against_total": 1.485,
+        "xg_diff_total": 1.605,
+        "xg_diff_per_match": 0.535,
+        "opponent_fifa_points_avg": 1518.58,
+        "actual_gd_covered": 7,
         "form_raw_base": 11.8,
-        "form_raw_adjusted": 11.8
+        "form_raw_adjusted": 10.937
       }
     },
     {
@@ -4497,6 +4550,59 @@
             "xg_proxy_for": 0.59,
             "xg_proxy_against": 1.37,
             "opponent_fifa_points": 1877.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-27",
+            "opponent": "Algeria",
+            "opponent_code": "ALG",
+            "goals_for": 3,
+            "goals_against": 3,
+            "result": "D",
+            "goalscorers": [
+              "Marko Arnautovic 28'",
+              "Marcel Sabitzer 55'",
+              "Sasa Kalajdzic 90'"
+            ],
+            "team_stats": {
+              "shots": 10,
+              "shots_on_target": 3,
+              "shots_off_target": 6,
+              "shots_blocked": 1,
+              "shots_in_box": 6,
+              "shots_out_box": 4,
+              "gk_saves": 2,
+              "possession_pct": 35,
+              "passes": 397,
+              "passes_completed": 346,
+              "pass_accuracy_pct": 87,
+              "corners": 3,
+              "offsides": 3,
+              "fouls": 7,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 12,
+              "shots_on_target": 5,
+              "shots_off_target": 5,
+              "shots_blocked": 2,
+              "shots_in_box": 6,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 65,
+              "passes": 755,
+              "passes_completed": 706,
+              "pass_accuracy_pct": 94,
+              "corners": 0,
+              "offsides": 1,
+              "fouls": 3,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.92,
+            "xg_proxy_against": 0.99,
+            "opponent_fifa_points": 1571.0
           }
         ]
       },
@@ -4526,18 +4632,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 1.545,
-        "xg_against_total": 2.42,
-        "xg_diff_total": -0.875,
-        "xg_diff_per_match": -0.438,
-        "opponent_fifa_points_avg": 1632.37,
+        "xg_for_total": 2.465,
+        "xg_against_total": 3.41,
+        "xg_diff_total": -0.945,
+        "xg_diff_per_match": -0.315,
+        "opponent_fifa_points_avg": 1611.91,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 4.0
+        "form_raw_adjusted": 3.849
       }
     },
     {
@@ -5309,6 +5415,59 @@
             "xg_proxy_for": 0.53,
             "xg_proxy_against": 0.73,
             "opponent_fifa_points": 1877.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-27",
+            "opponent": "Austria",
+            "opponent_code": "AUT",
+            "goals_for": 3,
+            "goals_against": 3,
+            "result": "D",
+            "goalscorers": [
+              "R. Belghali 45'",
+              "Riyad Mahrez 60'",
+              "Riyad Mahrez 90'"
+            ],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 5,
+              "shots_off_target": 5,
+              "shots_blocked": 2,
+              "shots_in_box": 6,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 65,
+              "passes": 755,
+              "passes_completed": 706,
+              "pass_accuracy_pct": 94,
+              "corners": 0,
+              "offsides": 1,
+              "fouls": 3,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 10,
+              "shots_on_target": 3,
+              "shots_off_target": 6,
+              "shots_blocked": 1,
+              "shots_in_box": 6,
+              "shots_out_box": 4,
+              "gk_saves": 2,
+              "possession_pct": 35,
+              "passes": 397,
+              "passes_completed": 346,
+              "pass_accuracy_pct": 87,
+              "corners": 3,
+              "offsides": 3,
+              "fouls": 7,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.99,
+            "xg_proxy_against": 0.92,
+            "opponent_fifa_points": 1597.0
           }
         ]
       },
@@ -5338,15 +5497,15 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 0.53,
-        "xg_against_total": 0.73,
-        "xg_diff_total": -0.2,
-        "xg_diff_per_match": -0.2,
-        "opponent_fifa_points_avg": 1877.0,
+        "xg_for_total": 1.52,
+        "xg_against_total": 1.65,
+        "xg_diff_total": -0.13,
+        "xg_diff_per_match": -0.065,
+        "opponent_fifa_points_avg": 1737.0,
         "actual_gd_covered": -3,
         "form_raw_base": 3.2,
         "form_raw_adjusted": 3.2
