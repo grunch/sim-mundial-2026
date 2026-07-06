@@ -18,6 +18,8 @@ two simulators resolve the full bracket.
 | `worldcup2026_r32_dataset.json` | **Source of truth.** The 32 teams with raw data and derived metrics. |
 | `worldcup2026_montecarlo.json` | Output of `simulate_bracket.py`: each team's probability of reaching each round. |
 | `predict.py` | Head-to-head engine: probability that A eliminates B in a direct tie. |
+| `performance.py` | Performance model: xG proxy from shot location, opponent (strength-of-schedule) adjustment, and the strength-index / effective-Elo assembly. |
+| `build_performance_metrics.py` | Recomputes the per-match xG intermediates and folds the opponent-adjusted form into `norm_form` / `strength_index` / `effective_elo`. Idempotent. |
 | `simulate_bracket.py` | **Aggregate Monte Carlo:** plays the tournament N times and counts how often each team is champion. |
 | `bracket.py` | **Single predicted bracket:** draws the bracket round by round; the favorite advances and **draws are decided on penalties at random**, so **every run can give a different champion** (`--seed` to reproduce one). With `--scoreline [N]` it adds the most likely scoreline of each match (Poisson, exact %). With `--results` it honors the ties already played and only predicts what is left. |
 | `results_bracket.json` | **Real results** of the knockout stage (Round of 32 and Round of 16): scoreline, winner and qualified teams of each tie already played. Consumed by `bracket.py --results`. |
@@ -58,7 +60,9 @@ python3 bracket.py --results        # use real results already played; predict t
 
 1. **FIFA ranking** — official points (FIFA Elo system, denominator 600).
 2. **Squad value** — Transfermarkt, in millions of EUR.
-3. **2026 group performance** — `points` and `goal_difference`.
+3. **2026 group performance** — `points`, `goal_difference` and a **per-match
+   statistics log** (shots by location/outcome, possession, passes, cards…) that
+   feeds the performance model below.
 4. **World Cup honours** — titles, best historical finish, appearances.
 
 ### Derived metrics (all normalized over the pool of 32)
@@ -66,7 +70,7 @@ python3 bracket.py --results        # use real results already played; predict t
 ```
 norm_fifa  = minmax(official_FIFA_points)
 norm_value = minmax(log10(squad_value))             # log: value is heavily skewed
-norm_form  = minmax(form_raw),  form_raw = points + 0.4 · goal_difference
+norm_form  = minmax(form_raw_adjusted)              # performance-adjusted, see below
 norm_pedigree = minmax(pedigree_raw)
 
 Strength Index (0–100) = 100 · (0.40·norm_fifa + 0.20·norm_value
@@ -76,6 +80,32 @@ effective_elo = FIFA_points + 40·z(form_raw) + 25·z(log10_value) + 20·z(pedig
 ```
 
 (`minmax` = rescale to [0,1]; `z` = standard score relative to the pool.)
+
+### Performance model — the "form" axis is opponent-adjusted
+
+The results-only form (`points + 0.4·goal_difference`) is noisy: a team can win
+with few chances or lose while dominating. The performance model corrects it
+from the per-match statistics.
+
+1. **Chance quality (xG proxy).** Shot **location** drives chance quality, so per
+   team per match: `xg_proxy = 0.13·shots_in_box + 0.035·shots_out_box`. The
+   match differential is `xgd = xg_for − xg_against`.
+2. **Strength of schedule.** 26 shots against a weak side are worth less than 7
+   against a strong one. We fit (least squares over every match) the slope `b`
+   of `xgd` on the opponent's pre-tournament FIFA points, then neutralise each
+   match to the mean opponent `ref`: `adj_xgd = xgd − b·(opp_points − ref)`. So
+   beating weak sides is discounted and performing against strong ones is
+   credited.
+3. **Corrected form.** Blend the actual and the opponent-adjusted differential
+   (`β = 0.4`), only once a team has its three group games:
+   `form_raw_adjusted = points + 0.4·[(1−β)·goal_difference + β·adj_xgd_total]`.
+
+`build_performance_metrics.py` then recomputes `norm_form`, `strength_index` and
+`effective_elo` from `form_raw_adjusted`, so the correction reaches the
+probabilities. Each team keeps its results-only baseline and the resulting
+`elo_shift` under `performance_metrics` for audit (e.g. Portugal −9.8 Elo: a
++5 goal difference not backed by chances; Colombia +7.2, England +6.2). The run
+is idempotent and the FIFA/value/pedigree axes are untouched.
 
 ### Tie probability (engine)
 

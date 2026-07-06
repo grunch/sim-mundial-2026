@@ -5,9 +5,13 @@ import json
 import os
 import unittest
 
+import math
+
 import performance
-from performance import xg_proxy, compute_team_performance
-from build_performance_metrics import opponent_points_lookup
+from performance import (adjust_xgd, compute_team_performance, effective_elo,
+                        fit_opponent_adjustment, minmax, strength_index,
+                        xg_proxy, zscore)
+from build_performance_metrics import (effective_form, opponent_points_lookup)
 
 _DATASET_PATH = os.path.join(os.path.dirname(__file__),
                              "worldcup2026_r32_dataset.json")
@@ -77,9 +81,66 @@ class TeamPerformanceTest(unittest.TestCase):
         self.assertEqual(out["form_raw_adjusted"], 5.0)
         self.assertIsNone(out["xg_diff_per_match"])
 
+    def test_opponent_adjustment_changes_the_signal(self):
+        # Same match log, but crediting a stronger schedule (negative slope,
+        # opponent below the reference) should lift the adjusted differential.
+        matches = [_match(2, 0, 9, 7, 1, 2)]
+        for m in matches:
+            m["opponent_fifa_points"] = 1400.0
+        raw = compute_team_performance(matches, 9.4, 7, 6)
+        adj = compute_team_performance(matches, 9.4, 7, 6,
+                                       opp_slope=-0.004, opp_ref=1561.0)
+        self.assertFalse(raw["opponent_adjusted"])
+        self.assertTrue(adj["opponent_adjusted"])
+        # Facing a weaker-than-reference opponent discounts the differential.
+        self.assertLess(adj["xg_diff_adjusted_total"], raw["xg_diff_total"])
+
+
+class OpponentAdjustmentTest(unittest.TestCase):
+    def test_slope_is_negative_when_stronger_opponents_lower_xgd(self):
+        rows = [(1400, 2.0), (1500, 1.0), (1600, 0.0), (1700, -1.0)]
+        slope, ref = fit_opponent_adjustment(rows)
+        self.assertLess(slope, 0)
+        self.assertEqual(ref, 1550)
+
+    def test_no_variance_yields_zero_slope(self):
+        slope, ref = fit_opponent_adjustment([(1500, 1.0), (1500, -1.0)])
+        self.assertEqual(slope, 0.0)
+        self.assertEqual(ref, 1500)
+
+    def test_adjust_xgd_discounts_weak_and_credits_strong(self):
+        # slope < 0: weaker-than-ref opponent -> lower; stronger -> higher.
+        self.assertLess(adjust_xgd(1.0, 1400, -0.004, 1561), 1.0)
+        self.assertGreater(adjust_xgd(1.0, 1700, -0.004, 1561), 1.0)
+        self.assertEqual(adjust_xgd(1.0, 1561, -0.004, 1561), 1.0)
+
+
+class StrengthModelTest(unittest.TestCase):
+    """Assembly validated against the spec's worked example (France)."""
+
+    WEIGHTS = {"fifa": 0.40, "value": 0.20, "form": 0.25, "pedigree": 0.15}
+    COEFFS = {"form": 40.0, "value": 25.0, "pedigree": 20.0}
+
+    def test_strength_index_reproduces_france(self):
+        si = strength_index(norm_fifa=0.9887, norm_value=1.0, norm_form=1.0,
+                            norm_pedigree=0.8347, weights=self.WEIGHTS)
+        self.assertEqual(round(si, 2), 97.07)
+
+    def test_effective_elo_reproduces_france(self):
+        z_form = zscore(12.2, 6.4625, 2.6093)
+        z_value = zscore(math.log10(1520.0), 2.5337, 0.3861)
+        z_ped = zscore(83.6, 27.8562, 29.7998)
+        elo = effective_elo(1871.0, z_form, z_value, z_ped, self.COEFFS)
+        self.assertEqual(round(elo, 1), 2038.3)
+
+    def test_minmax_and_zscore_edges(self):
+        self.assertEqual(minmax(5, 0, 10), 0.5)
+        self.assertEqual(minmax(5, 5, 5), 0.0)   # degenerate range
+        self.assertEqual(zscore(5, 5, 0), 0.0)   # degenerate spread
+
 
 class DatasetInvariantTest(unittest.TestCase):
-    """Phase-1 invariant checks against the committed dataset."""
+    """Phase-2 invariant checks against the committed dataset."""
 
     @classmethod
     def setUpClass(cls):
@@ -110,13 +171,44 @@ class DatasetInvariantTest(unittest.TestCase):
                 self.assertEqual(pm["form_raw_adjusted"], perf["form_raw_index"])
             else:
                 # Full coverage: correction on and the stored adjusted form
-                # matches the blend of actual GD and xGD.
+                # matches the blend of actual GD and the opponent-adjusted xGD.
                 self.assertTrue(pm["correction_active"])
+                self.assertTrue(pm["opponent_adjusted"])
                 gd_adjusted = ((1 - pm["beta"]) * perf["goal_difference"]
-                               + pm["beta"] * pm["xg_diff_total"])
+                               + pm["beta"] * pm["xg_diff_adjusted_total"])
                 expected = round(perf["points"]
                                  + performance.GD_WEIGHT * gd_adjusted, 3)
                 self.assertEqual(pm["form_raw_adjusted"], expected)
+
+    def test_derived_metrics_match_adjusted_form(self):
+        # The stored effective_elo/strength_index must be reproducible from the
+        # effective (adjusted) form and the pool aggregates -> the Phase-2
+        # rewrite of derived_metrics is internally consistent.
+        meta = self.data["meta"]
+        weights, coeffs = (meta["weights_strength_index"],
+                           meta["elo_adjustment_coeffs"])
+        agg = meta["pool_aggregates"]
+        fstats = agg["form_effective"]
+        lv, pd = agg["log10_value"], agg["pedigree_raw"]
+        for t in self.data["teams"]:
+            dm = t["derived_metrics"]
+            form = effective_form(t)
+            norm_form = minmax(form, fstats["min"], fstats["max"])
+            si = strength_index(dm["norm_fifa"], dm["norm_value"], norm_form,
+                                dm["norm_pedigree"], weights)
+            log10v = math.log10(
+                t["squad_value_transfermarkt"]["value_eur_millions"])
+            elo = effective_elo(
+                t["fifa_ranking"]["points_official_2026_06_11"],
+                zscore(form, fstats["mean"], fstats["pstdev"]),
+                zscore(log10v, lv["mean"], lv["pstdev"]),
+                zscore(t["world_cup_history"]["pedigree_raw"],
+                       pd["mean"], pd["pstdev"]),
+                coeffs)
+            self.assertAlmostEqual(dm["strength_index_0_100"], round(si, 2),
+                                   places=2, msg=t["code"])
+            self.assertAlmostEqual(dm["effective_elo"], round(elo, 1),
+                                   places=1, msg=t["code"])
 
     def test_match_log_matches_group_aggregates(self):
         # After the build recomputes aggregates, the per-match log and the
