@@ -1919,7 +1919,61 @@
         "goal_difference": 0,
         "points_per_match": 1.333,
         "gd_per_match": 0.0,
-        "form_raw_index": 4.0
+        "form_raw_index": 4.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-14",
+            "opponent": "Turkey",
+            "opponent_code": "TUR",
+            "goals_for": 2,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Nestory Irankunda 27'",
+              "Connor Metcalfe 75'"
+            ],
+            "team_stats": {
+              "shots": 9,
+              "shots_on_target": 4,
+              "shots_off_target": 4,
+              "shots_blocked": 1,
+              "shots_in_box": 6,
+              "shots_out_box": 3,
+              "gk_saves": 8,
+              "possession_pct": 28,
+              "passes": 271,
+              "passes_completed": 201,
+              "pass_accuracy_pct": 74,
+              "corners": 5,
+              "offsides": 1,
+              "fouls": 12,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 30,
+              "shots_on_target": 8,
+              "shots_off_target": 10,
+              "shots_blocked": 12,
+              "shots_in_box": 14,
+              "shots_out_box": 16,
+              "gk_saves": 2,
+              "possession_pct": 72,
+              "passes": 704,
+              "passes_completed": 635,
+              "pass_accuracy_pct": 90,
+              "corners": 8,
+              "offsides": 3,
+              "fouls": 4,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.885,
+            "xg_proxy_against": 2.38,
+            "opponent_fifa_points": 1605.73
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1945,7 +1999,21 @@
         "venue": "AT&T Stadium, Dallas",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.885,
+        "xg_against_total": 2.38,
+        "xg_diff_total": -1.495,
+        "xg_diff_per_match": -1.495,
+        "opponent_fifa_points_avg": 1605.73,
+        "actual_gd_covered": 2,
+        "form_raw_base": 4.0,
+        "form_raw_adjusted": 4.0
+      }
     },
     {
       "team": "Paraguay",
