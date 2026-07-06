@@ -38,6 +38,7 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "HAI": 1277.67,
     "KSA": 1426.71,
     "IRN": 1619.58,
+    "URU": 1673.07,
 }
 
 

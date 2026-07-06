@@ -4883,6 +4883,58 @@
             "xg_proxy_for": 0.4,
             "xg_proxy_against": 2.465,
             "opponent_fifa_points": 1875.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-21",
+            "opponent": "Uruguay",
+            "opponent_code": "URU",
+            "goals_for": 2,
+            "goals_against": 2,
+            "result": "D",
+            "goalscorers": [
+              "K. Lenini 21'",
+              "H. Varela 61'"
+            ],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 4,
+              "shots_off_target": 4,
+              "shots_blocked": 4,
+              "shots_in_box": 2,
+              "shots_out_box": 10,
+              "gk_saves": 0,
+              "possession_pct": 35,
+              "passes": 278,
+              "passes_completed": 205,
+              "pass_accuracy_pct": 74,
+              "corners": 4,
+              "offsides": 0,
+              "fouls": 4,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 17,
+              "shots_on_target": 2,
+              "shots_off_target": 8,
+              "shots_blocked": 7,
+              "shots_in_box": 9,
+              "shots_out_box": 8,
+              "gk_saves": 2,
+              "possession_pct": 65,
+              "passes": 511,
+              "passes_completed": 420,
+              "pass_accuracy_pct": 82,
+              "corners": 11,
+              "offsides": 3,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.61,
+            "xg_proxy_against": 1.45,
+            "opponent_fifa_points": 1673.07
           }
         ]
       },
@@ -4914,15 +4966,15 @@
         "Debutante absoluto en Mundiales"
       ],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 0.4,
-        "xg_against_total": 2.465,
-        "xg_diff_total": -2.065,
-        "xg_diff_per_match": -2.065,
-        "opponent_fifa_points_avg": 1875.0,
+        "xg_for_total": 1.01,
+        "xg_against_total": 3.915,
+        "xg_diff_total": -2.905,
+        "xg_diff_per_match": -1.452,
+        "opponent_fifa_points_avg": 1774.03,
         "actual_gd_covered": 0,
         "form_raw_base": 3.0,
         "form_raw_adjusted": 3.0
