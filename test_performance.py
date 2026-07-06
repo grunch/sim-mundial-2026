@@ -6,6 +6,7 @@ import unittest
 
 import performance
 from performance import xg_proxy, compute_team_performance
+from build_performance_metrics import opponent_points_lookup
 
 
 def _match(gf, ga, shots, sot, opp_shots, opp_sot):
@@ -101,6 +102,14 @@ class DatasetInvariantTest(unittest.TestCase):
             if pm["matches_covered"] < pm["coverage_threshold"]:
                 self.assertFalse(pm["correction_active"])
                 self.assertEqual(pm["form_raw_adjusted"], perf["form_raw_index"])
+
+    def test_opponent_fifa_points_are_populated(self):
+        points = opponent_points_lookup(self.data)
+        for t in self.data["teams"]:
+            for m in t["world_cup_2026_performance"].get("group_stage_matches", []):
+                self.assertIn("opponent_fifa_points", m)
+                self.assertEqual(m["opponent_fifa_points"],
+                                 points[m["opponent_code"]])
 
 
 if __name__ == "__main__":

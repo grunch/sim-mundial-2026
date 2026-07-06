@@ -20,6 +20,27 @@ from performance import (BETA, COVERAGE_THRESHOLD, XG_PER_OFF_TARGET_SHOT,
 
 PATH = "worldcup2026_r32_dataset.json"
 
+# FIFA ranking points (official, 2026-06-11) for opponents that did NOT reach
+# the Round of 32 and are therefore absent from the dataset. Same reference
+# date and scale as the qualified teams' points_official_2026_06_11.
+# Source: football-ranking.com / FIFA.
+EXTERNAL_OPPONENT_FIFA_POINTS = {
+    "QAT": 1438.82,
+    "TUR": 1605.73,
+}
+
+
+def opponent_points_lookup(data):
+    """Map every team code to its pre-tournament FIFA points.
+
+    Qualified teams come from the dataset; non-qualified opponents come from
+    ``EXTERNAL_OPPONENT_FIFA_POINTS``.
+    """
+    points = {t["code"]: t["fifa_ranking"]["points_official_2026_06_11"]
+              for t in data["teams"]}
+    points.update(EXTERNAL_OPPONENT_FIFA_POINTS)
+    return points
+
 
 def build(data):
     """Mutate ``data`` in place with performance intermediates; return it."""
@@ -29,10 +50,17 @@ def build(data):
         "xg_per_shot_on_target": XG_PER_SHOT_ON_TARGET,
         "beta_form_correction": BETA,
         "coverage_threshold": COVERAGE_THRESHOLD,
-        "note": ("Phase 1 stores xG-proxy intermediates only; match "
-                 "probabilities are unchanged. The form correction activates "
-                 "per team once matches_covered >= coverage_threshold."),
+        "opponent_adjustment": ("planned (Phase 2): the expected xGD given the "
+                                "opponent's pre-tournament FIFA points is the "
+                                "baseline, and the residual (actual - expected) "
+                                "is the strength-of-schedule-adjusted signal. "
+                                "opponent_fifa_points is captured per match now."),
+        "note": ("Phase 1 stores xG-proxy intermediates and per-match "
+                 "opponent_fifa_points only; match probabilities are unchanged. "
+                 "The form correction activates per team once matches_covered "
+                 ">= coverage_threshold."),
     }
+    points = opponent_points_lookup(data)
     for t in data["teams"]:
         perf = t["world_cup_2026_performance"]
         matches = perf.get("group_stage_matches", [])
@@ -41,6 +69,12 @@ def build(data):
                                          m["team_stats"]["shots_on_target"])
             m["xg_proxy_against"] = xg_proxy(m["opponent_stats"]["shots"],
                                              m["opponent_stats"]["shots_on_target"])
+            opp = m["opponent_code"]
+            if opp not in points:
+                raise KeyError(
+                    f"No FIFA points for opponent {opp}; add it to "
+                    "EXTERNAL_OPPONENT_FIFA_POINTS in build_performance_metrics.py")
+            m["opponent_fifa_points"] = points[opp]
         if matches:
             t["performance_metrics"] = compute_team_performance(
                 matches, perf["form_raw_index"], perf["points"],

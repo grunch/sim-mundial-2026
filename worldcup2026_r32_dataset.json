@@ -56,7 +56,8 @@
       "xg_per_shot_on_target": 0.34,
       "beta_form_correction": 0.4,
       "coverage_threshold": 3,
-      "note": "Phase 1 stores xG-proxy intermediates only; match probabilities are unchanged. The form correction activates per team once matches_covered >= coverage_threshold."
+      "opponent_adjustment": "planned (Phase 2): the expected xGD given the opponent's pre-tournament FIFA points is the baseline, and the residual (actual - expected) is the strength-of-schedule-adjusted signal. opponent_fifa_points is captured per match now.",
+      "note": "Phase 1 stores xG-proxy intermediates and per-match opponent_fifa_points only; match probabilities are unchanged. The form correction activates per team once matches_covered >= coverage_threshold."
     }
   },
   "teams": [
@@ -303,7 +304,8 @@
               "corners": 2
             },
             "xg_proxy_for": 2.0,
-            "xg_proxy_against": 2.26
+            "xg_proxy_against": 2.26,
+            "opponent_fifa_points": 1755.0
           }
         ]
       },
@@ -347,6 +349,7 @@
         "xg_against_total": 2.26,
         "xg_diff_total": -0.26,
         "xg_diff_per_match": -0.26,
+        "opponent_fifa_points_avg": 1755.0,
         "actual_gd_covered": 0,
         "form_raw_base": 9.4,
         "form_raw_adjusted": 9.4
@@ -649,7 +652,8 @@
               "corners": 6
             },
             "xg_proxy_for": 2.26,
-            "xg_proxy_against": 2.0
+            "xg_proxy_against": 2.0,
+            "opponent_fifa_points": 1766.0
           }
         ]
       },
@@ -687,6 +691,7 @@
         "xg_against_total": 2.0,
         "xg_diff_total": 0.26,
         "xg_diff_per_match": 0.26,
+        "opponent_fifa_points_avg": 1766.0,
         "actual_gd_covered": 0,
         "form_raw_base": 8.2,
         "form_raw_adjusted": 8.2
@@ -812,7 +817,8 @@
               "corners": 1
             },
             "xg_proxy_for": 2.8,
-            "xg_proxy_against": 0.78
+            "xg_proxy_against": 0.78,
+            "opponent_fifa_points": 1428.0
           }
         ]
       },
@@ -850,6 +856,7 @@
         "xg_against_total": 0.78,
         "xg_diff_total": 2.02,
         "xg_diff_per_match": 2.02,
+        "opponent_fifa_points_avg": 1428.0,
         "actual_gd_covered": 2,
         "form_raw_base": 11.4,
         "form_raw_adjusted": 11.4
@@ -975,7 +982,8 @@
               "corners": 1
             },
             "xg_proxy_for": 3.14,
-            "xg_proxy_against": 1.28
+            "xg_proxy_against": 1.28,
+            "opponent_fifa_points": 1505.0
           }
         ]
       },
@@ -1013,6 +1021,7 @@
         "xg_against_total": 1.28,
         "xg_diff_total": 1.86,
         "xg_diff_per_match": 1.86,
+        "opponent_fifa_points_avg": 1505.0,
         "actual_gd_covered": 3,
         "form_raw_base": 7.6,
         "form_raw_adjusted": 7.6
@@ -1084,7 +1093,8 @@
               "corners": 3
             },
             "xg_proxy_for": 5.0,
-            "xg_proxy_against": 1.22
+            "xg_proxy_against": 1.22,
+            "opponent_fifa_points": 1438.82
           }
         ]
       },
@@ -1122,6 +1132,7 @@
         "xg_against_total": 1.22,
         "xg_diff_total": 3.78,
         "xg_diff_per_match": 3.78,
+        "opponent_fifa_points_avg": 1438.82,
         "actual_gd_covered": 0,
         "form_raw_base": 8.6,
         "form_raw_adjusted": 8.6
@@ -1639,7 +1650,8 @@
               "corners": 4
             },
             "xg_proxy_for": 2.02,
-            "xg_proxy_against": 1.76
+            "xg_proxy_against": 1.76,
+            "opponent_fifa_points": 1387.0
           }
         ]
       },
@@ -1679,6 +1691,7 @@
         "xg_against_total": 1.76,
         "xg_diff_total": 0.26,
         "xg_diff_per_match": 0.26,
+        "opponent_fifa_points_avg": 1387.0,
         "actual_gd_covered": 0,
         "form_raw_base": 6.0,
         "form_raw_adjusted": 6.0
@@ -1863,7 +1876,8 @@
               "corners": 8
             },
             "xg_proxy_for": 1.76,
-            "xg_proxy_against": 4.48
+            "xg_proxy_against": 4.48,
+            "opponent_fifa_points": 1605.73
           }
         ]
       },
@@ -1901,6 +1915,7 @@
         "xg_against_total": 4.48,
         "xg_diff_total": -2.72,
         "xg_diff_per_match": -2.72,
+        "opponent_fifa_points_avg": 1605.73,
         "actual_gd_covered": 2,
         "form_raw_base": 4.0,
         "form_raw_adjusted": 4.0
@@ -1970,7 +1985,8 @@
               "corners": 3
             },
             "xg_proxy_for": 1.28,
-            "xg_proxy_against": 3.14
+            "xg_proxy_against": 3.14,
+            "opponent_fifa_points": 1671.0
           }
         ]
       },
@@ -2008,6 +2024,7 @@
         "xg_against_total": 3.14,
         "xg_diff_total": -1.86,
         "xg_diff_per_match": -1.86,
+        "opponent_fifa_points_avg": 1671.0,
         "actual_gd_covered": -3,
         "form_raw_base": 3.2,
         "form_raw_adjusted": 3.2
@@ -2189,7 +2206,8 @@
               "corners": 9
             },
             "xg_proxy_for": 1.76,
-            "xg_proxy_against": 2.02
+            "xg_proxy_against": 2.02,
+            "opponent_fifa_points": 1559.0
           }
         ]
       },
@@ -2227,6 +2245,7 @@
         "xg_against_total": 2.02,
         "xg_diff_total": -0.26,
         "xg_diff_per_match": -0.26,
+        "opponent_fifa_points_avg": 1559.0,
         "actual_gd_covered": 0,
         "form_raw_base": 3.6,
         "form_raw_adjusted": 3.6
@@ -2296,7 +2315,8 @@
               "corners": 3
             },
             "xg_proxy_for": 0.78,
-            "xg_proxy_against": 2.8
+            "xg_proxy_against": 2.8,
+            "opponent_fifa_points": 1687.0
           }
         ]
       },
@@ -2334,6 +2354,7 @@
         "xg_against_total": 2.8,
         "xg_diff_total": -2.02,
         "xg_diff_per_match": -2.02,
+        "opponent_fifa_points_avg": 1687.0,
         "actual_gd_covered": -2,
         "form_raw_base": 3.6,
         "form_raw_adjusted": 3.6

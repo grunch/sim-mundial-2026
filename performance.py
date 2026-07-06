@@ -50,13 +50,21 @@ def compute_team_performance(matches, form_raw_base, points, goal_difference,
     xg_for = 0.0
     xg_against = 0.0
     actual_gd_covered = 0
+    opp_points = []
     for m in matches:
         xg_for += xg_proxy(m["team_stats"]["shots"],
                            m["team_stats"]["shots_on_target"])
         xg_against += xg_proxy(m["opponent_stats"]["shots"],
                                m["opponent_stats"]["shots_on_target"])
         actual_gd_covered += m["goals_for"] - m["goals_against"]
+        if m.get("opponent_fifa_points") is not None:
+            opp_points.append(m["opponent_fifa_points"])
     xg_diff_total = round(xg_for - xg_against, 3)
+    # Average opponent strength (pre-tournament FIFA points) over covered
+    # matches. This feeds the Phase-2 opponent adjustment (strength of
+    # schedule): the same xGD is worth more against stronger opponents.
+    opponent_fifa_points_avg = (round(sum(opp_points) / len(opp_points), 2)
+                                if opp_points else None)
 
     active = covered >= threshold
     if active:
@@ -74,6 +82,7 @@ def compute_team_performance(matches, form_raw_base, points, goal_difference,
         "xg_against_total": round(xg_against, 3),
         "xg_diff_total": xg_diff_total,
         "xg_diff_per_match": round(xg_diff_total / covered, 3) if covered else 0.0,
+        "opponent_fifa_points_avg": opponent_fifa_points_avg,
         "actual_gd_covered": actual_gd_covered,
         "form_raw_base": form_raw_base,
         "form_raw_adjusted": form_raw_adjusted,
