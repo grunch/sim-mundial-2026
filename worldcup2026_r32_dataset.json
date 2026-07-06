@@ -1385,6 +1385,59 @@
             "xg_proxy_for": 0.92,
             "xg_proxy_against": 1.225,
             "opponent_fifa_points": 1510.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-25",
+            "opponent": "Tunisia",
+            "opponent_code": "TUN",
+            "goals_for": 3,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "E. Skhiri 3' (og)",
+              "Brian Brobbey 7'",
+              "J. P. van Hecke 62'"
+            ],
+            "team_stats": {
+              "shots": 20,
+              "shots_on_target": 7,
+              "shots_off_target": 8,
+              "shots_blocked": 5,
+              "shots_in_box": 16,
+              "shots_out_box": 4,
+              "gk_saves": 3,
+              "possession_pct": 71,
+              "passes": 647,
+              "passes_completed": 602,
+              "pass_accuracy_pct": 93,
+              "corners": 6,
+              "offsides": 1,
+              "fouls": 10,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 10,
+              "shots_on_target": 4,
+              "shots_off_target": 5,
+              "shots_blocked": 1,
+              "shots_in_box": 4,
+              "shots_out_box": 6,
+              "gk_saves": 4,
+              "possession_pct": 29,
+              "passes": 258,
+              "passes_completed": 199,
+              "pass_accuracy_pct": 77,
+              "corners": 4,
+              "offsides": 2,
+              "fouls": 11,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 2.22,
+            "xg_proxy_against": 0.73,
+            "opponent_fifa_points": 1476.41
           }
         ]
       },
@@ -1414,18 +1467,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 2.22,
-        "xg_against_total": 2.145,
-        "xg_diff_total": 0.075,
-        "xg_diff_per_match": 0.037,
-        "opponent_fifa_points_avg": 1586.0,
-        "actual_gd_covered": 4,
+        "xg_for_total": 4.44,
+        "xg_against_total": 2.875,
+        "xg_diff_total": 1.565,
+        "xg_diff_per_match": 0.522,
+        "opponent_fifa_points_avg": 1549.47,
+        "actual_gd_covered": 6,
         "form_raw_base": 9.4,
-        "form_raw_adjusted": 9.4
+        "form_raw_adjusted": 8.69
       }
     },
     {
