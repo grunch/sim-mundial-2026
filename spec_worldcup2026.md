@@ -130,8 +130,10 @@ opponent-adjusted differential:
 gd_adjusted       = (1 − β) · goal_difference + β · xg_diff_adjusted_total
 form_raw_adjusted = points + 0.4 · gd_adjusted
 ```
-with `β = 0.4`. To avoid small-sample bias, the correction only activates for a
-team once it has the full group stage covered (`matches_covered ≥ 3`).
+with `β = 0.8`, so the opponent-adjusted expected-goal differential carries most
+of the correction and the actual goal difference only a fifth. To avoid
+small-sample bias, the correction only activates for a team once it has the full
+group stage covered (`matches_covered ≥ 3`).
 
 Because the detailed match log is the authoritative record, once a team's group
 stage is fully covered `build_performance_metrics.py` recomputes the aggregate
@@ -183,38 +185,38 @@ python3 predict.py                  # runs the 16 Round of 32 matchups
 
 | # | Team | Grp | Pos | FIFA | TM €M | WC26 (pts/GD) | Pedigree | SI | eELO |
 |--:|--------|:--:|:--:|--:|--:|:--:|--:|--:|--:|
-| 1 | France | I | 1st | 1871 | 1520 | 9/+8 | 84 | 97.1 | 2038 |
-| 2 | Argentina | J | 1st | 1877 | 808 | 9/+7 | 100 | 95.2 | 2032 |
-| 3 | Spain | H | 1st | 1875 | 1220 | 7/+5 | 64 | 84.4 | 1974 |
-| 4 | Brazil | C | 1st | 1766 | 928 | 7/+6 | 100 | 81.1 | 1888 |
-| 5 | England | L | 1st | 1828 | 1360 | 7/+4 | 64 | 80.4 | 1924 |
-| 6 | Germany | E | 1st | 1736 | 947 | 6/+6 | 100 | 76.3 | 1843 |
-| 7 | Netherlands | F | 1st | 1754 | 754 | 7/+6 | 32 | 68.7 | 1824 |
-| 8 | Morocco | C | 2nd | 1755 | 448 | 7/+3 | 22 | 60.9 | 1785 |
-| 9 | Portugal | K | 2nd | 1768 | 1010 | 4/+5 | 23 | 60.9 | 1788 |
-| 10 | Mexico | A | 1st | 1687 | 192 | 9/+6 | 24 | 60.0 | 1744 |
-| 11 | Belgium | G | 1st | 1742 | 548 | 5/+3 | 28 | 56.7 | 1751 |
-| 12 | United States | D | 1st | 1671 | 386 | 6/+4 | 26 | 52.7 | 1690 |
-| 13 | Switzerland | B | 1st | 1650 | 332 | 7/+4 | 20 | 52.2 | 1677 |
-| 14 | Croatia | L | 2nd | 1715 | 387 | 6/+0 | 28 | 52.0 | 1711 |
-| 15 | Colombia | K | 1st | 1698 | 302 | 6/+3 | 16 | 50.7 | 1698 |
-| 16 | Japan | F | 2nd | 1662 | 271 | 5/+4 | 11 | 45.1 | 1646 |
-| 17 | Senegal | I | 3rd | 1684 | 478 | 3/+3 | 13 | 43.8 | 1575 |
-| 18 | Norway | I | 2nd | 1557 | 590 | 6/+1 | 8 | 40.7 | 1558 |
-| 19 | Ivory Coast | E | 2nd | 1541 | 522 | 6/+2 | 3 | 39.1 | 1542 |
-| 20 | Ecuador | E | 3rd | 1599 | 369 | 4/+0 | 9 | 34.7 | 1551 |
-| 21 | Austria | J | 2nd | 1597 | 245 | 4/+0 | 22 | 34.2 | 1546 |
-| 22 | Canada | B | 2nd | 1559 | 199 | 4/+5 | 2 | 32.5 | 1520 |
-| 23 | Sweden | F | 3rd | 1510 | 406 | 4/+0 | 32 | 32.1 | 1480 |
-| 24 | Egypt | G | 2nd | 1562 | 116 | 5/+2 | 3 | 29.2 | 1505 |
-| 25 | Algeria | J | 3rd | 1571 | 257 | 4/-2 | 9 | 28.3 | 1500 |
-| 26 | Australia | D | 2nd | 1579 | 77 | 4/+0 | 11 | 24.3 | 1488 |
-| 27 | Paraguay | D | 3rd | 1505 | 154 | 4/-2 | 17 | 21.6 | 1425 |
-| 28 | DR Congo | K | 3rd | 1474 | 144 | 4/+1 | 2 | 19.8 | 1400 |
-| 29 | Ghana | L | 3rd | 1347 | 234 | 4/+0 | 13 | 13.7 | 1289 |
-| 30 | Bosnia and Herzegovina | B | 3rd | 1387 | 146 | 4/-1 | 2 | 11.1 | 1302 |
-| 31 | South Africa | A | 2nd | 1428 | 49 | 4/-1 | 3 | 8.1 | 1313 |
-| 32 | Cape Verde | H | 2nd | 1371 | 49 | 3/+0 | 1 | 1.8 | 1245 |
+| 1 | France | I | 1st | 1871 | 1520 | 9/+8 | 84 | 97.1 | 2033 |
+| 2 | Argentina | J | 1st | 1877 | 808 | 9/+7 | 100 | 94.7 | 2023 |
+| 3 | Spain | H | 1st | 1875 | 1220 | 7/+5 | 64 | 86.9 | 1982 |
+| 4 | England | L | 1st | 1828 | 1360 | 7/+4 | 64 | 84.1 | 1938 |
+| 5 | Brazil | C | 1st | 1766 | 928 | 7/+6 | 100 | 79.9 | 1874 |
+| 6 | Germany | E | 1st | 1736 | 947 | 6/+6 | 100 | 76.0 | 1834 |
+| 7 | Netherlands | F | 1st | 1754 | 754 | 7/+6 | 32 | 68.3 | 1815 |
+| 8 | Morocco | C | 2nd | 1755 | 448 | 7/+3 | 22 | 63.1 | 1790 |
+| 9 | Portugal | K | 2nd | 1768 | 1010 | 5/+5 | 23 | 61.4 | 1783 |
+| 10 | Belgium | G | 1st | 1742 | 548 | 5/+4 | 28 | 60.2 | 1764 |
+| 11 | Mexico | A | 1st | 1687 | 192 | 9/+6 | 24 | 59.9 | 1738 |
+| 12 | Colombia | K | 1st | 1698 | 302 | 7/+3 | 16 | 57.6 | 1730 |
+| 13 | United States | D | 1st | 1671 | 386 | 6/+4 | 26 | 54.9 | 1695 |
+| 14 | Switzerland | B | 1st | 1650 | 332 | 7/+4 | 20 | 52.8 | 1674 |
+| 15 | Croatia | L | 2nd | 1715 | 387 | 6/+0 | 28 | 52.5 | 1706 |
+| 16 | Senegal | I | 3rd | 1684 | 478 | 3/+2 | 13 | 44.8 | 1645 |
+| 17 | Japan | F | 2nd | 1662 | 271 | 5/+4 | 11 | 44.5 | 1635 |
+| 18 | Norway | I | 2nd | 1557 | 590 | 6/+1 | 8 | 43.3 | 1565 |
+| 19 | Ivory Coast | E | 2nd | 1541 | 522 | 6/+2 | 3 | 39.6 | 1536 |
+| 20 | Ecuador | E | 3rd | 1599 | 369 | 4/+0 | 9 | 37.5 | 1558 |
+| 21 | Sweden | F | 3rd | 1510 | 406 | 4/+0 | 32 | 36.1 | 1494 |
+| 22 | Austria | J | 2nd | 1597 | 245 | 4/+0 | 22 | 35.5 | 1544 |
+| 23 | Canada | B | 2nd | 1559 | 199 | 4/+5 | 2 | 33.8 | 1519 |
+| 24 | Algeria | J | 3rd | 1571 | 257 | 4/-2 | 9 | 33.2 | 1519 |
+| 25 | Egypt | G | 2nd | 1562 | 116 | 5/+2 | 3 | 30.0 | 1501 |
+| 26 | Australia | D | 2nd | 1579 | 77 | 4/+0 | 11 | 24.7 | 1481 |
+| 27 | Paraguay | D | 3rd | 1505 | 154 | 4/-2 | 17 | 21.7 | 1416 |
+| 28 | DR Congo | K | 3rd | 1474 | 144 | 4/+1 | 2 | 21.5 | 1401 |
+| 29 | Ghana | L | 3rd | 1347 | 234 | 4/+0 | 13 | 15.0 | 1287 |
+| 30 | Bosnia and Herzegovina | B | 3rd | 1387 | 146 | 4/-1 | 2 | 12.0 | 1297 |
+| 31 | South Africa | A | 2nd | 1428 | 49 | 4/-1 | 3 | 9.5 | 1312 |
+| 32 | Cape Verde | H | 2nd | 1371 | 49 | 3/+0 | 1 | 1.8 | 1235 |
 
 ## 8. Forecast of the 16 matchups (engine demonstration)
 
@@ -224,20 +226,20 @@ P to advance (includes extra time/penalties). Close matchups where the model fli
 |---|---|
 | Canada vs South Africa | Canada **84%** |
 | Germany vs Paraguay | Germany **92%** |
-| Netherlands vs Morocco | Netherlands **68%** |
+| Netherlands vs Morocco | Netherlands **63%** |
 | Brazil vs Japan | Brazil **86%** |
-| France vs Sweden | France **95%** |
-| Ivory Coast vs Norway ⚑ | Norway **55%** |
-| Mexico vs Ecuador | Mexico **84%** |
+| France vs Sweden | France **94%** |
+| Ivory Coast vs Norway ⚑ | Norway **60%** |
+| Mexico vs Ecuador | Mexico **83%** |
 | England vs DR Congo | England **94%** |
 | United States vs Bosnia | USA **91%** |
-| Belgium vs Senegal | Belgium **79%** |
+| Belgium vs Senegal | Belgium **78%** |
 | Portugal vs Croatia | Portugal **71%** |
 | Spain vs Austria | Spain **92%** |
-| Switzerland vs Algeria | Switzerland **83%** |
+| Switzerland vs Algeria | Switzerland **81%** |
 | Argentina vs Cape Verde | Argentina **98%** |
-| Colombia vs Ghana | Colombia **91%** |
-| Australia vs Egypt ⚑ | Egypt **62%** |
+| Colombia vs Ghana | Colombia **92%** |
+| Australia vs Egypt ⚑ | Egypt **63%** |
 
 ## 9. How to tune the model
 
@@ -271,16 +273,16 @@ Semifinals:    101:(97,98)  102:(99,100)            Final: 104:(101,102)
 
 | Team | Round of 16 | Quarterfinals | Semifinals | Final | **Champion** |
 |---|--:|--:|--:|--:|--:|
-| Argentina | 97.6% | 92.0% | 82.6% | 65.3% | **39.1%** |
-| France | 94.8% | 79.6% | 68.7% | 54.0% | **34.5%** |
-| Spain | 91.8% | 77.1% | 66.7% | 27.9% | **11.3%** |
-| England | 94.1% | 78.7% | 46.5% | 15.7% | **5.6%** |
-| Brazil | 85.8% | 76.6% | 43.6% | 14.2% | **4.9%** |
-| Germany | 91.6% | 19.1% | 13.6% | 6.2% | **1.7%** |
-| Netherlands | 67.8% | 60.4% | 12.0% | 4.6% | **1.0%** |
-| Portugal | 70.8% | 16.1% | 10.8% | 2.2% | **0.4%** |
+| Argentina | 97.7% | 92.0% | 81.6% | 62.7% | **36.4%** |
+| France | 94.5% | 79.5% | 68.6% | 52.5% | **34.0%** |
+| Spain | 92.1% | 78.0% | 67.2% | 30.0% | **13.4%** |
+| England | 94.4% | 80.1% | 55.5% | 20.9% | **8.1%** |
+| Brazil | 85.7% | 76.1% | 35.0% | 11.3% | **3.6%** |
+| Germany | 91.6% | 19.2% | 13.6% | 5.7% | **1.5%** |
+| Netherlands | 63.0% | 56.0% | 11.0% | 4.0% | **0.8%** |
+| Belgium | 78.2% | 52.8% | 12.6% | 2.4% | **0.4%** |
 
-> **Reading the bracket:** Argentina and France are in opposite halves (they can only meet in the Final), hence their high probabilities of reaching the Final. **Germany** illustrates the asymmetry of the bracket: 91% to pass the Round of 16 but only 20% to reach the Quarterfinals, because its Round of 16 opponent (match 89) is very likely **France**. The draw matters as much as quality.
+> **Reading the bracket:** Argentina and France are in opposite halves (they can only meet in the Final), hence their high probabilities of reaching the Final. **Germany** illustrates the asymmetry of the bracket: 92% to pass the Round of 16 but only 19% to reach the Quarterfinals, because its Round of 16 opponent (match 89) is very likely **France**. The draw matters as much as quality.
 
 ## 12. Reproduce
 ```bash
