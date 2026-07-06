@@ -102,19 +102,24 @@ outcome (on target, off target, blocked) and by location (in box, out of box),
 goalkeeper saves, possession, passes, completed passes, pass accuracy, corners,
 offsides, fouls and cards. Shot **location** is the dominant driver of chance
 quality, so the expected-goals proxy per team per match is:
-```
+```text
 xg_proxy = 0.13 · shots_in_box + 0.035 · shots_out_box
 ```
 Aggregated per team (over the matches with detailed stats) this yields
 `xg_for_total`, `xg_against_total` and `xg_diff_total`, stored in a
 `performance_metrics` block. The intended form correction blends the actual
 goal difference with the expected one:
-```
+```text
 gd_adjusted       = (1 − β) · goal_difference + β · xg_diff_total
 form_raw_adjusted = points + 0.4 · gd_adjusted
 ```
 with `β = 0.4`. To avoid small-sample bias, the correction only activates for a
 team once it has the full group stage covered (`matches_covered ≥ 3`).
+
+Because the detailed match log is the authoritative record, once a team's group
+stage is fully covered `build_performance_metrics.py` recomputes the aggregate
+fields (`points`, `goal_difference`, `points_per_match`, `gd_per_match`,
+`form_raw_index`) from the matches so they cannot disagree with the log.
 
 *Strength of schedule (Phase 2).* Raw stats are opponent-dependent: 26 shots
 against a weak side are worth less than 7 against a strong one. Each match

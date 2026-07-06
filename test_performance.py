@@ -2,11 +2,15 @@
 # -*- coding: utf-8 -*-
 """Unit tests for the performance-metrics helpers (standard library only)."""
 import json
+import os
 import unittest
 
 import performance
 from performance import xg_proxy, compute_team_performance
 from build_performance_metrics import opponent_points_lookup
+
+_DATASET_PATH = os.path.join(os.path.dirname(__file__),
+                             "worldcup2026_r32_dataset.json")
 
 
 def _match(gf, ga, in_box, out_box, opp_in_box, opp_out_box):
@@ -57,9 +61,13 @@ class TeamPerformanceTest(unittest.TestCase):
         out = compute_team_performance(matches, form_raw_base=9.4,
                                        points=points, goal_difference=gd, beta=beta)
         self.assertTrue(out["correction_active"])
-        xg_diff = out["xg_diff_total"]
+        # xGD: for 3.35 - against 1.745 = 1.605 -> gd_adjusted 4.242 ->
+        # form 7 + 0.4*4.242 = 8.697 (hand-calculated, independent of the impl).
+        self.assertEqual(out["xg_diff_total"], 1.605)
+        self.assertEqual(out["form_raw_adjusted"], 8.697)
+        # Cross-check against the formula so a wrong beta/GD_WEIGHT is caught.
         expected = round(points + performance.GD_WEIGHT
-                         * ((1 - beta) * gd + beta * xg_diff), 3)
+                         * ((1 - beta) * gd + beta * out["xg_diff_total"]), 3)
         self.assertEqual(out["form_raw_adjusted"], expected)
 
     def test_empty_matches_is_safe(self):
@@ -67,7 +75,7 @@ class TeamPerformanceTest(unittest.TestCase):
                                        points=3, goal_difference=1)
         self.assertFalse(out["correction_active"])
         self.assertEqual(out["form_raw_adjusted"], 5.0)
-        self.assertEqual(out["xg_diff_per_match"], 0.0)
+        self.assertIsNone(out["xg_diff_per_match"])
 
 
 class DatasetInvariantTest(unittest.TestCase):
@@ -75,7 +83,7 @@ class DatasetInvariantTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        with open("worldcup2026_r32_dataset.json", encoding="utf-8") as f:
+        with open(_DATASET_PATH, encoding="utf-8") as f:
             cls.data = json.load(f)
 
     def test_stored_xg_and_form_are_consistent(self):
@@ -95,11 +103,33 @@ class DatasetInvariantTest(unittest.TestCase):
                 self.assertEqual(m["xg_proxy_against"],
                                  xg_proxy(m["opponent_stats"]["shots_in_box"],
                                           m["opponent_stats"]["shots_out_box"]))
-            # Phase 1: with partial coverage the correction stays off and the
-            # form is byte-for-byte the original results-only value.
             if pm["matches_covered"] < pm["coverage_threshold"]:
+                # Partial coverage: correction stays off and the form is the
+                # original results-only value.
                 self.assertFalse(pm["correction_active"])
                 self.assertEqual(pm["form_raw_adjusted"], perf["form_raw_index"])
+            else:
+                # Full coverage: correction on and the stored adjusted form
+                # matches the blend of actual GD and xGD.
+                self.assertTrue(pm["correction_active"])
+                gd_adjusted = ((1 - pm["beta"]) * perf["goal_difference"]
+                               + pm["beta"] * pm["xg_diff_total"])
+                expected = round(perf["points"]
+                                 + performance.GD_WEIGHT * gd_adjusted, 3)
+                self.assertEqual(pm["form_raw_adjusted"], expected)
+
+    def test_match_log_matches_group_aggregates(self):
+        # After the build recomputes aggregates, the per-match log and the
+        # stored points/goal_difference must agree for fully covered teams.
+        for t in self.data["teams"]:
+            perf = t["world_cup_2026_performance"]
+            matches = perf.get("group_stage_matches", [])
+            if len(matches) != perf.get("group_matches_played"):
+                continue
+            points = sum({"W": 3, "D": 1, "L": 0}[m["result"]] for m in matches)
+            gd = sum(m["goals_for"] - m["goals_against"] for m in matches)
+            self.assertEqual(perf["points"], points, t["code"])
+            self.assertEqual(perf["goal_difference"], gd, t["code"])
 
     def test_opponent_fifa_points_are_populated(self):
         points = opponent_points_lookup(self.data)

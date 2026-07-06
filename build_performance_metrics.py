@@ -14,9 +14,11 @@ re-run after adding new matches. Run from the repository root:
 """
 import json
 
-from performance import (BETA, COVERAGE_THRESHOLD, XG_PER_SHOT_IN_BOX,
-                         XG_PER_SHOT_OUT_BOX, compute_team_performance,
-                         xg_proxy)
+from performance import (BETA, COVERAGE_THRESHOLD, GD_WEIGHT,
+                         XG_PER_SHOT_IN_BOX, XG_PER_SHOT_OUT_BOX,
+                         compute_team_performance, xg_proxy)
+
+RESULT_POINTS = {"W": 3, "D": 1, "L": 0}
 
 PATH = "worldcup2026_r32_dataset.json"
 
@@ -52,8 +54,34 @@ def opponent_points_lookup(data):
     """
     points = {t["code"]: t["fifa_ranking"]["points_official_2026_06_11"]
               for t in data["teams"]}
+    overlap = points.keys() & EXTERNAL_OPPONENT_FIFA_POINTS.keys()
+    if overlap:
+        raise ValueError(
+            "EXTERNAL_OPPONENT_FIFA_POINTS overlaps qualified teams "
+            f"(would overwrite real points): {sorted(overlap)}")
     points.update(EXTERNAL_OPPONENT_FIFA_POINTS)
     return points
+
+
+def recompute_group_aggregates(perf, matches):
+    """Rebuild the aggregate group-stage fields from the per-match log.
+
+    The dataset's original ``points``/``goal_difference``/``form_raw_index``
+    came from a different source and can disagree with the (authoritative)
+    match-by-match data. Once a team's group stage is fully covered, recompute
+    those fields from the matches so they cannot drift from the log. Leaves the
+    aggregates untouched under partial coverage.
+    """
+    played = perf.get("group_matches_played")
+    if not played or len(matches) != played:
+        return
+    points = sum(RESULT_POINTS[m["result"]] for m in matches)
+    gd = sum(m["goals_for"] - m["goals_against"] for m in matches)
+    perf["points"] = points
+    perf["goal_difference"] = gd
+    perf["points_per_match"] = round(points / played, 3)
+    perf["gd_per_match"] = round(gd / played, 3)
+    perf["form_raw_index"] = round(points + GD_WEIGHT * gd, 3)
 
 
 def build(data):
@@ -89,6 +117,7 @@ def build(data):
                     f"No FIFA points for opponent {opp}; add it to "
                     "EXTERNAL_OPPONENT_FIFA_POINTS in build_performance_metrics.py")
             m["opponent_fifa_points"] = points[opp]
+        recompute_group_aggregates(perf, matches)
         if matches:
             t["performance_metrics"] = compute_team_performance(
                 matches, perf["form_raw_index"], perf["points"],
