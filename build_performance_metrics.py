@@ -27,6 +27,7 @@ PATH = "worldcup2026_r32_dataset.json"
 EXTERNAL_OPPONENT_FIFA_POINTS = {
     "QAT": 1438.82,
     "TUR": 1605.73,
+    "TUN": 1476.41,
 }
 
 

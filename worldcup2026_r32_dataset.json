@@ -1894,7 +1894,64 @@
         "goal_difference": 0,
         "points_per_match": 1.333,
         "gd_per_match": 0.0,
-        "form_raw_index": 4.0
+        "form_raw_index": 4.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-14",
+            "opponent": "Tunisia",
+            "opponent_code": "TUN",
+            "goals_for": 5,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Yasin Ayari 7'",
+              "Alexander Isak 30'",
+              "Viktor Gyokeres 59'",
+              "Mattias Svanberg 84'",
+              "Yasin Ayari 90'"
+            ],
+            "team_stats": {
+              "shots": 13,
+              "shots_on_target": 7,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 9,
+              "shots_out_box": 4,
+              "gk_saves": 1,
+              "possession_pct": 49,
+              "passes": 356,
+              "passes_completed": 278,
+              "pass_accuracy_pct": 78,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 10,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 6,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 2,
+              "shots_out_box": 4,
+              "gk_saves": 1,
+              "possession_pct": 51,
+              "passes": 371,
+              "passes_completed": 292,
+              "pass_accuracy_pct": 79,
+              "corners": 2,
+              "offsides": 6,
+              "fouls": 8,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.31,
+            "xg_proxy_against": 0.4,
+            "opponent_fifa_points": 1476.41
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1920,7 +1977,21 @@
         "venue": "MetLife Stadium, New York/New Jersey",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.31,
+        "xg_against_total": 0.4,
+        "xg_diff_total": 0.91,
+        "xg_diff_per_match": 0.91,
+        "opponent_fifa_points_avg": 1476.41,
+        "actual_gd_covered": 4,
+        "form_raw_base": 4.0,
+        "form_raw_adjusted": 4.0
+      }
     },
     {
       "team": "Canada",
