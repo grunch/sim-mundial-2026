@@ -1411,7 +1411,60 @@
         "goal_difference": 5,
         "points_per_match": 1.333,
         "gd_per_match": 1.667,
-        "form_raw_index": 6.0
+        "form_raw_index": 6.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-12",
+            "opponent": "Bosnia and Herzegovina",
+            "opponent_code": "BIH",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Cyle Larin 78'"
+            ],
+            "team_stats": {
+              "shots": 13,
+              "shots_on_target": 4,
+              "shots_off_target": 5,
+              "shots_blocked": 4,
+              "shots_in_box": 10,
+              "shots_out_box": 3,
+              "gk_saves": 2,
+              "possession_pct": 61,
+              "passes": 421,
+              "passes_completed": 310,
+              "pass_accuracy_pct": 74,
+              "corners": 9,
+              "offsides": 1,
+              "fouls": 10,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 3,
+              "shots_off_target": 4,
+              "shots_blocked": 1,
+              "shots_in_box": 5,
+              "shots_out_box": 3,
+              "gk_saves": 1,
+              "possession_pct": 39,
+              "passes": 271,
+              "passes_completed": 172,
+              "pass_accuracy_pct": 63,
+              "corners": 4,
+              "offsides": 0,
+              "fouls": 20,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.405,
+            "xg_proxy_against": 0.755,
+            "opponent_fifa_points": 1387.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1439,7 +1492,21 @@
       },
       "data_notes": [
         "Primera ronda eliminatoria de su historia"
-      ]
+      ],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.405,
+        "xg_against_total": 0.755,
+        "xg_diff_total": 0.65,
+        "xg_diff_per_match": 0.65,
+        "opponent_fifa_points_avg": 1387.0,
+        "actual_gd_covered": 0,
+        "form_raw_base": 6.0,
+        "form_raw_adjusted": 6.0
+      }
     },
     {
       "team": "Algeria",
@@ -1805,7 +1872,60 @@
         "goal_difference": -1,
         "points_per_match": 1.333,
         "gd_per_match": -0.333,
-        "form_raw_index": 3.6
+        "form_raw_index": 3.6,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-12",
+            "opponent": "Canada",
+            "opponent_code": "CAN",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "J. Lukic 21'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 3,
+              "shots_off_target": 4,
+              "shots_blocked": 1,
+              "shots_in_box": 5,
+              "shots_out_box": 3,
+              "gk_saves": 1,
+              "possession_pct": 39,
+              "passes": 271,
+              "passes_completed": 172,
+              "pass_accuracy_pct": 63,
+              "corners": 4,
+              "offsides": 0,
+              "fouls": 20,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 13,
+              "shots_on_target": 4,
+              "shots_off_target": 5,
+              "shots_blocked": 4,
+              "shots_in_box": 10,
+              "shots_out_box": 3,
+              "gk_saves": 2,
+              "possession_pct": 61,
+              "passes": 421,
+              "passes_completed": 310,
+              "pass_accuracy_pct": 74,
+              "corners": 9,
+              "offsides": 1,
+              "fouls": 10,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.755,
+            "xg_proxy_against": 1.405,
+            "opponent_fifa_points": 1559.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1831,7 +1951,21 @@
         "venue": "Levi's Stadium, San Francisco",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.755,
+        "xg_against_total": 1.405,
+        "xg_diff_total": -0.65,
+        "xg_diff_per_match": -0.65,
+        "opponent_fifa_points_avg": 1559.0,
+        "actual_gd_covered": 0,
+        "form_raw_base": 3.6,
+        "form_raw_adjusted": 3.6
+      }
     },
     {
       "team": "South Africa",
