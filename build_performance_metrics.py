@@ -30,6 +30,7 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "TUN": 1476.41,
     "IRQ": 1419.24,
     "JOR": 1387.74,
+    "PAN": 1522.88,
 }
 
 

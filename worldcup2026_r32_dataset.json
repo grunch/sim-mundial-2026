@@ -3441,7 +3441,60 @@
         "goal_difference": 0,
         "points_per_match": 1.333,
         "gd_per_match": 0.0,
-        "form_raw_index": 4.0
+        "form_raw_index": 4.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "Panama",
+            "opponent_code": "PAN",
+            "goals_for": 1,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "C. Yirenkyi 90'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 2,
+              "shots_off_target": 4,
+              "shots_blocked": 2,
+              "shots_in_box": 7,
+              "shots_out_box": 1,
+              "gk_saves": 4,
+              "possession_pct": 38,
+              "passes": 351,
+              "passes_completed": 292,
+              "pass_accuracy_pct": 83,
+              "corners": 2,
+              "offsides": 4,
+              "fouls": 9,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 4,
+              "shots_off_target": 5,
+              "shots_blocked": 2,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 2,
+              "possession_pct": 62,
+              "passes": 583,
+              "passes_completed": 503,
+              "pass_accuracy_pct": 86,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.945,
+            "xg_proxy_against": 0.955,
+            "opponent_fifa_points": 1522.88
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -3467,7 +3520,21 @@
         "venue": "Arrowhead Stadium, Kansas City",
         "date": "2026-07-02"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.945,
+        "xg_against_total": 0.955,
+        "xg_diff_total": -0.01,
+        "xg_diff_per_match": -0.01,
+        "opponent_fifa_points_avg": 1522.88,
+        "actual_gd_covered": 1,
+        "form_raw_base": 4.0,
+        "form_raw_adjusted": 4.0
+      }
     },
     {
       "team": "Bosnia and Herzegovina",
