@@ -28,7 +28,7 @@ XG_PER_SHOT_OUT_BOX = 0.035
 
 # Blend weight applied to the (opponent-adjusted) expected goal difference when
 # correcting form.
-BETA = 0.4
+BETA = 0.8
 # Minimum group-stage matches with detailed stats before the correction turns on.
 COVERAGE_THRESHOLD = 3
 # Weight of goal difference inside form_raw (mirrors form_raw = points + 0.4*gd).

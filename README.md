@@ -97,14 +97,15 @@ from the per-match statistics.
    beating weak sides is discounted and performing against strong ones is
    credited.
 3. **Corrected form.** Blend the actual and the opponent-adjusted differential
-   (`β = 0.4`), only once a team has its three group games:
+   (`β = 0.8`, so the opponent-adjusted xGD carries most of the correction),
+   only once a team has its three group games:
    `form_raw_adjusted = points + 0.4·[(1−β)·goal_difference + β·xg_diff_adjusted_total]`.
 
 `build_performance_metrics.py` then recomputes `norm_form`, `strength_index` and
 `effective_elo` from `form_raw_adjusted`, so the correction reaches the
 probabilities. Each team keeps its results-only baseline and the resulting
-`elo_shift` under `performance_metrics` for audit (e.g. Portugal −8.8 Elo: a
-+5 goal difference not backed by chances; Colombia +8.4, England +7.5). The run
+`elo_shift` under `performance_metrics` for audit (e.g. Portugal −19.7 Elo: a
++5 goal difference not backed by chances; Colombia +18.4, England +16.1). The run
 is idempotent and the FIFA/value/pedigree axes are untouched.
 
 ### Tie probability (engine)
@@ -201,14 +202,14 @@ python3 bracket.py --results --scoreline # marks the real ties; predicts the res
 
 | Question | Tool | Champion |
 |---|---|---|
-| Who lifts the cup most often? | `simulate_bracket.py` | **Argentina** (~39%) |
-| How does ONE bracket end (penalties at random)? | `bracket.py --seed 2026` | **France** |
+| Who lifts the cup most often? | `simulate_bracket.py` | **Argentina** (~36%) |
+| How does ONE bracket end (penalties at random)? | `bracket.py --seed 7` | **France** |
 
 Why? Argentina and France are in opposite halves (they only meet in the final). In
-the final **France is a slight favorite (~55%)**, so in many seeds France wins — but
+the final **France is a slight favorite (~56%)**, so in many seeds France wins — but
 with draws played on penalties, other seeds give a different champion. But France's
-half is brutal (Spain, Germany, Netherlands), so **France only reaches the final 54%
-of the time**, while **Argentina reaches it 65%** thanks to an easier path. Across
+half is brutal (Spain, Germany, Netherlands), so **France only reaches the final 53%
+of the time**, while **Argentina reaches it 63%** thanks to an easier path. Across
 thousands of tournaments, Argentina lifts the cup more often.
 
 > 📌 **Being champion of the favorites' bracket ≠ being the most likely champion.** The
