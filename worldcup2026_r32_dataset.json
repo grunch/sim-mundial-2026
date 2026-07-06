@@ -1159,6 +1159,57 @@
             "xg_proxy_for": 1.155,
             "xg_proxy_against": 1.275,
             "opponent_fifa_points": 1766.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-19",
+            "opponent": "Scotland",
+            "opponent_code": "SCO",
+            "goals_for": 1,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Ismael Saibari 2'"
+            ],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 2,
+              "shots_off_target": 6,
+              "shots_blocked": 4,
+              "shots_in_box": 9,
+              "shots_out_box": 3,
+              "gk_saves": 0,
+              "possession_pct": 59,
+              "passes": 670,
+              "passes_completed": 600,
+              "pass_accuracy_pct": 90,
+              "corners": 5,
+              "offsides": 0,
+              "fouls": 8,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 6,
+              "shots_on_target": 0,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 5,
+              "shots_out_box": 1,
+              "gk_saves": 1,
+              "possession_pct": 41,
+              "passes": 456,
+              "passes_completed": 388,
+              "pass_accuracy_pct": 85,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 11,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.275,
+            "xg_proxy_against": 0.685,
+            "opponent_fifa_points": 1503.34
           }
         ]
       },
@@ -1188,16 +1239,16 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 1.155,
-        "xg_against_total": 1.275,
-        "xg_diff_total": -0.12,
-        "xg_diff_per_match": -0.12,
-        "opponent_fifa_points_avg": 1766.0,
-        "actual_gd_covered": 0,
+        "xg_for_total": 2.43,
+        "xg_against_total": 1.96,
+        "xg_diff_total": 0.47,
+        "xg_diff_per_match": 0.235,
+        "opponent_fifa_points_avg": 1634.67,
+        "actual_gd_covered": 1,
         "form_raw_base": 8.2,
         "form_raw_adjusted": 8.2
       }
