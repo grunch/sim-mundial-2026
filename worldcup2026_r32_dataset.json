@@ -726,7 +726,66 @@
         "goal_difference": 6,
         "points_per_match": 2.0,
         "gd_per_match": 2.0,
-        "form_raw_index": 8.4
+        "form_raw_index": 8.4,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-16",
+            "opponent": "Curacao",
+            "opponent_code": "CUW",
+            "goals_for": 7,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Felix Nmecha 6'",
+              "Nico Schlotterbeck 38'",
+              "Kai Havertz 45' (P)",
+              "Jamal Musiala 47'",
+              "Nathaniel Brown 68'",
+              "Deniz Undav 78'",
+              "Kai Havertz 88'"
+            ],
+            "team_stats": {
+              "shots": 26,
+              "shots_on_target": 12,
+              "shots_off_target": 6,
+              "shots_blocked": 8,
+              "shots_in_box": 21,
+              "shots_out_box": 5,
+              "gk_saves": 1,
+              "possession_pct": 65,
+              "passes": 637,
+              "passes_completed": 554,
+              "pass_accuracy_pct": 87,
+              "corners": 8,
+              "offsides": 0,
+              "fouls": 18,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 2,
+              "shots_off_target": 6,
+              "shots_blocked": 0,
+              "shots_in_box": 4,
+              "shots_out_box": 4,
+              "gk_saves": 4,
+              "possession_pct": 35,
+              "passes": 343,
+              "passes_completed": 282,
+              "pass_accuracy_pct": 82,
+              "corners": 1,
+              "offsides": 1,
+              "fouls": 11,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 2.905,
+            "xg_proxy_against": 0.66,
+            "opponent_fifa_points": 1294.77
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 4,
@@ -757,7 +816,21 @@
         "venue": "Gillette Stadium, Boston",
         "date": "2026-06-29"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.905,
+        "xg_against_total": 0.66,
+        "xg_diff_total": 2.245,
+        "xg_diff_per_match": 2.245,
+        "opponent_fifa_points_avg": 1294.77,
+        "actual_gd_covered": 6,
+        "form_raw_base": 8.4,
+        "form_raw_adjusted": 8.4
+      }
     },
     {
       "team": "Netherlands",
