@@ -2950,6 +2950,62 @@
             "xg_proxy_for": 1.405,
             "xg_proxy_against": 0.755,
             "opponent_fifa_points": 1387.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-18",
+            "opponent": "Qatar",
+            "opponent_code": "QAT",
+            "goals_for": 6,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Cyle Larin 16'",
+              "Jonathan David 29'",
+              "Jonathan David 45'",
+              "Jonathan David 90'",
+              "N. Saliba 64' (og)",
+              "M. Al Mannai 75' (og)"
+            ],
+            "team_stats": {
+              "shots": 32,
+              "shots_on_target": 10,
+              "shots_off_target": 8,
+              "shots_blocked": 14,
+              "shots_in_box": 21,
+              "shots_out_box": 11,
+              "gk_saves": 0,
+              "possession_pct": 79,
+              "passes": 567,
+              "passes_completed": 515,
+              "pass_accuracy_pct": 91,
+              "corners": 19,
+              "offsides": 1,
+              "fouls": 9,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 2,
+              "shots_on_target": 0,
+              "shots_off_target": 1,
+              "shots_blocked": 1,
+              "shots_in_box": 1,
+              "shots_out_box": 1,
+              "gk_saves": 4,
+              "possession_pct": 21,
+              "passes": 162,
+              "passes_completed": 104,
+              "pass_accuracy_pct": 64,
+              "corners": 1,
+              "offsides": 1,
+              "fouls": 10,
+              "yellow_cards": 1,
+              "red_cards": 2
+            },
+            "xg_proxy_for": 3.115,
+            "xg_proxy_against": 0.165,
+            "opponent_fifa_points": 1438.82
           }
         ]
       },
@@ -2981,16 +3037,16 @@
         "Primera ronda eliminatoria de su historia"
       ],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 1.405,
-        "xg_against_total": 0.755,
-        "xg_diff_total": 0.65,
-        "xg_diff_per_match": 0.65,
-        "opponent_fifa_points_avg": 1387.0,
-        "actual_gd_covered": 0,
+        "xg_for_total": 4.52,
+        "xg_against_total": 0.92,
+        "xg_diff_total": 3.6,
+        "xg_diff_per_match": 1.8,
+        "opponent_fifa_points_avg": 1412.91,
+        "actual_gd_covered": 6,
         "form_raw_base": 6.0,
         "form_raw_adjusted": 6.0
       }
