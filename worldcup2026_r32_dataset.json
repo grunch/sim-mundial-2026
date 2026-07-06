@@ -2510,6 +2510,58 @@
             "xg_proxy_for": 1.31,
             "xg_proxy_against": 0.46,
             "opponent_fifa_points": 1387.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-24",
+            "opponent": "Canada",
+            "opponent_code": "CAN",
+            "goals_for": 2,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Ruben Vargas 46'",
+              "Johan Manzambi 57'"
+            ],
+            "team_stats": {
+              "shots": 6,
+              "shots_on_target": 4,
+              "shots_off_target": 1,
+              "shots_blocked": 1,
+              "shots_in_box": 5,
+              "shots_out_box": 1,
+              "gk_saves": 6,
+              "possession_pct": 55,
+              "passes": 443,
+              "passes_completed": 369,
+              "pass_accuracy_pct": 83,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 19,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 13,
+              "shots_on_target": 7,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 12,
+              "shots_out_box": 1,
+              "gk_saves": 2,
+              "possession_pct": 45,
+              "passes": 339,
+              "passes_completed": 271,
+              "pass_accuracy_pct": 80,
+              "corners": 7,
+              "offsides": 3,
+              "fouls": 13,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.685,
+            "xg_proxy_against": 1.595,
+            "opponent_fifa_points": 1559.0
           }
         ]
       },
@@ -2539,18 +2591,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 3.93,
-        "xg_against_total": 1.05,
-        "xg_diff_total": 2.88,
-        "xg_diff_per_match": 1.44,
-        "opponent_fifa_points_avg": 1412.91,
-        "actual_gd_covered": 3,
+        "xg_for_total": 4.615,
+        "xg_against_total": 2.645,
+        "xg_diff_total": 1.97,
+        "xg_diff_per_match": 0.657,
+        "opponent_fifa_points_avg": 1461.61,
+        "actual_gd_covered": 4,
         "form_raw_base": 8.6,
-        "form_raw_adjusted": 8.6
+        "form_raw_adjusted": 8.275
       }
     },
     {
@@ -4093,6 +4145,57 @@
             "xg_proxy_for": 3.115,
             "xg_proxy_against": 0.165,
             "opponent_fifa_points": 1438.82
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-24",
+            "opponent": "Switzerland",
+            "opponent_code": "SUI",
+            "goals_for": 1,
+            "goals_against": 2,
+            "result": "L",
+            "goalscorers": [
+              "Jonathan David 76'"
+            ],
+            "team_stats": {
+              "shots": 13,
+              "shots_on_target": 7,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 12,
+              "shots_out_box": 1,
+              "gk_saves": 2,
+              "possession_pct": 45,
+              "passes": 339,
+              "passes_completed": 271,
+              "pass_accuracy_pct": 80,
+              "corners": 7,
+              "offsides": 3,
+              "fouls": 13,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 6,
+              "shots_on_target": 4,
+              "shots_off_target": 1,
+              "shots_blocked": 1,
+              "shots_in_box": 5,
+              "shots_out_box": 1,
+              "gk_saves": 6,
+              "possession_pct": 55,
+              "passes": 443,
+              "passes_completed": 369,
+              "pass_accuracy_pct": 83,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 19,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.595,
+            "xg_proxy_against": 0.685,
+            "opponent_fifa_points": 1650.0
           }
         ]
       },
@@ -4124,18 +4227,18 @@
         "Primera ronda eliminatoria de su historia"
       ],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 4.52,
-        "xg_against_total": 0.92,
-        "xg_diff_total": 3.6,
-        "xg_diff_per_match": 1.8,
-        "opponent_fifa_points_avg": 1412.91,
-        "actual_gd_covered": 6,
+        "xg_for_total": 6.115,
+        "xg_against_total": 1.605,
+        "xg_diff_total": 4.51,
+        "xg_diff_per_match": 1.503,
+        "opponent_fifa_points_avg": 1491.94,
+        "actual_gd_covered": 5,
         "form_raw_base": 6.0,
-        "form_raw_adjusted": 6.0
+        "form_raw_adjusted": 5.922
       }
     },
     {
