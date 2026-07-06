@@ -449,7 +449,7 @@
             },
             "xg_proxy_for": 2.005,
             "xg_proxy_against": 0.105,
-            "opponent_fifa_points": 1454.0
+            "opponent_fifa_points": 1426.71
           }
         ]
       },
@@ -489,7 +489,7 @@
         "xg_against_total": 0.505,
         "xg_diff_total": 3.965,
         "xg_diff_per_match": 1.982,
-        "opponent_fifa_points_avg": 1412.5,
+        "opponent_fifa_points_avg": 1398.86,
         "actual_gd_covered": 4,
         "form_raw_base": 9.0,
         "form_raw_adjusted": 9.0
@@ -1547,6 +1547,55 @@
             "xg_proxy_for": 1.38,
             "xg_proxy_against": 1.44,
             "opponent_fifa_points": 1562.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-21",
+            "opponent": "Iran",
+            "opponent_code": "IRN",
+            "goals_for": 0,
+            "goals_against": 0,
+            "result": "D",
+            "goalscorers": [],
+            "team_stats": {
+              "shots": 23,
+              "shots_on_target": 7,
+              "shots_off_target": 10,
+              "shots_blocked": 6,
+              "shots_in_box": 20,
+              "shots_out_box": 3,
+              "gk_saves": 3,
+              "possession_pct": 70,
+              "passes": 621,
+              "passes_completed": 533,
+              "pass_accuracy_pct": 86,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 7,
+              "yellow_cards": 1,
+              "red_cards": 1
+            },
+            "opponent_stats": {
+              "shots": 7,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 6,
+              "shots_out_box": 1,
+              "gk_saves": 7,
+              "possession_pct": 30,
+              "passes": 270,
+              "passes_completed": 198,
+              "pass_accuracy_pct": 73,
+              "corners": 2,
+              "offsides": 4,
+              "fouls": 9,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 2.705,
+            "xg_proxy_against": 0.815,
+            "opponent_fifa_points": 1619.58
           }
         ]
       },
@@ -1576,15 +1625,15 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 1.38,
-        "xg_against_total": 1.44,
-        "xg_diff_total": -0.06,
-        "xg_diff_per_match": -0.06,
-        "opponent_fifa_points_avg": 1562.0,
+        "xg_for_total": 4.085,
+        "xg_against_total": 2.255,
+        "xg_diff_total": 1.83,
+        "xg_diff_per_match": 0.915,
+        "opponent_fifa_points_avg": 1590.79,
         "actual_gd_covered": 0,
         "form_raw_base": 6.2,
         "form_raw_adjusted": 6.2

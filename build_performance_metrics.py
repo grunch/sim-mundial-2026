@@ -36,7 +36,8 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "KOR": 1591.63,
     "SCO": 1503.34,
     "HAI": 1277.67,
-    "KSA": 1454.00,  # estimated (web lookup unavailable); refine when possible
+    "KSA": 1426.71,
+    "IRN": 1619.58,
 }
 
 
