@@ -3874,6 +3874,59 @@
             "xg_proxy_for": 1.44,
             "xg_proxy_against": 1.38,
             "opponent_fifa_points": 1742.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-21",
+            "opponent": "New Zealand",
+            "opponent_code": "NZL",
+            "goals_for": 3,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "M. Ziko 58'",
+              "Mohamed Salah 67'",
+              "Trezeguet 82'"
+            ],
+            "team_stats": {
+              "shots": 19,
+              "shots_on_target": 7,
+              "shots_off_target": 6,
+              "shots_blocked": 6,
+              "shots_in_box": 12,
+              "shots_out_box": 7,
+              "gk_saves": 4,
+              "possession_pct": 56,
+              "passes": 526,
+              "passes_completed": 460,
+              "pass_accuracy_pct": 87,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 8,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 5,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 4,
+              "possession_pct": 44,
+              "passes": 421,
+              "passes_completed": 337,
+              "pass_accuracy_pct": 80,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 14,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.805,
+            "xg_proxy_against": 0.955,
+            "opponent_fifa_points": 1197.0
           }
         ]
       },
@@ -3903,16 +3956,16 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 1.44,
-        "xg_against_total": 1.38,
-        "xg_diff_total": 0.06,
-        "xg_diff_per_match": 0.06,
-        "opponent_fifa_points_avg": 1742.0,
-        "actual_gd_covered": 0,
+        "xg_for_total": 3.245,
+        "xg_against_total": 2.335,
+        "xg_diff_total": 0.91,
+        "xg_diff_per_match": 0.455,
+        "opponent_fifa_points_avg": 1469.5,
+        "actual_gd_covered": 2,
         "form_raw_base": 5.8,
         "form_raw_adjusted": 5.8
       }
