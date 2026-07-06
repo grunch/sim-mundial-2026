@@ -1150,6 +1150,57 @@
             "xg_proxy_for": 1.415,
             "xg_proxy_against": 0.885,
             "opponent_fifa_points": 1541.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-25",
+            "opponent": "Ecuador",
+            "opponent_code": "ECU",
+            "goals_for": 1,
+            "goals_against": 2,
+            "result": "L",
+            "goalscorers": [
+              "Leroy Sane 2'"
+            ],
+            "team_stats": {
+              "shots": 11,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 5,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 1,
+              "possession_pct": 61,
+              "passes": 592,
+              "passes_completed": 517,
+              "pass_accuracy_pct": 87,
+              "corners": 2,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 7,
+              "shots_on_target": 3,
+              "shots_off_target": 2,
+              "shots_blocked": 2,
+              "shots_in_box": 5,
+              "shots_out_box": 2,
+              "gk_saves": 2,
+              "possession_pct": 39,
+              "passes": 378,
+              "passes_completed": 312,
+              "pass_accuracy_pct": 83,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 15,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.955,
+            "xg_proxy_against": 0.72,
+            "opponent_fifa_points": 1599.0
           }
         ]
       },
@@ -1184,18 +1235,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 4.32,
-        "xg_against_total": 1.545,
-        "xg_diff_total": 2.775,
-        "xg_diff_per_match": 1.387,
-        "opponent_fifa_points_avg": 1417.88,
-        "actual_gd_covered": 7,
+        "xg_for_total": 5.275,
+        "xg_against_total": 2.265,
+        "xg_diff_total": 3.01,
+        "xg_diff_per_match": 1.003,
+        "opponent_fifa_points_avg": 1478.26,
+        "actual_gd_covered": 6,
         "form_raw_base": 8.4,
-        "form_raw_adjusted": 8.4
+        "form_raw_adjusted": 7.922
       }
     },
     {
@@ -3599,6 +3650,58 @@
             "xg_proxy_for": 2.94,
             "xg_proxy_against": 0.73,
             "opponent_fifa_points": 1294.77
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-25",
+            "opponent": "Germany",
+            "opponent_code": "GER",
+            "goals_for": 2,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "N. Angulo 9'",
+              "G. Plata 77'"
+            ],
+            "team_stats": {
+              "shots": 7,
+              "shots_on_target": 3,
+              "shots_off_target": 2,
+              "shots_blocked": 2,
+              "shots_in_box": 5,
+              "shots_out_box": 2,
+              "gk_saves": 2,
+              "possession_pct": 39,
+              "passes": 378,
+              "passes_completed": 312,
+              "pass_accuracy_pct": 83,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 15,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 5,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 1,
+              "possession_pct": 61,
+              "passes": 592,
+              "passes_completed": 517,
+              "pass_accuracy_pct": 87,
+              "corners": 2,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.72,
+            "xg_proxy_against": 0.955,
+            "opponent_fifa_points": 1736.0
           }
         ]
       },
@@ -3628,18 +3731,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 3.835,
-        "xg_against_total": 2.015,
-        "xg_diff_total": 1.82,
-        "xg_diff_per_match": 0.91,
-        "opponent_fifa_points_avg": 1417.88,
-        "actual_gd_covered": -1,
+        "xg_for_total": 4.555,
+        "xg_against_total": 2.97,
+        "xg_diff_total": 1.585,
+        "xg_diff_per_match": 0.528,
+        "opponent_fifa_points_avg": 1523.92,
+        "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 4.0
+        "form_raw_adjusted": 4.254
       }
     },
     {
