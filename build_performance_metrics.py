@@ -199,22 +199,30 @@ def recompute_strength_and_elo(data):
 
     Overwrites ``derived_metrics`` with performance-adjusted values and keeps
     the results-only baseline (computed deterministically from ``form_raw_index``
-    and the original form pool) per team for audit.
+    and a freshly measured raw-form pool) per team for audit.
     """
     meta = data["meta"]
     weights, coeffs = meta["weights_strength_index"], meta["elo_adjustment_coeffs"]
     agg = meta["pool_aggregates"]
-    lv, pd, raw_form = agg["log10_value"], agg["pedigree_raw"], agg["form_raw"]
+    lv, pd = agg["log10_value"], agg["pedigree_raw"]
     _validate_norms(data, agg)
+
+    # Refresh the raw-form pool from the current (authoritative) form_raw_index
+    # values. Phase 1 rewrote some teams' form_raw_index from the match log, so
+    # the stored aggregate can be stale; the results-only baseline below must be
+    # measured against the matching pool, not a stale one.
+    raw_stats = _pool_stats(
+        [t["world_cup_2026_performance"]["form_raw_index"] for t in data["teams"]])
+    agg["form_raw"] = raw_stats
 
     forms = [effective_form(t) for t in data["teams"]]
     adj_stats = _pool_stats(forms)
     agg["form_effective"] = adj_stats
 
-    for t, form in zip(data["teams"], forms):
+    for t, form in zip(data["teams"], forms, strict=True):
         dm = t["derived_metrics"]
         raw_index = t["world_cup_2026_performance"]["form_raw_index"]
-        _, ro_si, ro_elo = _team_si_elo(t, raw_index, raw_form, weights,
+        _, ro_si, ro_elo = _team_si_elo(t, raw_index, raw_stats, weights,
                                         coeffs, lv, pd)
         norm_form, si, elo = _team_si_elo(t, form, adj_stats, weights,
                                           coeffs, lv, pd)

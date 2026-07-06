@@ -67,7 +67,7 @@ python3 bracket.py --results        # use real results already played; predict t
 
 ### Derived metrics (all normalized over the pool of 32)
 
-```
+```text
 norm_fifa  = minmax(official_FIFA_points)
 norm_value = minmax(log10(squad_value))             # log: value is heavily skewed
 norm_form  = minmax(form_raw_adjusted)              # performance-adjusted, see below
@@ -98,20 +98,20 @@ from the per-match statistics.
    credited.
 3. **Corrected form.** Blend the actual and the opponent-adjusted differential
    (`β = 0.4`), only once a team has its three group games:
-   `form_raw_adjusted = points + 0.4·[(1−β)·goal_difference + β·adj_xgd_total]`.
+   `form_raw_adjusted = points + 0.4·[(1−β)·goal_difference + β·xg_diff_adjusted_total]`.
 
 `build_performance_metrics.py` then recomputes `norm_form`, `strength_index` and
 `effective_elo` from `form_raw_adjusted`, so the correction reaches the
 probabilities. Each team keeps its results-only baseline and the resulting
-`elo_shift` under `performance_metrics` for audit (e.g. Portugal −9.8 Elo: a
-+5 goal difference not backed by chances; Colombia +7.2, England +6.2). The run
+`elo_shift` under `performance_metrics` for audit (e.g. Portugal −8.8 Elo: a
++5 goal difference not backed by chances; Colombia +8.4, England +7.5). The run
 is idempotent and the FIFA/value/pedigree axes are untouched.
 
 ### Tie probability (engine)
 
 **Two independent methods** are averaged:
 
-```
+```text
 Method A (Elo):  P(A) = 1 / (1 + 10^(-(eELO_A − eELO_B)/600))
 Method B (SI):   P(A) = 1 / (1 + 10^(-(SI_A − SI_B)/12))
 P(A advances)  =  (P_A_elo + P_A_si) / 2          # includes extra time and penalties
