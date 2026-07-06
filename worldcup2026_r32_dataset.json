@@ -1538,7 +1538,60 @@
         "goal_difference": 2,
         "points_per_match": 2.0,
         "gd_per_match": 0.667,
-        "form_raw_index": 6.8
+        "form_raw_index": 6.8,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-14",
+            "opponent": "Ecuador",
+            "opponent_code": "ECU",
+            "goals_for": 1,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Amad Diallo 90'"
+            ],
+            "team_stats": {
+              "shots": 15,
+              "shots_on_target": 4,
+              "shots_off_target": 8,
+              "shots_blocked": 3,
+              "shots_in_box": 8,
+              "shots_out_box": 7,
+              "gk_saves": 1,
+              "possession_pct": 48,
+              "passes": 470,
+              "passes_completed": 397,
+              "pass_accuracy_pct": 84,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 12,
+              "shots_on_target": 1,
+              "shots_off_target": 8,
+              "shots_blocked": 3,
+              "shots_in_box": 5,
+              "shots_out_box": 7,
+              "gk_saves": 3,
+              "possession_pct": 52,
+              "passes": 492,
+              "passes_completed": 419,
+              "pass_accuracy_pct": 85,
+              "corners": 5,
+              "offsides": 0,
+              "fouls": 13,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.285,
+            "xg_proxy_against": 0.895,
+            "opponent_fifa_points": 1599.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1564,7 +1617,21 @@
         "venue": null,
         "date": null
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.285,
+        "xg_against_total": 0.895,
+        "xg_diff_total": 0.39,
+        "xg_diff_per_match": 0.39,
+        "opponent_fifa_points_avg": 1599.0,
+        "actual_gd_covered": 1,
+        "form_raw_base": 6.8,
+        "form_raw_adjusted": 6.8
+      }
     },
     {
       "team": "Ecuador",
@@ -1594,7 +1661,58 @@
         "goal_difference": 0,
         "points_per_match": 1.333,
         "gd_per_match": 0.0,
-        "form_raw_index": 4.0
+        "form_raw_index": 4.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-14",
+            "opponent": "Ivory Coast",
+            "opponent_code": "CIV",
+            "goals_for": 0,
+            "goals_against": 1,
+            "result": "L",
+            "goalscorers": [],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 1,
+              "shots_off_target": 8,
+              "shots_blocked": 3,
+              "shots_in_box": 5,
+              "shots_out_box": 7,
+              "gk_saves": 3,
+              "possession_pct": 52,
+              "passes": 492,
+              "passes_completed": 419,
+              "pass_accuracy_pct": 85,
+              "corners": 5,
+              "offsides": 0,
+              "fouls": 13,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 15,
+              "shots_on_target": 4,
+              "shots_off_target": 8,
+              "shots_blocked": 3,
+              "shots_in_box": 8,
+              "shots_out_box": 7,
+              "gk_saves": 1,
+              "possession_pct": 48,
+              "passes": 470,
+              "passes_completed": 397,
+              "pass_accuracy_pct": 84,
+              "corners": 3,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.895,
+            "xg_proxy_against": 1.285,
+            "opponent_fifa_points": 1541.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1620,7 +1738,21 @@
         "venue": "Estadio Azteca, Mexico City",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.895,
+        "xg_against_total": 1.285,
+        "xg_diff_total": -0.39,
+        "xg_diff_per_match": -0.39,
+        "opponent_fifa_points_avg": 1541.0,
+        "actual_gd_covered": -1,
+        "form_raw_base": 4.0,
+        "form_raw_adjusted": 4.0
+      }
     },
     {
       "team": "Austria",
