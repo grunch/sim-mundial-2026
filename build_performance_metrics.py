@@ -40,6 +40,7 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "IRN": 1619.58,
     "URU": 1673.07,
     "NZL": 1197.00,  # approx pre-tournament (2026-06-11); sources vary
+    "CZE": 1505.00,  # approx pre-tournament (2026-06-11, rank ~40)
 }
 
 

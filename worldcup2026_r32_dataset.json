@@ -2087,6 +2087,59 @@
             "xg_proxy_for": 0.755,
             "xg_proxy_against": 0.885,
             "opponent_fifa_points": 1591.63
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-24",
+            "opponent": "Czechia",
+            "opponent_code": "CZE",
+            "goals_for": 3,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "M. Chavez Garcia 55'",
+              "Julian Quinones 61'",
+              "A. Fidalgo 90'"
+            ],
+            "team_stats": {
+              "shots": 11,
+              "shots_on_target": 5,
+              "shots_off_target": 4,
+              "shots_blocked": 2,
+              "shots_in_box": 9,
+              "shots_out_box": 2,
+              "gk_saves": 1,
+              "possession_pct": 48,
+              "passes": 386,
+              "passes_completed": 330,
+              "pass_accuracy_pct": 85,
+              "corners": 1,
+              "offsides": 0,
+              "fouls": 13,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 13,
+              "shots_on_target": 1,
+              "shots_off_target": 8,
+              "shots_blocked": 4,
+              "shots_in_box": 6,
+              "shots_out_box": 7,
+              "gk_saves": 2,
+              "possession_pct": 52,
+              "passes": 398,
+              "passes_completed": 333,
+              "pass_accuracy_pct": 84,
+              "corners": 5,
+              "offsides": 1,
+              "fouls": 9,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.24,
+            "xg_proxy_against": 1.025,
+            "opponent_fifa_points": 1505.0
           }
         ]
       },
@@ -2116,18 +2169,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 2.17,
-        "xg_against_total": 1.085,
-        "xg_diff_total": 1.085,
-        "xg_diff_per_match": 0.542,
-        "opponent_fifa_points_avg": 1509.82,
-        "actual_gd_covered": 3,
+        "xg_for_total": 3.41,
+        "xg_against_total": 2.11,
+        "xg_diff_total": 1.3,
+        "xg_diff_per_match": 0.433,
+        "opponent_fifa_points_avg": 1508.21,
+        "actual_gd_covered": 6,
         "form_raw_base": 11.4,
-        "form_raw_adjusted": 11.4
+        "form_raw_adjusted": 10.648
       }
     },
     {
