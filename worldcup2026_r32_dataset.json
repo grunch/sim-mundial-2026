@@ -841,7 +841,60 @@
         "goal_difference": 5,
         "points_per_match": 1.333,
         "gd_per_match": 1.667,
-        "form_raw_index": 6.0
+        "form_raw_index": 6.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "DR Congo",
+            "opponent_code": "COD",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Joao Neves 6'"
+            ],
+            "team_stats": {
+              "shots": 7,
+              "shots_on_target": 1,
+              "shots_off_target": 4,
+              "shots_blocked": 2,
+              "shots_in_box": 5,
+              "shots_out_box": 2,
+              "gk_saves": 1,
+              "possession_pct": 75,
+              "passes": 783,
+              "passes_completed": 724,
+              "pass_accuracy_pct": 92,
+              "corners": 5,
+              "offsides": 3,
+              "fouls": 9,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 2,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 25,
+              "passes": 249,
+              "passes_completed": 195,
+              "pass_accuracy_pct": 78,
+              "corners": 4,
+              "offsides": 2,
+              "fouls": 10,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.72,
+            "xg_proxy_against": 0.47,
+            "opponent_fifa_points": 1474.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -867,7 +920,21 @@
         "venue": "Estadio Akron, Guadalajara",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.72,
+        "xg_against_total": 0.47,
+        "xg_diff_total": 0.25,
+        "xg_diff_per_match": 0.25,
+        "opponent_fifa_points_avg": 1474.0,
+        "actual_gd_covered": 0,
+        "form_raw_base": 6.0,
+        "form_raw_adjusted": 6.0
+      }
     },
     {
       "team": "Morocco",
@@ -3113,7 +3180,60 @@
         "goal_difference": 1,
         "points_per_match": 1.333,
         "gd_per_match": 0.333,
-        "form_raw_index": 4.4
+        "form_raw_index": 4.4,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "Portugal",
+            "opponent_code": "POR",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Yoane Wissa 45'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 2,
+              "shots_out_box": 6,
+              "gk_saves": 0,
+              "possession_pct": 25,
+              "passes": 249,
+              "passes_completed": 195,
+              "pass_accuracy_pct": 78,
+              "corners": 4,
+              "offsides": 2,
+              "fouls": 10,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 7,
+              "shots_on_target": 1,
+              "shots_off_target": 4,
+              "shots_blocked": 2,
+              "shots_in_box": 5,
+              "shots_out_box": 2,
+              "gk_saves": 1,
+              "possession_pct": 75,
+              "passes": 783,
+              "passes_completed": 724,
+              "pass_accuracy_pct": 92,
+              "corners": 5,
+              "offsides": 3,
+              "fouls": 9,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.47,
+            "xg_proxy_against": 0.72,
+            "opponent_fifa_points": 1768.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -3139,7 +3259,21 @@
         "venue": "Mercedes-Benz Stadium, Atlanta",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.47,
+        "xg_against_total": 0.72,
+        "xg_diff_total": -0.25,
+        "xg_diff_per_match": -0.25,
+        "opponent_fifa_points_avg": 1768.0,
+        "actual_gd_covered": 0,
+        "form_raw_base": 4.4,
+        "form_raw_adjusted": 4.4
+      }
     },
     {
       "team": "Ghana",
