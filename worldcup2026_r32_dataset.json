@@ -733,6 +733,59 @@
             "xg_proxy_for": 1.04,
             "xg_proxy_against": 0.625,
             "opponent_fifa_points": 1277.67
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-24",
+            "opponent": "Scotland",
+            "opponent_code": "SCO",
+            "goals_for": 3,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Vinicius Junior 7'",
+              "Vinicius Junior 45'",
+              "Matheus Cunha 60'"
+            ],
+            "team_stats": {
+              "shots": 21,
+              "shots_on_target": 9,
+              "shots_off_target": 7,
+              "shots_blocked": 5,
+              "shots_in_box": 14,
+              "shots_out_box": 7,
+              "gk_saves": 5,
+              "possession_pct": 54,
+              "passes": 605,
+              "passes_completed": 564,
+              "pass_accuracy_pct": 93,
+              "corners": 6,
+              "offsides": 1,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 14,
+              "shots_on_target": 5,
+              "shots_off_target": 6,
+              "shots_blocked": 3,
+              "shots_in_box": 10,
+              "shots_out_box": 4,
+              "gk_saves": 5,
+              "possession_pct": 46,
+              "passes": 500,
+              "passes_completed": 450,
+              "pass_accuracy_pct": 90,
+              "corners": 7,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 2.065,
+            "xg_proxy_against": 1.44,
+            "opponent_fifa_points": 1503.34
           }
         ]
       },
@@ -768,18 +821,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 2.315,
-        "xg_against_total": 1.78,
-        "xg_diff_total": 0.535,
-        "xg_diff_per_match": 0.268,
-        "opponent_fifa_points_avg": 1516.34,
-        "actual_gd_covered": 3,
+        "xg_for_total": 4.38,
+        "xg_against_total": 3.22,
+        "xg_diff_total": 1.16,
+        "xg_diff_per_match": 0.387,
+        "opponent_fifa_points_avg": 1512.0,
+        "actual_gd_covered": 6,
         "form_raw_base": 9.4,
-        "form_raw_adjusted": 9.4
+        "form_raw_adjusted": 8.626
       }
     },
     {
