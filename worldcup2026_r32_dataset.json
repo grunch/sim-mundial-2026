@@ -89,7 +89,62 @@
         "goal_difference": 8,
         "points_per_match": 3.0,
         "gd_per_match": 2.667,
-        "form_raw_index": 12.2
+        "form_raw_index": 12.2,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-16",
+            "opponent": "Senegal",
+            "opponent_code": "SEN",
+            "goals_for": 3,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Kylian Mbappe 66'",
+              "Bradley Barcola 82'",
+              "Kylian Mbappe 90'"
+            ],
+            "team_stats": {
+              "shots": 11,
+              "shots_on_target": 8,
+              "shots_off_target": 1,
+              "shots_blocked": 2,
+              "shots_in_box": 7,
+              "shots_out_box": 4,
+              "gk_saves": 2,
+              "possession_pct": 53,
+              "passes": 575,
+              "passes_completed": 505,
+              "pass_accuracy_pct": 88,
+              "corners": 6,
+              "offsides": 1,
+              "fouls": 5,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 6,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 4,
+              "shots_out_box": 2,
+              "gk_saves": 5,
+              "possession_pct": 47,
+              "passes": 502,
+              "passes_completed": 430,
+              "pass_accuracy_pct": 86,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 9,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.05,
+            "xg_proxy_against": 0.59,
+            "opponent_fifa_points": 1684.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 2,
@@ -118,7 +173,21 @@
         "venue": "MetLife Stadium, New York/New Jersey",
         "date": "2026-06-30"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.05,
+        "xg_against_total": 0.59,
+        "xg_diff_total": 0.46,
+        "xg_diff_per_match": 0.46,
+        "opponent_fifa_points_avg": 1684.0,
+        "actual_gd_covered": 2,
+        "form_raw_base": 12.2,
+        "form_raw_adjusted": 12.2
+      }
     },
     {
       "team": "Argentina",
@@ -1970,7 +2039,60 @@
         "goal_difference": 3,
         "points_per_match": 1.0,
         "gd_per_match": 1.0,
-        "form_raw_index": 4.2
+        "form_raw_index": 4.2,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-16",
+            "opponent": "France",
+            "opponent_code": "FRA",
+            "goals_for": 1,
+            "goals_against": 3,
+            "result": "L",
+            "goalscorers": [
+              "I. Mbaye 90'"
+            ],
+            "team_stats": {
+              "shots": 6,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 4,
+              "shots_out_box": 2,
+              "gk_saves": 5,
+              "possession_pct": 47,
+              "passes": 502,
+              "passes_completed": 430,
+              "pass_accuracy_pct": 86,
+              "corners": 4,
+              "offsides": 3,
+              "fouls": 9,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 8,
+              "shots_off_target": 1,
+              "shots_blocked": 2,
+              "shots_in_box": 7,
+              "shots_out_box": 4,
+              "gk_saves": 2,
+              "possession_pct": 53,
+              "passes": 575,
+              "passes_completed": 505,
+              "pass_accuracy_pct": 88,
+              "corners": 6,
+              "offsides": 1,
+              "fouls": 5,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.59,
+            "xg_proxy_against": 1.05,
+            "opponent_fifa_points": 1871.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1996,7 +2118,21 @@
         "venue": "Lumen Field, Seattle",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.59,
+        "xg_against_total": 1.05,
+        "xg_diff_total": -0.46,
+        "xg_diff_per_match": -0.46,
+        "opponent_fifa_points_avg": 1871.0,
+        "actual_gd_covered": -2,
+        "form_raw_base": 4.2,
+        "form_raw_adjusted": 4.2
+      }
     },
     {
       "team": "Sweden",
