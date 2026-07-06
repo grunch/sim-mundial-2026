@@ -738,7 +738,43 @@
         "goal_difference": 6,
         "points_per_match": 3.0,
         "gd_per_match": 2.0,
-        "form_raw_index": 11.4
+        "form_raw_index": 11.4,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-11",
+            "opponent": "South Africa",
+            "opponent_code": "RSA",
+            "goals_for": 2,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [],
+            "team_stats": {
+              "shots": 16,
+              "shots_on_target": 5,
+              "possession_pct": 61,
+              "passes": 538,
+              "pass_accuracy_pct": 91,
+              "fouls": 12,
+              "yellow_cards": 1,
+              "red_cards": 1,
+              "offsides": 1,
+              "corners": 3
+            },
+            "opponent_stats": {
+              "shots": 3,
+              "shots_on_target": 2,
+              "possession_pct": 39,
+              "passes": 341,
+              "pass_accuracy_pct": 83,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 2,
+              "offsides": 1,
+              "corners": 1
+            }
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1860,7 +1896,43 @@
         "goal_difference": -1,
         "points_per_match": 1.333,
         "gd_per_match": -0.333,
-        "form_raw_index": 3.6
+        "form_raw_index": 3.6,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-11",
+            "opponent": "Mexico",
+            "opponent_code": "MEX",
+            "goals_for": 0,
+            "goals_against": 2,
+            "result": "L",
+            "goalscorers": [],
+            "team_stats": {
+              "shots": 3,
+              "shots_on_target": 2,
+              "possession_pct": 39,
+              "passes": 341,
+              "pass_accuracy_pct": 83,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 2,
+              "offsides": 1,
+              "corners": 1
+            },
+            "opponent_stats": {
+              "shots": 16,
+              "shots_on_target": 5,
+              "possession_pct": 61,
+              "passes": 538,
+              "pass_accuracy_pct": 91,
+              "fouls": 12,
+              "yellow_cards": 1,
+              "red_cards": 1,
+              "offsides": 1,
+              "corners": 3
+            }
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
