@@ -3755,6 +3755,57 @@
             "xg_proxy_for": 0.695,
             "xg_proxy_against": 1.795,
             "opponent_fifa_points": 1671.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-20",
+            "opponent": "Turkey",
+            "opponent_code": "TUR",
+            "goals_for": 1,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "M. Galarza 2'"
+            ],
+            "team_stats": {
+              "shots": 7,
+              "shots_on_target": 2,
+              "shots_off_target": 3,
+              "shots_blocked": 2,
+              "shots_in_box": 3,
+              "shots_out_box": 4,
+              "gk_saves": 5,
+              "possession_pct": 21,
+              "passes": 178,
+              "passes_completed": 96,
+              "pass_accuracy_pct": 54,
+              "corners": 0,
+              "offsides": 3,
+              "fouls": 15,
+              "yellow_cards": 1,
+              "red_cards": 1
+            },
+            "opponent_stats": {
+              "shots": 32,
+              "shots_on_target": 5,
+              "shots_off_target": 15,
+              "shots_blocked": 12,
+              "shots_in_box": 16,
+              "shots_out_box": 16,
+              "gk_saves": 1,
+              "possession_pct": 79,
+              "passes": 629,
+              "passes_completed": 559,
+              "pass_accuracy_pct": 89,
+              "corners": 12,
+              "offsides": 2,
+              "fouls": 14,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.53,
+            "xg_proxy_against": 2.64,
+            "opponent_fifa_points": 1605.73
           }
         ]
       },
@@ -3784,16 +3835,16 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 0.695,
-        "xg_against_total": 1.795,
-        "xg_diff_total": -1.1,
-        "xg_diff_per_match": -1.1,
-        "opponent_fifa_points_avg": 1671.0,
-        "actual_gd_covered": -3,
+        "xg_for_total": 1.225,
+        "xg_against_total": 4.435,
+        "xg_diff_total": -3.21,
+        "xg_diff_per_match": -1.605,
+        "opponent_fifa_points_avg": 1638.37,
+        "actual_gd_covered": -2,
         "form_raw_base": 3.2,
         "form_raw_adjusted": 3.2
       }
