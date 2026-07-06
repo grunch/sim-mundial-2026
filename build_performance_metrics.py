@@ -35,6 +35,7 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "UZB": 1458.73,
     "KOR": 1591.63,
     "SCO": 1503.34,
+    "HAI": 1277.67,
 }
 
 

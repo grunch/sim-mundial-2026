@@ -521,6 +521,59 @@
             "xg_proxy_for": 1.275,
             "xg_proxy_against": 1.155,
             "opponent_fifa_points": 1755.0
+          },
+          {
+            "matchday": 2,
+            "date": "2026-06-19",
+            "opponent": "Haiti",
+            "opponent_code": "HAI",
+            "goals_for": 3,
+            "goals_against": 0,
+            "result": "W",
+            "goalscorers": [
+              "Matheus Cunha 23'",
+              "Matheus Cunha 36'",
+              "Vinicius Junior 45'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 5,
+              "shots_off_target": 2,
+              "shots_blocked": 1,
+              "shots_in_box": 8,
+              "shots_out_box": 0,
+              "gk_saves": 3,
+              "possession_pct": 57,
+              "passes": 525,
+              "passes_completed": 462,
+              "pass_accuracy_pct": 88,
+              "corners": 4,
+              "offsides": 8,
+              "fouls": 13,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 7,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 1,
+              "shots_in_box": 4,
+              "shots_out_box": 3,
+              "gk_saves": 2,
+              "possession_pct": 43,
+              "passes": 399,
+              "passes_completed": 332,
+              "pass_accuracy_pct": 83,
+              "corners": 4,
+              "offsides": 4,
+              "fouls": 14,
+              "yellow_cards": 3,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.04,
+            "xg_proxy_against": 0.625,
+            "opponent_fifa_points": 1277.67
           }
         ]
       },
@@ -556,16 +609,16 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 1,
+        "matches_covered": 2,
         "coverage_threshold": 3,
         "correction_active": false,
         "beta": 0.4,
-        "xg_for_total": 1.275,
-        "xg_against_total": 1.155,
-        "xg_diff_total": 0.12,
-        "xg_diff_per_match": 0.12,
-        "opponent_fifa_points_avg": 1755.0,
-        "actual_gd_covered": 0,
+        "xg_for_total": 2.315,
+        "xg_against_total": 1.78,
+        "xg_diff_total": 0.535,
+        "xg_diff_per_match": 0.268,
+        "opponent_fifa_points_avg": 1516.34,
+        "actual_gd_covered": 3,
         "form_raw_base": 9.4,
         "form_raw_adjusted": 9.4
       }
