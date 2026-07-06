@@ -1683,7 +1683,63 @@
         "goal_difference": 1,
         "points_per_match": 2.0,
         "gd_per_match": 0.333,
-        "form_raw_index": 6.4
+        "form_raw_index": 6.4,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-16",
+            "opponent": "Iraq",
+            "opponent_code": "IRQ",
+            "goals_for": 4,
+            "goals_against": 1,
+            "result": "W",
+            "goalscorers": [
+              "Erling Haaland 29'",
+              "Erling Haaland 43'",
+              "Leo Ostigard 76'",
+              "A. Hussein 90' (og)"
+            ],
+            "team_stats": {
+              "shots": 12,
+              "shots_on_target": 5,
+              "shots_off_target": 4,
+              "shots_blocked": 3,
+              "shots_in_box": 11,
+              "shots_out_box": 1,
+              "gk_saves": 0,
+              "possession_pct": 61,
+              "passes": 537,
+              "passes_completed": 477,
+              "pass_accuracy_pct": 89,
+              "corners": 5,
+              "offsides": 0,
+              "fouls": 13,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 1,
+              "shots_off_target": 8,
+              "shots_blocked": 2,
+              "shots_in_box": 8,
+              "shots_out_box": 3,
+              "gk_saves": 2,
+              "possession_pct": 39,
+              "passes": 334,
+              "passes_completed": 271,
+              "pass_accuracy_pct": 81,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 12,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 1.465,
+            "xg_proxy_against": 1.145,
+            "opponent_fifa_points": 1419.24
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1709,7 +1765,21 @@
         "venue": "AT&T Stadium, Dallas",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 1.465,
+        "xg_against_total": 1.145,
+        "xg_diff_total": 0.32,
+        "xg_diff_per_match": 0.32,
+        "opponent_fifa_points_avg": 1419.24,
+        "actual_gd_covered": 3,
+        "form_raw_base": 6.4,
+        "form_raw_adjusted": 6.4
+      }
     },
     {
       "team": "Cote d'Ivoire",

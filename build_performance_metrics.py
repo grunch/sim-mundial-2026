@@ -28,6 +28,7 @@ EXTERNAL_OPPONENT_FIFA_POINTS = {
     "QAT": 1438.82,
     "TUR": 1605.73,
     "TUN": 1476.41,
+    "IRQ": 1419.24,
 }
 
 
