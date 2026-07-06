@@ -3127,6 +3127,57 @@
             "xg_proxy_for": 1.145,
             "xg_proxy_against": 0.165,
             "opponent_fifa_points": 1476.41
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-25",
+            "opponent": "Sweden",
+            "opponent_code": "SWE",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Daizen Maeda 56'"
+            ],
+            "team_stats": {
+              "shots": 8,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 2,
+              "shots_in_box": 4,
+              "shots_out_box": 4,
+              "gk_saves": 4,
+              "possession_pct": 52,
+              "passes": 445,
+              "passes_completed": 378,
+              "pass_accuracy_pct": 85,
+              "corners": 2,
+              "offsides": 3,
+              "fouls": 20,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 11,
+              "shots_on_target": 5,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 2,
+              "possession_pct": 48,
+              "passes": 395,
+              "passes_completed": 312,
+              "pass_accuracy_pct": 79,
+              "corners": 8,
+              "offsides": 2,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.66,
+            "xg_proxy_against": 0.955,
+            "opponent_fifa_points": 1510.0
           }
         ]
       },
@@ -3156,18 +3207,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 2.065,
-        "xg_against_total": 1.465,
-        "xg_diff_total": 0.6,
-        "xg_diff_per_match": 0.3,
-        "opponent_fifa_points_avg": 1615.2,
+        "xg_for_total": 2.725,
+        "xg_against_total": 2.42,
+        "xg_diff_total": 0.305,
+        "xg_diff_per_match": 0.102,
+        "opponent_fifa_points_avg": 1580.14,
         "actual_gd_covered": 4,
         "form_raw_base": 6.6,
-        "form_raw_adjusted": 6.6
+        "form_raw_adjusted": 6.009
       }
     },
     {
@@ -4281,6 +4332,57 @@
             "xg_proxy_for": 1.225,
             "xg_proxy_against": 0.92,
             "opponent_fifa_points": 1754.0
+          },
+          {
+            "matchday": 3,
+            "date": "2026-06-25",
+            "opponent": "Japan",
+            "opponent_code": "JPN",
+            "goals_for": 1,
+            "goals_against": 1,
+            "result": "D",
+            "goalscorers": [
+              "Anthony Elanga 62'"
+            ],
+            "team_stats": {
+              "shots": 11,
+              "shots_on_target": 5,
+              "shots_off_target": 3,
+              "shots_blocked": 3,
+              "shots_in_box": 6,
+              "shots_out_box": 5,
+              "gk_saves": 2,
+              "possession_pct": 48,
+              "passes": 395,
+              "passes_completed": 312,
+              "pass_accuracy_pct": 79,
+              "corners": 8,
+              "offsides": 2,
+              "fouls": 11,
+              "yellow_cards": 2,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 8,
+              "shots_on_target": 3,
+              "shots_off_target": 3,
+              "shots_blocked": 2,
+              "shots_in_box": 4,
+              "shots_out_box": 4,
+              "gk_saves": 4,
+              "possession_pct": 52,
+              "passes": 445,
+              "passes_completed": 378,
+              "pass_accuracy_pct": 85,
+              "corners": 2,
+              "offsides": 3,
+              "fouls": 20,
+              "yellow_cards": 1,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.955,
+            "xg_proxy_against": 0.66,
+            "opponent_fifa_points": 1662.0
           }
         ]
       },
@@ -4310,18 +4412,18 @@
       },
       "data_notes": [],
       "performance_metrics": {
-        "matches_covered": 2,
+        "matches_covered": 3,
         "coverage_threshold": 3,
-        "correction_active": false,
+        "correction_active": true,
         "beta": 0.4,
-        "xg_for_total": 2.535,
-        "xg_against_total": 1.32,
-        "xg_diff_total": 1.215,
-        "xg_diff_per_match": 0.608,
-        "opponent_fifa_points_avg": 1615.2,
+        "xg_for_total": 3.49,
+        "xg_against_total": 1.98,
+        "xg_diff_total": 1.51,
+        "xg_diff_per_match": 0.503,
+        "opponent_fifa_points_avg": 1630.8,
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
-        "form_raw_adjusted": 4.0
+        "form_raw_adjusted": 4.242
       }
     },
     {
