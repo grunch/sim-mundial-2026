@@ -598,7 +598,63 @@
         "goal_difference": 4,
         "points_per_match": 2.333,
         "gd_per_match": 1.333,
-        "form_raw_index": 8.6
+        "form_raw_index": 8.6,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "Croatia",
+            "opponent_code": "CRO",
+            "goals_for": 4,
+            "goals_against": 2,
+            "result": "W",
+            "goalscorers": [
+              "Harry Kane 12' (P)",
+              "Harry Kane 42'",
+              "Jude Bellingham 47'",
+              "Marcus Rashford 85'"
+            ],
+            "team_stats": {
+              "shots": 22,
+              "shots_on_target": 11,
+              "shots_off_target": 6,
+              "shots_blocked": 5,
+              "shots_in_box": 20,
+              "shots_out_box": 2,
+              "gk_saves": 3,
+              "possession_pct": 52,
+              "passes": 474,
+              "passes_completed": 406,
+              "pass_accuracy_pct": 86,
+              "corners": 8,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 10,
+              "shots_on_target": 5,
+              "shots_off_target": 3,
+              "shots_blocked": 2,
+              "shots_in_box": 4,
+              "shots_out_box": 6,
+              "gk_saves": 7,
+              "possession_pct": 48,
+              "passes": 443,
+              "passes_completed": 381,
+              "pass_accuracy_pct": 86,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 12,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 2.67,
+            "xg_proxy_against": 0.73,
+            "opponent_fifa_points": 1715.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 1,
@@ -626,7 +682,21 @@
         "venue": "Mercedes-Benz Stadium, Atlanta",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 2.67,
+        "xg_against_total": 0.73,
+        "xg_diff_total": 1.94,
+        "xg_diff_per_match": 1.94,
+        "opponent_fifa_points_avg": 1715.0,
+        "actual_gd_covered": 2,
+        "form_raw_base": 8.6,
+        "form_raw_adjusted": 8.6
+      }
     },
     {
       "team": "Germany",
@@ -1334,7 +1404,61 @@
         "goal_difference": 0,
         "points_per_match": 2.0,
         "gd_per_match": 0.0,
-        "form_raw_index": 6.0
+        "form_raw_index": 6.0,
+        "group_stage_matches": [
+          {
+            "matchday": 1,
+            "date": "2026-06-17",
+            "opponent": "England",
+            "opponent_code": "ENG",
+            "goals_for": 2,
+            "goals_against": 4,
+            "result": "L",
+            "goalscorers": [
+              "Martin Baturina 36'",
+              "Petar Musa 45'"
+            ],
+            "team_stats": {
+              "shots": 10,
+              "shots_on_target": 5,
+              "shots_off_target": 3,
+              "shots_blocked": 2,
+              "shots_in_box": 4,
+              "shots_out_box": 6,
+              "gk_saves": 7,
+              "possession_pct": 48,
+              "passes": 443,
+              "passes_completed": 381,
+              "pass_accuracy_pct": 86,
+              "corners": 2,
+              "offsides": 1,
+              "fouls": 12,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "opponent_stats": {
+              "shots": 22,
+              "shots_on_target": 11,
+              "shots_off_target": 6,
+              "shots_blocked": 5,
+              "shots_in_box": 20,
+              "shots_out_box": 2,
+              "gk_saves": 3,
+              "possession_pct": 52,
+              "passes": 474,
+              "passes_completed": 406,
+              "pass_accuracy_pct": 86,
+              "corners": 8,
+              "offsides": 0,
+              "fouls": 10,
+              "yellow_cards": 0,
+              "red_cards": 0
+            },
+            "xg_proxy_for": 0.73,
+            "xg_proxy_against": 2.67,
+            "opponent_fifa_points": 1828.0
+          }
+        ]
       },
       "world_cup_history": {
         "titles": 0,
@@ -1360,7 +1484,21 @@
         "venue": "Estadio Akron, Guadalajara",
         "date": "2026-07-01"
       },
-      "data_notes": []
+      "data_notes": [],
+      "performance_metrics": {
+        "matches_covered": 1,
+        "coverage_threshold": 3,
+        "correction_active": false,
+        "beta": 0.4,
+        "xg_for_total": 0.73,
+        "xg_against_total": 2.67,
+        "xg_diff_total": -1.94,
+        "xg_diff_per_match": -1.94,
+        "opponent_fifa_points_avg": 1828.0,
+        "actual_gd_covered": -2,
+        "form_raw_base": 6.0,
+        "form_raw_adjusted": 6.0
+      }
     },
     {
       "team": "USA",
