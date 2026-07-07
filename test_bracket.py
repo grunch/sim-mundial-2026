@@ -290,6 +290,25 @@ class TestRealResults(unittest.TestCase):
         ])
         self.assertEqual(bracket.load_real_results(path), {})
 
+    def test_reads_results_from_the_quarterfinals_stage(self):
+        # A played quarterfinal (round_of_8) must be loaded like any earlier round
+        import json
+        import tempfile
+        payload = {
+            "round_of_32": {"matches": []},
+            "round_of_16": {"matches": []},
+            "round_of_8": {"matches": [
+                self._played("France", "FRA", 2, "Morocco", "MAR", 0, "France"),
+            ]},
+        }
+        fd, path = tempfile.mkstemp(suffix=".json")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(payload, f)
+        self.addCleanup(os.remove, path)
+        real = bracket.load_real_results(path)
+        self.assertIn(frozenset(("FRA", "MAR")), real)
+        self.assertEqual(real[frozenset(("FRA", "MAR"))]["winner"], "FRA")
+
     def test_resolve_uses_the_real_winner_no_prediction(self):
         # Morocco advances by real result even though it is NOT the model's favorite
         real = {frozenset(("NED", "MAR")): {"winner": "MAR", "pens": True,

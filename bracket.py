@@ -48,6 +48,9 @@ C = 200.0   # Elo points per "supremacy" goal (maps Elo edge -> goals)
 MAX_GOALS = 8        # cap for enumerating scorelines (the Poisson tail is negligible)
 DEFAULT_SEED = None  # without --seed -> REAL system randomness: every run may differ
 DEFAULT_RESULTS_FILE = "results_bracket.json"  # real-results file (--results)
+# Knockout stages read from the results file, in bracket order. Stages missing from
+# the file are ignored, so later rounds can be added as they are played.
+KNOCKOUT_STAGES = ("round_of_32", "round_of_16", "round_of_8", "semifinals", "final")
 
 with open("worldcup2026_r32_dataset.json", encoding="utf-8") as f:
     DATA = json.load(f)
@@ -167,7 +170,7 @@ def load_real_results(path):
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     real = {}
-    for stage in ("round_of_32", "round_of_16"):
+    for stage in KNOCKOUT_STAGES:
         for m in data.get(stage, {}).get("matches", []):
             if not m.get("played"):
                 continue
