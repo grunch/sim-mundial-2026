@@ -244,16 +244,21 @@ class TestParseArgs(unittest.TestCase):
 class TestRealResults(unittest.TestCase):
     """load_real_results and resolve/main with real results (--results)."""
 
-    def _write(self, matches):
-        """Write a minimal results JSON and return its temp path."""
+    def _write_payload(self, payload):
+        """Write an arbitrary results JSON payload and return its temp path."""
         import json
         import tempfile
-        payload = {"round_of_32": {"matches": matches}, "round_of_16": {"matches": []}}
         fd, path = tempfile.mkstemp(suffix=".json")
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(payload, f)
         self.addCleanup(os.remove, path)
         return path
+
+    def _write(self, matches):
+        """Write a minimal round_of_32 results JSON and return its temp path."""
+        return self._write_payload(
+            {"round_of_32": {"matches": matches}, "round_of_16": {"matches": []}}
+        )
 
     def _played(self, home, hc, hg, away, ac, ag, winner, decided_by="regular", pens_h=None, pens_a=None):
         return {
@@ -292,19 +297,13 @@ class TestRealResults(unittest.TestCase):
 
     def test_reads_results_from_the_quarterfinals_stage(self):
         # A played quarterfinal (round_of_8) must be loaded like any earlier round
-        import json
-        import tempfile
-        payload = {
+        path = self._write_payload({
             "round_of_32": {"matches": []},
             "round_of_16": {"matches": []},
             "round_of_8": {"matches": [
                 self._played("France", "FRA", 2, "Morocco", "MAR", 0, "France"),
             ]},
-        }
-        fd, path = tempfile.mkstemp(suffix=".json")
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(payload, f)
-        self.addCleanup(os.remove, path)
+        })
         real = bracket.load_real_results(path)
         self.assertIn(frozenset(("FRA", "MAR")), real)
         self.assertEqual(real[frozenset(("FRA", "MAR"))]["winner"], "FRA")

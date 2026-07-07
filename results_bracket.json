@@ -2,7 +2,7 @@
   "meta": {
     "tournament": "FIFA World Cup 2026 (Canada/Mexico/USA)",
     "description": "Results and qualified teams of the knockout stage with the data available so far.",
-    "as_of": "2026-07-01",
+    "as_of": "2026-07-07",
     "note": "Matches without a result (played=false) have not been played yet; winner=null. 'decided_by':'penalties' means the tie was settled on penalties. 'code' is the team code used by bracket.py.",
     "source": "Knockout bracket provided by the user"
   },
