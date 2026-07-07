@@ -18,7 +18,7 @@ environment requirement, and no third-party packages.
 |---|---|
 | `worldcup2026_r32_dataset.json` | Source of truth: the 32 teams with raw data and derived metrics. |
 | `worldcup2026_montecarlo.json` | Output of `simulate_bracket.py`: per-team probability of reaching each round. |
-| `results_bracket.json` | Real knockout results (round of 32 and round of 16): score, winner, and qualified teams per match. Consumed by `bracket.py --results`. |
+| `results_bracket.json` | Real knockout results (round of 32, round of 16 and quarterfinals; semifinals/final added as played): score, winner, and qualified teams per match. Consumed by `bracket.py --results`. |
 | `performance.py` | Performance model: xG proxy from shot location, opponent (strength-of-schedule) adjustment, form correction, and the strength-index / effective-Elo assembly. |
 | `build_performance_metrics.py` | Recomputes the xG intermediates and folds the opponent-adjusted form into `norm_form`/`strength_index`/`effective_elo` (so it affects predictions). Idempotent; re-run after adding matches. |
 | `predict.py` | Head-to-head engine: probability that team A eliminates team B in a single tie. |

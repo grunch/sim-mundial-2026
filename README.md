@@ -22,7 +22,7 @@ two simulators resolve the full bracket.
 | `build_performance_metrics.py` | Recomputes the per-match xG intermediates and folds the opponent-adjusted form into `norm_form` / `strength_index` / `effective_elo`. Idempotent. |
 | `simulate_bracket.py` | **Aggregate Monte Carlo:** plays the tournament N times and counts how often each team is champion. |
 | `bracket.py` | **Single predicted bracket:** draws the bracket round by round; the favorite advances and **draws are decided on penalties at random**, so **every run can give a different champion** (`--seed` to reproduce one). With `--scoreline [N]` it adds the most likely scoreline of each match (Poisson, exact %). With `--results` it honors the ties already played and only predicts what is left. |
-| `results_bracket.json` | **Real results** of the knockout stage (Round of 32 and Round of 16): scoreline, winner and qualified teams of each tie already played. Consumed by `bracket.py --results`. |
+| `results_bracket.json` | **Real results** of the knockout stage (Round of 32, Round of 16 and Quarterfinals, with Semifinals/Final added as they are played): scoreline, winner and qualified teams of each tie already played. Consumed by `bracket.py --results`. |
 | `spec_worldcup2026.md` | Full technical specification (formulas, sources, JSON schema). |
 
 > ⚙️ The dataset generator (`build_dataset.py`, cited in the spec) is not included;
