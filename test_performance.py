@@ -6,6 +6,7 @@ import os
 import unittest
 
 import math
+from typing import ClassVar
 
 import performance
 from performance import (adjust_xgd, compute_team_performance, effective_elo,
@@ -119,20 +120,20 @@ class OpponentAdjustmentTest(unittest.TestCase):
 class StrengthModelTest(unittest.TestCase):
     """Assembly validated against the spec's worked example (France)."""
 
-    WEIGHTS = {"fifa": 0.40, "value": 0.20, "form": 0.25, "pedigree": 0.15}
-    COEFFS = {"form": 40.0, "value": 25.0, "pedigree": 20.0}
+    WEIGHTS: ClassVar[dict] = {"fifa": 0.470588, "value": 0.235294, "form": 0.294118}
+    COEFFS: ClassVar[dict] = {"form": 40.0, "value": 25.0}
 
     def test_strength_index_reproduces_france(self):
+        # Pedigree removed: the three remaining weights are renormalised to 1.
         si = strength_index(norm_fifa=0.9887, norm_value=1.0, norm_form=1.0,
-                            norm_pedigree=0.8347, weights=self.WEIGHTS)
-        self.assertEqual(round(si, 2), 97.07)
+                            weights=self.WEIGHTS)
+        self.assertEqual(round(si, 2), 99.47)
 
     def test_effective_elo_reproduces_france(self):
         z_form = zscore(12.2, 6.4625, 2.6093)
         z_value = zscore(math.log10(1520.0), 2.5337, 0.3861)
-        z_ped = zscore(83.6, 27.8562, 29.7998)
-        elo = effective_elo(1871.0, z_form, z_value, z_ped, self.COEFFS)
-        self.assertEqual(round(elo, 1), 2038.3)
+        elo = effective_elo(1871.0, z_form, z_value, self.COEFFS)
+        self.assertEqual(round(elo, 1), 2000.9)
 
     def test_minmax_and_zscore_edges(self):
         self.assertEqual(minmax(5, 0, 10), 0.5)
@@ -190,21 +191,19 @@ class DatasetInvariantTest(unittest.TestCase):
                            meta["elo_adjustment_coeffs"])
         agg = meta["pool_aggregates"]
         fstats = agg["form_effective"]
-        lv, pd = agg["log10_value"], agg["pedigree_raw"]
+        lv = agg["log10_value"]
         for t in self.data["teams"]:
             dm = t["derived_metrics"]
             form = effective_form(t)
             norm_form = minmax(form, fstats["min"], fstats["max"])
             si = strength_index(dm["norm_fifa"], dm["norm_value"], norm_form,
-                                dm["norm_pedigree"], weights)
+                                weights)
             log10v = math.log10(
                 t["squad_value_transfermarkt"]["value_eur_millions"])
             elo = effective_elo(
                 t["fifa_ranking"]["points_official_2026_06_11"],
                 zscore(form, fstats["mean"], fstats["pstdev"]),
                 zscore(log10v, lv["mean"], lv["pstdev"]),
-                zscore(t["world_cup_history"]["pedigree_raw"],
-                       pd["mean"], pd["pstdev"]),
                 coeffs)
             self.assertAlmostEqual(dm["strength_index_0_100"], round(si, 2),
                                    places=2, msg=t["code"])

@@ -56,14 +56,18 @@ python3 bracket.py --results        # use real results already played; predict t
 
 ## 🧠 How the model works
 
-### Raw data (4 axes + history)
+### Raw data (3 prediction axes + history)
 
 1. **FIFA ranking** — official points (FIFA Elo system, denominator 600).
 2. **Squad value** — Transfermarkt, in millions of EUR.
 3. **2026 group performance** — `points`, `goal_difference` and a **per-match
    statistics log** (shots by location/outcome, possession, passes, cards…) that
    feeds the performance model below.
-4. **World Cup honours** — titles, best historical finish, appearances.
+
+> **World Cup honours** (titles, best historical finish, appearances) are still
+> stored per team as `pedigree_score`, but they **no longer feed the prediction** —
+> the honours axis was removed from the strength model. The three axes above are
+> the only inputs to `strength_index` / `effective_elo`.
 
 ### Derived metrics (all normalized over the pool of 32)
 
@@ -71,12 +75,12 @@ python3 bracket.py --results        # use real results already played; predict t
 norm_fifa  = minmax(official_FIFA_points)
 norm_value = minmax(log10(squad_value))             # log: value is heavily skewed
 norm_form  = minmax(form_raw_adjusted)              # performance-adjusted, see below
-norm_pedigree = minmax(pedigree_raw)
 
-Strength Index (0–100) = 100 · (0.40·norm_fifa + 0.20·norm_value
-                                + 0.25·norm_form + 0.15·norm_pedigree)
+# The three weights are renormalized to sum to 1 after dropping pedigree (0.15).
+Strength Index (0–100) = 100 · (0.4706·norm_fifa + 0.2353·norm_value
+                                + 0.2941·norm_form)
 
-effective_elo = FIFA_points + 40·z(form_raw) + 25·z(log10_value) + 20·z(pedigree_raw)
+effective_elo = FIFA_points + 40·z(form_raw_adjusted) + 25·z(log10_value)
 ```
 
 (`minmax` = rescale to [0,1]; `z` = standard score relative to the pool.)
@@ -106,7 +110,7 @@ from the per-match statistics.
 probabilities. Each team keeps its results-only baseline and the resulting
 `elo_shift` under `performance_metrics` for audit (e.g. Portugal −19.7 Elo: a
 +5 goal difference not backed by chances; Colombia +18.4, England +16.1). The run
-is idempotent and the FIFA/value/pedigree axes are untouched.
+is idempotent and the FIFA/value axes are untouched.
 
 ### Tie probability (engine)
 
@@ -200,20 +204,22 @@ python3 bracket.py --results --scoreline # marks the real ties; predicts the res
 
 ### A real example of the difference
 
-| Question | Tool | Champion |
+| Question | Tool | Answer |
 |---|---|---|
-| Who lifts the cup most often? | `simulate_bracket.py` | **Argentina** (~36%) |
-| How does ONE bracket end (penalties at random)? | `bracket.py --seed 7` | **France** |
+| Who lifts the cup most often? | `simulate_bracket.py` | **France** (~35%) |
+| Who reaches the final most often? | `simulate_bracket.py` | **Argentina** (~56%) |
+| How does ONE bracket end (penalties at random)? | `bracket.py --seed 13` | **Argentina** |
 
-Why? Argentina and France are in opposite halves (they only meet in the final). In
-the final **France is a slight favorite (~56%)**, so in many seeds France wins — but
-with draws played on penalties, other seeds give a different champion. But France's
-half is brutal (Spain, Germany, Netherlands), so **France only reaches the final 53%
-of the time**, while **Argentina reaches it 63%** thanks to an easier path. Across
-thousands of tournaments, Argentina lifts the cup more often.
+Why? Argentina and France are in opposite halves (they only meet in the final).
+Argentina's half is easier, so **it reaches the final more often (~56%) than France
+(~50%)** — France's half is brutal (Spain, England, Netherlands). But in the final
+**France is the favorite (~64%)**, and it converts its knockouts better across the
+board, so **France lifts the cup more often (~35% vs ~29%)**. With draws played on
+penalties, a single bracket can still crown Argentina (`--seed 13`) or Spain
+(`--seed 5`).
 
-> 📌 **Being champion of the favorites' bracket ≠ being the most likely champion.** The
-> draw matters as much as quality.
+> 📌 **Reaching the final most often ≠ winning it most often.** The draw decides who
+> *gets there*; quality decides who *wins it*.
 
 ---
 
@@ -233,8 +239,10 @@ python3 bracket.py                  # full bracket drawn (draws to penalties at 
 - The model is a **quantitative baseline**, not a truth: it does not capture injuries,
   suspensions, rest between rounds, real home advantage, motivation or the opponent's
   tactics.
-- The `pedigree_score` is a reproducible proxy; it underestimates finalists/semifinalists
-  without a title (Netherlands, Sweden, Portugal, Croatia).
+- **World Cup honours are not a prediction input.** `pedigree_score` is kept as
+  descriptive history only; the honours axis was removed from the strength model
+  because the proxy underestimated finalists/semifinalists without a title
+  (Netherlands, Sweden, Portugal, Croatia) and skewed toward past champions.
 - Transfermarkt values in EUR (do not mix with USD listings).
 
 ---

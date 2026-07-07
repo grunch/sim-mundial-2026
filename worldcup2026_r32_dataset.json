@@ -5,15 +5,13 @@
     "generated_utc": "2026-06-29T13:14:45.327179Z",
     "teams_count": 32,
     "weights_strength_index": {
-      "fifa": 0.4,
-      "value": 0.2,
-      "form": 0.25,
-      "pedigree": 0.15
+      "fifa": 0.470588,
+      "value": 0.235294,
+      "form": 0.294118
     },
     "elo_adjustment_coeffs": {
       "form": 40.0,
-      "value": 25.0,
-      "pedigree": 20.0
+      "value": 25.0
     },
     "pool_aggregates": {
       "fifa_points": {
@@ -32,12 +30,6 @@
         "mean": 6.525,
         "pstdev": 2.6352
       },
-      "pedigree_raw": {
-        "min": 0.8,
-        "max": 100,
-        "mean": 27.8562,
-        "pstdev": 29.7998
-      },
       "form_effective": {
         "min": 2.652,
         "max": 10.411,
@@ -54,7 +46,7 @@
     "caveats": [
       "Data from an ongoing World Cup: 'live' values and standings change with each matchday.",
       "Transfermarkt values in EUR; equivalent USD listings exist with different figures.",
-      "pedigree_score is a reproducible proxy (titles + best finish + appearances); it underestimates teams with multiple finals/semifinals but no title (NED, SWE, POR, CRO)."
+      "pedigree_score is retained as descriptive team history only; it no longer feeds the prediction (World Cup honours were removed from the strength model)."
     ],
     "performance_model": {
       "phase": 2,
@@ -279,9 +271,8 @@
         "norm_fifa": 0.9887,
         "norm_value": 1.0,
         "norm_form": 1.0,
-        "norm_pedigree": 0.8347,
-        "strength_index_0_100": 97.07,
-        "effective_elo": 2033.1
+        "strength_index_0_100": 99.47,
+        "effective_elo": 1995.7
       },
       "round_of_32": {
         "opponent": "Suecia",
@@ -306,10 +297,10 @@
         "actual_gd_covered": 8,
         "form_raw_base": 12.2,
         "form_raw_adjusted": 10.411,
-        "strength_index_results_only": 97.07,
-        "effective_elo_results_only": 2036.5,
-        "strength_index_adjusted": 97.07,
-        "effective_elo_adjusted": 2033.1,
+        "strength_index_results_only": 99.47,
+        "effective_elo_results_only": 1999.1,
+        "strength_index_adjusted": 99.47,
+        "effective_elo_adjusted": 1995.7,
         "elo_shift": -3.4
       }
     },
@@ -520,9 +511,8 @@
         "norm_fifa": 1.0,
         "norm_value": 0.8156,
         "norm_form": 0.9356,
-        "norm_pedigree": 1.0,
-        "strength_index_0_100": 94.7,
-        "effective_elo": 2023.0
+        "strength_index_0_100": 93.77,
+        "effective_elo": 1974.6
       },
       "round_of_32": {
         "opponent": "Cabo Verde",
@@ -547,10 +537,10 @@
         "actual_gd_covered": 7,
         "form_raw_base": 11.8,
         "form_raw_adjusted": 9.911,
-        "strength_index_results_only": 95.23,
-        "effective_elo_results_only": 2029.7,
-        "strength_index_adjusted": 94.7,
-        "effective_elo_adjusted": 2023.0,
+        "strength_index_results_only": 94.38,
+        "effective_elo_results_only": 1981.3,
+        "strength_index_adjusted": 93.77,
+        "effective_elo_adjusted": 1974.6,
         "elo_shift": -6.7
       }
     },
@@ -755,9 +745,8 @@
         "norm_fifa": 0.9962,
         "norm_value": 0.9359,
         "norm_form": 0.7538,
-        "norm_pedigree": 0.6331,
-        "strength_index_0_100": 86.91,
-        "effective_elo": 1981.7
+        "strength_index_0_100": 91.07,
+        "effective_elo": 1957.7
       },
       "round_of_32": {
         "opponent": "Austria",
@@ -782,11 +771,11 @@
         "actual_gd_covered": 5,
         "form_raw_base": 9.0,
         "form_raw_adjusted": 8.501,
-        "strength_index_results_only": 84.37,
-        "effective_elo_results_only": 1972.3,
-        "strength_index_adjusted": 86.91,
-        "effective_elo_adjusted": 1981.7,
-        "elo_shift": 9.4
+        "strength_index_results_only": 88.08,
+        "effective_elo_results_only": 1948.4,
+        "strength_index_adjusted": 91.07,
+        "effective_elo_adjusted": 1957.7,
+        "elo_shift": 9.3
       }
     },
     {
@@ -997,9 +986,8 @@
         "norm_fifa": 0.7906,
         "norm_value": 0.8562,
         "norm_form": 0.646,
-        "norm_pedigree": 1.0,
-        "strength_index_0_100": 79.9,
-        "effective_elo": 1873.7
+        "strength_index_0_100": 76.35,
+        "effective_elo": 1825.3
       },
       "round_of_32": {
         "opponent": "Japon",
@@ -1024,11 +1012,11 @@
         "actual_gd_covered": 6,
         "form_raw_base": 9.4,
         "form_raw_adjusted": 7.664,
-        "strength_index_results_only": 81.14,
-        "effective_elo_results_only": 1886.2,
-        "strength_index_adjusted": 79.9,
-        "effective_elo_adjusted": 1873.7,
-        "elo_shift": -12.5
+        "strength_index_results_only": 77.81,
+        "effective_elo_results_only": 1837.7,
+        "strength_index_adjusted": 76.35,
+        "effective_elo_adjusted": 1825.3,
+        "elo_shift": -12.4
       }
     },
     {
@@ -1233,9 +1221,8 @@
         "norm_fifa": 0.9075,
         "norm_value": 0.9676,
         "norm_form": 0.7585,
-        "norm_pedigree": 0.6331,
-        "strength_index_0_100": 84.11,
-        "effective_elo": 1938.4
+        "strength_index_0_100": 87.78,
+        "effective_elo": 1914.4
       },
       "round_of_32": {
         "opponent": "DR Congo",
@@ -1260,10 +1247,10 @@
         "actual_gd_covered": 4,
         "form_raw_base": 8.6,
         "form_raw_adjusted": 8.537,
-        "strength_index_results_only": 80.37,
-        "effective_elo_results_only": 1922.3,
-        "strength_index_adjusted": 84.11,
-        "effective_elo_adjusted": 1938.4,
+        "strength_index_results_only": 83.38,
+        "effective_elo_results_only": 1898.3,
+        "strength_index_adjusted": 87.78,
+        "effective_elo_adjusted": 1914.4,
         "elo_shift": 16.1
       }
     },
@@ -1477,9 +1464,8 @@
         "norm_fifa": 0.734,
         "norm_value": 0.862,
         "norm_form": 0.5767,
-        "norm_pedigree": 1.0,
-        "strength_index_0_100": 76.02,
-        "effective_elo": 1834.2
+        "strength_index_0_100": 71.79,
+        "effective_elo": 1785.8
       },
       "round_of_32": {
         "opponent": "Paraguay",
@@ -1504,10 +1490,10 @@
         "actual_gd_covered": 6,
         "form_raw_base": 8.4,
         "form_raw_adjusted": 7.127,
-        "strength_index_results_only": 76.27,
-        "effective_elo_results_only": 1841.5,
-        "strength_index_adjusted": 76.02,
-        "effective_elo_adjusted": 1834.2,
+        "strength_index_results_only": 72.09,
+        "effective_elo_results_only": 1793.1,
+        "strength_index_adjusted": 71.79,
+        "effective_elo_adjusted": 1785.8,
         "elo_shift": -7.3
       }
     },
@@ -1716,9 +1702,8 @@
         "norm_fifa": 0.7679,
         "norm_value": 0.7957,
         "norm_form": 0.681,
-        "norm_pedigree": 0.3105,
-        "strength_index_0_100": 68.31,
-        "effective_elo": 1815.1
+        "strength_index_0_100": 74.89,
+        "effective_elo": 1812.6
       },
       "round_of_32": {
         "opponent": "Marruecos",
@@ -1743,10 +1728,10 @@
         "actual_gd_covered": 6,
         "form_raw_base": 9.4,
         "form_raw_adjusted": 7.936,
-        "strength_index_results_only": 68.68,
-        "effective_elo_results_only": 1822.4,
-        "strength_index_adjusted": 68.31,
-        "effective_elo_adjusted": 1815.1,
+        "strength_index_results_only": 75.32,
+        "effective_elo_results_only": 1819.9,
+        "strength_index_adjusted": 74.89,
+        "effective_elo_adjusted": 1812.6,
         "elo_shift": -7.3
       }
     },
@@ -1950,9 +1935,8 @@
         "norm_fifa": 0.7943,
         "norm_value": 0.8808,
         "norm_form": 0.3466,
-        "norm_pedigree": 0.2258,
-        "strength_index_0_100": 61.44,
-        "effective_elo": 1782.9
+        "strength_index_0_100": 68.3,
+        "effective_elo": 1786.0
       },
       "round_of_32": {
         "opponent": "Croacia",
@@ -1977,10 +1961,10 @@
         "actual_gd_covered": 5,
         "form_raw_base": 7.0,
         "form_raw_adjusted": 5.341,
-        "strength_index_results_only": 63.64,
-        "effective_elo_results_only": 1802.6,
-        "strength_index_adjusted": 61.44,
-        "effective_elo_adjusted": 1782.9,
+        "strength_index_results_only": 70.89,
+        "effective_elo_results_only": 1805.7,
+        "strength_index_adjusted": 68.3,
+        "effective_elo_adjusted": 1786.0,
         "elo_shift": -19.7
       }
     },
@@ -2185,9 +2169,8 @@
         "norm_fifa": 0.7698,
         "norm_value": 0.6436,
         "norm_form": 0.6502,
-        "norm_pedigree": 0.2097,
-        "strength_index_0_100": 63.06,
-        "effective_elo": 1790.2
+        "strength_index_0_100": 70.49,
+        "effective_elo": 1794.4
       },
       "round_of_32": {
         "opponent": "Paises Bajos",
@@ -2212,10 +2195,10 @@
         "actual_gd_covered": 3,
         "form_raw_base": 8.2,
         "form_raw_adjusted": 7.697,
-        "strength_index_results_only": 60.94,
-        "effective_elo_results_only": 1783.8,
-        "strength_index_adjusted": 63.06,
-        "effective_elo_adjusted": 1790.2,
+        "strength_index_results_only": 67.99,
+        "effective_elo_results_only": 1788.0,
+        "strength_index_adjusted": 70.49,
+        "effective_elo_adjusted": 1794.4,
         "elo_shift": 6.4
       }
     },
@@ -2419,9 +2402,8 @@
         "norm_fifa": 0.7453,
         "norm_value": 0.7023,
         "norm_form": 0.4896,
-        "norm_pedigree": 0.2742,
-        "strength_index_0_100": 60.21,
-        "effective_elo": 1763.8
+        "strength_index_0_100": 66.0,
+        "effective_elo": 1763.7
       },
       "round_of_32": {
         "opponent": "Senegal",
@@ -2446,10 +2428,10 @@
         "actual_gd_covered": 4,
         "form_raw_base": 6.6,
         "form_raw_adjusted": 6.451,
-        "strength_index_results_only": 57.75,
-        "effective_elo_results_only": 1756.5,
-        "strength_index_adjusted": 60.21,
-        "effective_elo_adjusted": 1763.8,
+        "strength_index_results_only": 63.11,
+        "effective_elo_results_only": 1756.4,
+        "strength_index_adjusted": 66.0,
+        "effective_elo_adjusted": 1763.7,
         "elo_shift": 7.3
       }
     },
@@ -2654,9 +2636,8 @@
         "norm_fifa": 0.6415,
         "norm_value": 0.3965,
         "norm_form": 0.9076,
-        "norm_pedigree": 0.2379,
-        "strength_index_0_100": 59.85,
-        "effective_elo": 1737.8
+        "strength_index_0_100": 66.21,
+        "effective_elo": 1740.1
       },
       "round_of_32": {
         "opponent": "Ecuador",
@@ -2681,11 +2662,11 @@
         "actual_gd_covered": 6,
         "form_raw_base": 11.4,
         "form_raw_adjusted": 9.694,
-        "strength_index_results_only": 59.98,
-        "effective_elo_results_only": 1742.4,
-        "strength_index_adjusted": 59.85,
-        "effective_elo_adjusted": 1737.8,
-        "elo_shift": -4.6
+        "strength_index_results_only": 66.37,
+        "effective_elo_results_only": 1744.8,
+        "strength_index_adjusted": 66.21,
+        "effective_elo_adjusted": 1740.1,
+        "elo_shift": -4.7
       }
     },
     {
@@ -2888,9 +2869,8 @@
         "norm_fifa": 0.6943,
         "norm_value": 0.6013,
         "norm_form": 0.346,
-        "norm_pedigree": 0.2702,
-        "strength_index_0_100": 52.5,
-        "effective_elo": 1705.8
+        "strength_index_0_100": 57.0,
+        "effective_elo": 1706.0
       },
       "round_of_32": {
         "opponent": "Portugal",
@@ -2915,11 +2895,11 @@
         "actual_gd_covered": 0,
         "form_raw_base": 6.0,
         "form_raw_adjusted": 5.337,
-        "strength_index_results_only": 52.0,
-        "effective_elo_results_only": 1710.4,
-        "strength_index_adjusted": 52.5,
-        "effective_elo_adjusted": 1705.8,
-        "elo_shift": -4.6
+        "strength_index_results_only": 56.41,
+        "effective_elo_results_only": 1710.5,
+        "strength_index_adjusted": 57.0,
+        "effective_elo_adjusted": 1706.0,
+        "elo_shift": -4.5
       }
     },
     {
@@ -3125,9 +3105,8 @@
         "norm_fifa": 0.6113,
         "norm_value": 0.6,
         "norm_form": 0.5864,
-        "norm_pedigree": 0.25,
-        "strength_index_0_100": 54.86,
-        "effective_elo": 1695.4
+        "strength_index_0_100": 60.13,
+        "effective_elo": 1696.9
       },
       "round_of_32": {
         "opponent": "Bosnia and Herzegovina",
@@ -3152,10 +3131,10 @@
         "actual_gd_covered": 4,
         "form_raw_base": 7.6,
         "form_raw_adjusted": 7.202,
-        "strength_index_results_only": 52.7,
-        "effective_elo_results_only": 1689.2,
-        "strength_index_adjusted": 54.86,
-        "effective_elo_adjusted": 1695.4,
+        "strength_index_results_only": 57.59,
+        "effective_elo_results_only": 1690.7,
+        "strength_index_adjusted": 60.13,
+        "effective_elo_adjusted": 1696.9,
         "elo_shift": 6.2
       }
     },
@@ -3361,9 +3340,8 @@
         "norm_fifa": 0.5717,
         "norm_value": 0.5568,
         "norm_form": 0.634,
-        "norm_pedigree": 0.1976,
-        "strength_index_0_100": 52.82,
-        "effective_elo": 1673.7
+        "strength_index_0_100": 58.65,
+        "effective_elo": 1678.7
       },
       "round_of_32": {
         "opponent": "Argelia",
@@ -3388,10 +3366,10 @@
         "actual_gd_covered": 4,
         "form_raw_base": 8.6,
         "form_raw_adjusted": 7.571,
-        "strength_index_results_only": 52.19,
-        "effective_elo_results_only": 1675.7,
-        "strength_index_adjusted": 52.82,
-        "effective_elo_adjusted": 1673.7,
+        "strength_index_results_only": 57.91,
+        "effective_elo_results_only": 1680.7,
+        "strength_index_adjusted": 58.65,
+        "effective_elo_adjusted": 1678.7,
         "elo_shift": -2.0
       }
     },
@@ -3593,9 +3571,8 @@
         "norm_fifa": 0.6623,
         "norm_value": 0.5291,
         "norm_form": 0.733,
-        "norm_pedigree": 0.1492,
-        "strength_index_0_100": 57.64,
-        "effective_elo": 1730.2
+        "strength_index_0_100": 65.17,
+        "effective_elo": 1738.4
       },
       "round_of_32": {
         "opponent": "Ghana",
@@ -3620,10 +3597,10 @@
         "actual_gd_covered": 3,
         "form_raw_base": 8.2,
         "form_raw_adjusted": 8.339,
-        "strength_index_results_only": 53.44,
-        "effective_elo_results_only": 1711.8,
-        "strength_index_adjusted": 57.64,
-        "effective_elo_adjusted": 1730.2,
+        "strength_index_results_only": 60.24,
+        "effective_elo_results_only": 1720.0,
+        "strength_index_adjusted": 65.17,
+        "effective_elo_adjusted": 1738.4,
         "elo_shift": 18.4
       }
     },
@@ -3829,9 +3806,8 @@
         "norm_fifa": 0.5943,
         "norm_value": 0.497,
         "norm_form": 0.3658,
-        "norm_pedigree": 0.1069,
-        "strength_index_0_100": 44.46,
-        "effective_elo": 1634.8
+        "strength_index_0_100": 50.42,
+        "effective_elo": 1645.8
       },
       "round_of_32": {
         "opponent": "Brasil",
@@ -3856,10 +3832,10 @@
         "actual_gd_covered": 4,
         "form_raw_base": 6.6,
         "form_raw_adjusted": 5.49,
-        "strength_index_results_only": 45.1,
-        "effective_elo_results_only": 1645.6,
-        "strength_index_adjusted": 44.46,
-        "effective_elo_adjusted": 1634.8,
+        "strength_index_results_only": 51.17,
+        "effective_elo_results_only": 1656.6,
+        "strength_index_adjusted": 50.42,
+        "effective_elo_adjusted": 1645.8,
         "elo_shift": -10.8
       }
     },
@@ -4066,9 +4042,8 @@
         "norm_fifa": 0.3962,
         "norm_value": 0.724,
         "norm_form": 0.4751,
-        "norm_pedigree": 0.0746,
-        "strength_index_0_100": 43.32,
-        "effective_elo": 1565.4
+        "strength_index_0_100": 49.65,
+        "effective_elo": 1578.6
       },
       "round_of_32": {
         "opponent": "Cote d'Ivoire",
@@ -4093,10 +4068,10 @@
         "actual_gd_covered": 1,
         "form_raw_base": 6.4,
         "form_raw_adjusted": 6.338,
-        "strength_index_results_only": 40.69,
-        "effective_elo_results_only": 1557.3,
-        "strength_index_adjusted": 43.32,
-        "effective_elo_adjusted": 1565.4,
+        "strength_index_results_only": 46.55,
+        "effective_elo_results_only": 1570.5,
+        "strength_index_adjusted": 49.65,
+        "effective_elo_adjusted": 1578.6,
         "elo_shift": 8.1
       }
     },
@@ -4299,9 +4274,8 @@
         "norm_fifa": 0.366,
         "norm_value": 0.6884,
         "norm_form": 0.4318,
-        "norm_pedigree": 0.0242,
-        "strength_index_0_100": 39.56,
-        "effective_elo": 1536.3
+        "strength_index_0_100": 46.12,
+        "effective_elo": 1552.9
       },
       "round_of_32": {
         "opponent": "Noruega",
@@ -4326,10 +4300,10 @@
         "actual_gd_covered": 2,
         "form_raw_base": 6.8,
         "form_raw_adjusted": 6.002,
-        "strength_index_results_only": 39.1,
-        "effective_elo_results_only": 1540.5,
-        "strength_index_adjusted": 39.56,
-        "effective_elo_adjusted": 1536.3,
+        "strength_index_results_only": 45.57,
+        "effective_elo_results_only": 1557.1,
+        "strength_index_adjusted": 46.12,
+        "effective_elo_adjusted": 1552.9,
         "elo_shift": -4.2
       }
     },
@@ -4528,9 +4502,8 @@
         "norm_fifa": 0.4755,
         "norm_value": 0.587,
         "norm_form": 0.2208,
-        "norm_pedigree": 0.0827,
-        "strength_index_0_100": 37.52,
-        "effective_elo": 1557.7
+        "strength_index_0_100": 42.68,
+        "effective_elo": 1570.4
       },
       "round_of_32": {
         "opponent": "Mexico",
@@ -4555,11 +4528,11 @@
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
         "form_raw_adjusted": 4.365,
-        "strength_index_results_only": 34.72,
-        "effective_elo_results_only": 1550.2,
-        "strength_index_adjusted": 37.52,
-        "effective_elo_adjusted": 1557.7,
-        "elo_shift": 7.5
+        "strength_index_results_only": 39.39,
+        "effective_elo_results_only": 1562.8,
+        "strength_index_adjusted": 42.68,
+        "effective_elo_adjusted": 1570.4,
+        "elo_shift": 7.6
       }
     },
     {
@@ -4762,9 +4735,8 @@
         "norm_fifa": 0.4717,
         "norm_value": 0.468,
         "norm_form": 0.1597,
-        "norm_pedigree": 0.2177,
-        "strength_index_0_100": 35.49,
-        "effective_elo": 1544.3
+        "strength_index_0_100": 37.91,
+        "effective_elo": 1548.0
       },
       "round_of_32": {
         "opponent": "Espana",
@@ -4789,11 +4761,11 @@
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
         "form_raw_adjusted": 3.891,
-        "strength_index_results_only": 34.21,
-        "effective_elo_results_only": 1545.7,
-        "strength_index_adjusted": 35.49,
-        "effective_elo_adjusted": 1544.3,
-        "elo_shift": -1.4
+        "strength_index_results_only": 36.41,
+        "effective_elo_results_only": 1549.3,
+        "strength_index_adjusted": 37.91,
+        "effective_elo_adjusted": 1548.0,
+        "elo_shift": -1.3
       }
     },
     {
@@ -4999,9 +4971,8 @@
         "norm_fifa": 0.6358,
         "norm_value": 0.6627,
         "norm_form": 0.1682,
-        "norm_pedigree": 0.125,
-        "strength_index_0_100": 44.77,
-        "effective_elo": 1645.2
+        "strength_index_0_100": 50.46,
+        "effective_elo": 1655.0
       },
       "round_of_32": {
         "opponent": "Belgica",
@@ -5026,11 +4997,11 @@
         "actual_gd_covered": 2,
         "form_raw_base": 3.8,
         "form_raw_adjusted": 3.957,
-        "strength_index_results_only": 42.73,
-        "effective_elo_results_only": 1642.2,
-        "strength_index_adjusted": 44.77,
-        "effective_elo_adjusted": 1645.2,
-        "elo_shift": 3.0
+        "strength_index_results_only": 48.07,
+        "effective_elo_results_only": 1652.1,
+        "strength_index_adjusted": 50.46,
+        "effective_elo_adjusted": 1655.0,
+        "elo_shift": 2.9
       }
     },
     {
@@ -5235,9 +5206,8 @@
         "norm_fifa": 0.3075,
         "norm_value": 0.6151,
         "norm_form": 0.2703,
-        "norm_pedigree": 0.3185,
-        "strength_index_0_100": 36.14,
-        "effective_elo": 1494.4
+        "strength_index_0_100": 36.89,
+        "effective_elo": 1491.3
       },
       "round_of_32": {
         "opponent": "Francia",
@@ -5262,10 +5232,10 @@
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
         "form_raw_adjusted": 4.749,
-        "strength_index_results_only": 32.1,
-        "effective_elo_results_only": 1479.6,
-        "strength_index_adjusted": 36.14,
-        "effective_elo_adjusted": 1494.4,
+        "strength_index_results_only": 32.14,
+        "effective_elo_results_only": 1476.5,
+        "strength_index_adjusted": 36.89,
+        "effective_elo_adjusted": 1491.3,
         "elo_shift": 14.8
       }
     },
@@ -5472,9 +5442,8 @@
         "norm_fifa": 0.4,
         "norm_value": 0.4067,
         "norm_form": 0.3774,
-        "norm_pedigree": 0.0161,
-        "strength_index_0_100": 33.81,
-        "effective_elo": 1518.7
+        "strength_index_0_100": 39.49,
+        "effective_elo": 1535.8
       },
       "round_of_32": {
         "opponent": "South Africa",
@@ -5501,10 +5470,10 @@
         "actual_gd_covered": 5,
         "form_raw_base": 6.0,
         "form_raw_adjusted": 5.58,
-        "strength_index_results_only": 32.53,
-        "effective_elo_results_only": 1518.7,
-        "strength_index_adjusted": 33.81,
-        "effective_elo_adjusted": 1518.7,
+        "strength_index_results_only": 37.98,
+        "effective_elo_results_only": 1535.8,
+        "strength_index_adjusted": 39.49,
+        "effective_elo_adjusted": 1535.8,
         "elo_shift": 0.0
       }
     },
@@ -5707,9 +5676,8 @@
         "norm_fifa": 0.4226,
         "norm_value": 0.4816,
         "norm_form": 0.2174,
-        "norm_pedigree": 0.0827,
-        "strength_index_0_100": 33.21,
-        "effective_elo": 1519.1
+        "strength_index_0_100": 37.61,
+        "effective_elo": 1531.7
       },
       "round_of_32": {
         "opponent": "Suiza",
@@ -5734,11 +5702,11 @@
         "actual_gd_covered": -2,
         "form_raw_base": 3.2,
         "form_raw_adjusted": 4.339,
-        "strength_index_results_only": 28.32,
-        "effective_elo_results_only": 1499.8,
-        "strength_index_adjusted": 33.21,
-        "effective_elo_adjusted": 1519.1,
-        "elo_shift": 19.3
+        "strength_index_results_only": 31.86,
+        "effective_elo_results_only": 1512.5,
+        "strength_index_adjusted": 37.61,
+        "effective_elo_adjusted": 1531.7,
+        "elo_shift": 19.2
       }
     },
     {
@@ -5941,9 +5909,8 @@
         "norm_fifa": 0.4057,
         "norm_value": 0.251,
         "norm_form": 0.3354,
-        "norm_pedigree": 0.0242,
-        "strength_index_0_100": 29.99,
-        "effective_elo": 1501.1
+        "strength_index_0_100": 34.86,
+        "effective_elo": 1517.7
       },
       "round_of_32": {
         "opponent": "Australia",
@@ -5968,11 +5935,11 @@
         "actual_gd_covered": 2,
         "form_raw_base": 5.8,
         "form_raw_adjusted": 5.254,
-        "strength_index_results_only": 29.22,
-        "effective_elo_results_only": 1504.2,
-        "strength_index_adjusted": 29.99,
-        "effective_elo_adjusted": 1501.1,
-        "elo_shift": -3.1
+        "strength_index_results_only": 33.95,
+        "effective_elo_results_only": 1520.7,
+        "strength_index_adjusted": 34.86,
+        "effective_elo_adjusted": 1517.7,
+        "elo_shift": -3.0
       }
     },
     {
@@ -6170,9 +6137,8 @@
         "norm_fifa": 0.4377,
         "norm_value": 0.132,
         "norm_form": 0.1242,
-        "norm_pedigree": 0.0988,
-        "strength_index_0_100": 24.74,
-        "effective_elo": 1480.9
+        "strength_index_0_100": 27.36,
+        "effective_elo": 1492.4
       },
       "round_of_32": {
         "opponent": "Egipto",
@@ -6197,11 +6163,11 @@
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
         "form_raw_adjusted": 3.616,
-        "strength_index_results_only": 24.35,
-        "effective_elo_results_only": 1487.3,
-        "strength_index_adjusted": 24.74,
-        "effective_elo_adjusted": 1480.9,
-        "elo_shift": -6.4
+        "strength_index_results_only": 26.9,
+        "effective_elo_results_only": 1498.9,
+        "strength_index_adjusted": 27.36,
+        "effective_elo_adjusted": 1492.4,
+        "elo_shift": -6.5
       }
     },
     {
@@ -6400,9 +6366,8 @@
         "norm_fifa": 0.2981,
         "norm_value": 0.3318,
         "norm_form": 0.026,
-        "norm_pedigree": 0.1653,
-        "strength_index_0_100": 21.69,
-        "effective_elo": 1416.2
+        "strength_index_0_100": 22.6,
+        "effective_elo": 1423.4
       },
       "round_of_32": {
         "opponent": "Alemania",
@@ -6427,10 +6392,10 @@
         "actual_gd_covered": -2,
         "form_raw_base": 3.2,
         "form_raw_adjusted": 2.854,
-        "strength_index_results_only": 21.58,
-        "effective_elo_results_only": 1424.9,
-        "strength_index_adjusted": 21.69,
-        "effective_elo_adjusted": 1416.2,
+        "strength_index_results_only": 22.47,
+        "effective_elo_results_only": 1432.1,
+        "strength_index_adjusted": 22.6,
+        "effective_elo_adjusted": 1423.4,
         "elo_shift": -8.7
       }
     },
@@ -6632,9 +6597,8 @@
         "norm_fifa": 0.2396,
         "norm_value": 0.3126,
         "norm_form": 0.2215,
-        "norm_pedigree": 0.0081,
-        "strength_index_0_100": 21.5,
-        "effective_elo": 1401.4
+        "strength_index_0_100": 25.15,
+        "effective_elo": 1419.0
       },
       "round_of_32": {
         "opponent": "Inglaterra",
@@ -6659,10 +6623,10 @@
         "actual_gd_covered": 1,
         "form_raw_base": 4.4,
         "form_raw_adjusted": 4.371,
-        "strength_index_results_only": 19.76,
-        "effective_elo_results_only": 1399.8,
-        "strength_index_adjusted": 21.5,
-        "effective_elo_adjusted": 1401.4,
+        "strength_index_results_only": 23.11,
+        "effective_elo_results_only": 1417.4,
+        "strength_index_adjusted": 25.15,
+        "effective_elo_adjusted": 1419.0,
         "elo_shift": 1.6
       }
     },
@@ -6862,9 +6826,8 @@
         "norm_fifa": 0.0,
         "norm_value": 0.455,
         "norm_form": 0.1615,
-        "norm_pedigree": 0.125,
-        "strength_index_0_100": 15.01,
-        "effective_elo": 1287.2
+        "strength_index_0_100": 15.46,
+        "effective_elo": 1297.0
       },
       "round_of_32": {
         "opponent": "Colombia",
@@ -6889,11 +6852,11 @@
         "actual_gd_covered": 0,
         "form_raw_base": 4.0,
         "form_raw_adjusted": 3.905,
-        "strength_index_results_only": 13.69,
-        "effective_elo_results_only": 1288.2,
-        "strength_index_adjusted": 15.01,
-        "effective_elo_adjusted": 1287.2,
-        "elo_shift": -1.0
+        "strength_index_results_only": 13.9,
+        "effective_elo_results_only": 1298.1,
+        "strength_index_adjusted": 15.46,
+        "effective_elo_adjusted": 1297.0,
+        "elo_shift": -1.1
       }
     },
     {
@@ -7096,9 +7059,8 @@
         "norm_fifa": 0.0755,
         "norm_value": 0.3177,
         "norm_form": 0.099,
-        "norm_pedigree": 0.0081,
-        "strength_index_0_100": 11.97,
-        "effective_elo": 1297.0
+        "strength_index_0_100": 13.94,
+        "effective_elo": 1314.7
       },
       "round_of_32": {
         "opponent": "Estados Unidos",
@@ -7123,10 +7085,10 @@
         "actual_gd_covered": -1,
         "form_raw_base": 3.6,
         "form_raw_adjusted": 3.42,
-        "strength_index_results_only": 11.13,
-        "effective_elo_results_only": 1301.1,
-        "strength_index_adjusted": 11.97,
-        "effective_elo_adjusted": 1297.0,
+        "strength_index_results_only": 12.95,
+        "effective_elo_results_only": 1318.8,
+        "strength_index_adjusted": 13.94,
+        "effective_elo_adjusted": 1314.7,
         "elo_shift": -4.1
       }
     },
@@ -7326,9 +7288,8 @@
         "norm_fifa": 0.1528,
         "norm_value": 0.0,
         "norm_form": 0.1217,
-        "norm_pedigree": 0.0242,
-        "strength_index_0_100": 9.52,
-        "effective_elo": 1311.8
+        "strength_index_0_100": 10.77,
+        "effective_elo": 1328.3
       },
       "round_of_32": {
         "opponent": "Canada",
@@ -7353,10 +7314,10 @@
         "actual_gd_covered": -1,
         "form_raw_base": 3.6,
         "form_raw_adjusted": 3.596,
-        "strength_index_results_only": 8.11,
-        "effective_elo_results_only": 1312.6,
-        "strength_index_adjusted": 9.52,
-        "effective_elo_adjusted": 1311.8,
+        "strength_index_results_only": 9.11,
+        "effective_elo_results_only": 1329.1,
+        "strength_index_adjusted": 10.77,
+        "effective_elo_adjusted": 1328.3,
         "elo_shift": -0.8
       }
     },
@@ -7555,9 +7516,8 @@
         "norm_fifa": 0.0453,
         "norm_value": 0.0,
         "norm_form": 0.0,
-        "norm_pedigree": 0.0,
-        "strength_index_0_100": 1.81,
-        "effective_elo": 1235.4
+        "strength_index_0_100": 2.13,
+        "effective_elo": 1253.6
       },
       "round_of_32": {
         "opponent": "Argentina",
@@ -7584,11 +7544,11 @@
         "actual_gd_covered": 0,
         "form_raw_base": 3.0,
         "form_raw_adjusted": 2.652,
-        "strength_index_results_only": 1.81,
-        "effective_elo_results_only": 1244.9,
-        "strength_index_adjusted": 1.81,
-        "effective_elo_adjusted": 1235.4,
-        "elo_shift": -9.5
+        "strength_index_results_only": 2.13,
+        "effective_elo_results_only": 1263.0,
+        "strength_index_adjusted": 2.13,
+        "effective_elo_adjusted": 1253.6,
+        "elo_shift": -9.4
       }
     }
   ]

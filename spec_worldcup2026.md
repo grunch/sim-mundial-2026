@@ -30,7 +30,8 @@ New 48-team format → 12 groups of 4. The **top 2 of each group (24)** advance 
 
 ## 3. Metrics (definition and source)
 
-For each team, **four axes** of raw data are collected plus the history:
+For each team, **three prediction axes** of raw data are collected, plus World Cup
+honours which are stored as descriptive history but **do not feed the model**:
 
 1. **FIFA Ranking** — `points_official_2026_06_11` (official points as of Jun 11, 2026, pre-World Cup base; FIFA Elo system, denominator 600) and `points_live_in_tournament` (projection that already incorporates tournament results). *The official one is used as the base so as not to double-count with the performance axis.*
    Source: FIFA / football-ranking.com.
@@ -38,7 +39,7 @@ For each team, **four axes** of raw data are collected plus the history:
    Source: Transfermarkt via PlanetFootball/OneFootball.
 3. **Performance in the 2026 World Cup** — Group stage: `points`, `goal_difference`, per-match derivatives.
    Source: final group tables (NBC Sports / FIFA).
-4. **Experience / World Cup honours** — `titles`, `title_years`, `best_finish_pre_2026`, `appearances_incl_2026`, `defending_champion`.
+4. **Experience / World Cup honours** *(descriptive only — not a prediction input; see §5.2)* — `titles`, `title_years`, `best_finish_pre_2026`, `appearances_incl_2026`, `defending_champion`.
    Source: historical World Cup record.
 
 ## 4. Per-team JSON schema
@@ -59,7 +60,7 @@ For each team, **four axes** of raw data are collected plus the history:
                     "best_finish_pre_2026": "Champion", "appearances_incl_2026": 19,
                     "defending_champion": true, "pedigree_score_0_100": 100.0 },
   "derived_metrics": { "norm_fifa": 1.0, "norm_value": ..., "norm_form": ...,
-                    "norm_pedigree": ..., "strength_index_0_100": 95.57, "effective_elo": 2025.4 },
+                    "strength_index_0_100": 93.77, "effective_elo": 1974.6 },
   "round_of_32": { "opponent": "Cape Verde", "opponent_code": "CPV",
                     "match_id": 86, "venue": "Hard Rock Stadium, Miami", "date": "2026-06-30" },
   "data_notes": []
@@ -74,23 +75,28 @@ All normalizations are computed **over the pool of the 32 teams**.
 - `norm_fifa  = minmax(points_official)`
 - `norm_value = minmax(log10(value_eur_millions))`  ← logarithmic scale because value is heavily skewed (France €1,520M vs Cape Verde €49M).
 - `norm_form  = minmax(form_raw)`, with `form_raw = points + 0.4 · goal_difference`
-- `norm_pedigree = minmax(pedigree_raw)`
 
-**5.2 Pedigree (World Cup honours), reproducible proxy**
-```
+**5.2 Pedigree (World Cup honours) — retained as history, NOT a model input**
+```text
 best_pts:  Champion=30 · Runner-up=22 · Semifinal/3rd-4th=16 · Quarterfinals=10 · Round of 16=5 · Group stage=0
 pedigree_raw = titles*20 + best_pts + min(appearances,25)*0.8     (cap 100)
 ```
+`pedigree_score` is still stored per team as descriptive history, but the honours
+axis was **removed from the prediction**: it no longer enters `strength_index` or
+`effective_elo`. The proxy skewed toward past champions and underestimated
+finalists/semifinalists without a title (Netherlands, Sweden, Portugal, Croatia).
 
-**5.3 Strength Index (SI, 0–100)** — composite index, configurable weights:
+**5.3 Strength Index (SI, 0–100)** — composite index over the three remaining
+axes; the weights are renormalized to sum to 1 after dropping pedigree (0.15):
+```text
+SI = 100 · ( 0.4706·norm_fifa + 0.2353·norm_value + 0.2941·norm_form )
 ```
-SI = 100 · ( 0.40·norm_fifa + 0.20·norm_value + 0.25·norm_form + 0.15·norm_pedigree )
-```
+(exact weights: fifa 8/17, value 4/17, form 5/17.)
 
-**5.4 Effective Elo** — takes the real FIFA Elo and adjusts it with the other 3 axes (in *Elo points per standard deviation*):
-```
+**5.4 Effective Elo** — takes the real FIFA Elo and adjusts it with the other 2 axes (in *Elo points per standard deviation*):
+```text
 effective_elo = points_official
-              + 40·z(form_raw) + 25·z(log10_value) + 20·z(pedigree_raw)
+              + 40·z(form_raw) + 25·z(log10_value)
 ```
 (`z` = standard score relative to the pool).
 
@@ -144,9 +150,9 @@ fields (`points`, `goal_difference`, `points_per_match`, `gd_per_match`,
 replaces `form_raw` in the form axis: the build recomputes `norm_form`,
 `strength_index_0_100` and `effective_elo` (§5.3–5.4) from the adjusted form
 over a freshly measured `form_effective` pool (`meta.pool_aggregates`), so
-`predict.py` uses the performance-adjusted ratings. The `fifa`, `value` and
-`pedigree` axes are untouched (a sanity check asserts their normalisations still
-match). Each team keeps its results-only baseline
+`predict.py` uses the performance-adjusted ratings. The `fifa` and `value` axes
+are untouched (a sanity check asserts their normalisations still match). Each
+team keeps its results-only baseline
 (`strength_index_results_only`, `effective_elo_results_only`) and the resulting
 `elo_shift` under `performance_metrics` for audit. `build_performance_metrics.py`
 is idempotent; constants live in `meta.performance_model`.
@@ -183,40 +189,42 @@ python3 predict.py                  # runs the 16 Round of 32 matchups
 
 ## 7. Ranking by Strength Index (the 32)
 
-| # | Team | Grp | Pos | FIFA | TM €M | WC26 (pts/GD) | Pedigree | SI | eELO |
-|--:|--------|:--:|:--:|--:|--:|:--:|--:|--:|--:|
-| 1 | France | I | 1st | 1871 | 1520 | 9/+8 | 84 | 97.1 | 2033 |
-| 2 | Argentina | J | 1st | 1877 | 808 | 9/+7 | 100 | 94.7 | 2023 |
-| 3 | Spain | H | 1st | 1875 | 1220 | 7/+5 | 64 | 86.9 | 1982 |
-| 4 | England | L | 1st | 1828 | 1360 | 7/+4 | 64 | 84.1 | 1938 |
-| 5 | Brazil | C | 1st | 1766 | 928 | 7/+6 | 100 | 79.9 | 1874 |
-| 6 | Germany | E | 1st | 1736 | 947 | 6/+6 | 100 | 76.0 | 1834 |
-| 7 | Netherlands | F | 1st | 1754 | 754 | 7/+6 | 32 | 68.3 | 1815 |
-| 8 | Morocco | C | 2nd | 1755 | 448 | 7/+3 | 22 | 63.1 | 1790 |
-| 9 | Portugal | K | 2nd | 1768 | 1010 | 5/+5 | 23 | 61.4 | 1783 |
-| 10 | Belgium | G | 1st | 1742 | 548 | 5/+4 | 28 | 60.2 | 1764 |
-| 11 | Mexico | A | 1st | 1687 | 192 | 9/+6 | 24 | 59.9 | 1738 |
-| 12 | Colombia | K | 1st | 1698 | 302 | 7/+3 | 16 | 57.6 | 1730 |
-| 13 | United States | D | 1st | 1671 | 386 | 6/+4 | 26 | 54.9 | 1695 |
-| 14 | Switzerland | B | 1st | 1650 | 332 | 7/+4 | 20 | 52.8 | 1674 |
-| 15 | Croatia | L | 2nd | 1715 | 387 | 6/+0 | 28 | 52.5 | 1706 |
-| 16 | Senegal | I | 3rd | 1684 | 478 | 3/+2 | 13 | 44.8 | 1645 |
-| 17 | Japan | F | 2nd | 1662 | 271 | 5/+4 | 11 | 44.5 | 1635 |
-| 18 | Norway | I | 2nd | 1557 | 590 | 6/+1 | 8 | 43.3 | 1565 |
-| 19 | Ivory Coast | E | 2nd | 1541 | 522 | 6/+2 | 3 | 39.6 | 1536 |
-| 20 | Ecuador | E | 3rd | 1599 | 369 | 4/+0 | 9 | 37.5 | 1558 |
-| 21 | Sweden | F | 3rd | 1510 | 406 | 4/+0 | 32 | 36.1 | 1494 |
-| 22 | Austria | J | 2nd | 1597 | 245 | 4/+0 | 22 | 35.5 | 1544 |
-| 23 | Canada | B | 2nd | 1559 | 199 | 4/+5 | 2 | 33.8 | 1519 |
-| 24 | Algeria | J | 3rd | 1571 | 257 | 4/-2 | 9 | 33.2 | 1519 |
-| 25 | Egypt | G | 2nd | 1562 | 116 | 5/+2 | 3 | 30.0 | 1501 |
-| 26 | Australia | D | 2nd | 1579 | 77 | 4/+0 | 11 | 24.7 | 1481 |
-| 27 | Paraguay | D | 3rd | 1505 | 154 | 4/-2 | 17 | 21.7 | 1416 |
-| 28 | DR Congo | K | 3rd | 1474 | 144 | 4/+1 | 2 | 21.5 | 1401 |
-| 29 | Ghana | L | 3rd | 1347 | 234 | 4/+0 | 13 | 15.0 | 1287 |
-| 30 | Bosnia and Herzegovina | B | 3rd | 1387 | 146 | 4/-1 | 2 | 12.0 | 1297 |
-| 31 | South Africa | A | 2nd | 1428 | 49 | 4/-1 | 3 | 9.5 | 1312 |
-| 32 | Cape Verde | H | 2nd | 1371 | 49 | 3/+0 | 1 | 1.8 | 1235 |
+*(Pedigree / World Cup honours is no longer a model input, so it is not shown.)*
+
+| # | Team | Grp | Pos | FIFA | TM €M | WC26 (pts/GD) | SI | eELO |
+|--:|--------|:--:|:--:|--:|--:|:--:|--:|--:|
+| 1 | France | I | 1st | 1871 | 1520 | 9/+8 | 99.5 | 1996 |
+| 2 | Argentina | J | 1st | 1877 | 808 | 9/+7 | 93.8 | 1975 |
+| 3 | Spain | H | 1st | 1875 | 1220 | 7/+5 | 91.1 | 1958 |
+| 4 | England | L | 1st | 1828 | 1360 | 7/+4 | 87.8 | 1914 |
+| 5 | Brazil | C | 1st | 1766 | 928 | 7/+6 | 76.3 | 1825 |
+| 6 | Netherlands | F | 1st | 1754 | 754 | 7/+6 | 74.9 | 1813 |
+| 7 | Germany | E | 1st | 1736 | 947 | 6/+6 | 71.8 | 1786 |
+| 8 | Morocco | C | 2nd | 1755 | 448 | 7/+3 | 70.5 | 1794 |
+| 9 | Portugal | K | 2nd | 1768 | 1010 | 5/+5 | 68.3 | 1786 |
+| 10 | Mexico | A | 1st | 1687 | 192 | 9/+6 | 66.2 | 1740 |
+| 11 | Belgium | G | 1st | 1742 | 548 | 5/+4 | 66.0 | 1764 |
+| 12 | Colombia | K | 1st | 1698 | 302 | 7/+3 | 65.2 | 1738 |
+| 13 | United States | D | 1st | 1671 | 386 | 6/+4 | 60.1 | 1697 |
+| 14 | Switzerland | B | 1st | 1650 | 332 | 7/+4 | 58.6 | 1679 |
+| 15 | Croatia | L | 2nd | 1715 | 387 | 6/+0 | 57.0 | 1706 |
+| 16 | Senegal | I | 3rd | 1684 | 478 | 3/+2 | 50.5 | 1655 |
+| 17 | Japan | F | 2nd | 1662 | 271 | 5/+4 | 50.4 | 1646 |
+| 18 | Norway | I | 2nd | 1557 | 590 | 6/+1 | 49.6 | 1579 |
+| 19 | Ivory Coast | E | 2nd | 1541 | 522 | 6/+2 | 46.1 | 1553 |
+| 20 | Ecuador | E | 3rd | 1599 | 369 | 4/+0 | 42.7 | 1570 |
+| 21 | Canada | B | 2nd | 1559 | 199 | 4/+5 | 39.5 | 1536 |
+| 22 | Austria | J | 2nd | 1597 | 245 | 4/+0 | 37.9 | 1548 |
+| 23 | Algeria | J | 3rd | 1571 | 257 | 4/-2 | 37.6 | 1532 |
+| 24 | Sweden | F | 3rd | 1510 | 406 | 4/+0 | 36.9 | 1491 |
+| 25 | Egypt | G | 2nd | 1562 | 116 | 5/+2 | 34.9 | 1518 |
+| 26 | Australia | D | 2nd | 1579 | 77 | 4/+0 | 27.4 | 1492 |
+| 27 | DR Congo | K | 3rd | 1474 | 144 | 4/+1 | 25.1 | 1419 |
+| 28 | Paraguay | D | 3rd | 1505 | 154 | 4/-2 | 22.6 | 1423 |
+| 29 | Ghana | L | 3rd | 1347 | 234 | 4/+0 | 15.5 | 1297 |
+| 30 | Bosnia and Herzegovina | B | 3rd | 1387 | 146 | 4/-1 | 13.9 | 1315 |
+| 31 | South Africa | A | 2nd | 1428 | 49 | 4/-1 | 10.8 | 1328 |
+| 32 | Cape Verde | H | 2nd | 1371 | 49 | 3/+0 | 2.1 | 1254 |
 
 ## 8. Forecast of the 16 matchups (engine demonstration)
 
@@ -225,33 +233,33 @@ P to advance (includes extra time/penalties). Close matchups where the model fli
 | Matchup | Favorite (P advance) |
 |---|---|
 | Canada vs South Africa | Canada **84%** |
-| Germany vs Paraguay | Germany **92%** |
-| Netherlands vs Morocco | Netherlands **63%** |
-| Brazil vs Japan | Brazil **86%** |
+| Germany vs Paraguay | Germany **90%** |
+| Netherlands vs Morocco | Netherlands **61%** |
+| Brazil vs Japan | Brazil **83%** |
 | France vs Sweden | France **94%** |
-| Ivory Coast vs Norway ⚑ | Norway **60%** |
-| Mexico vs Ecuador | Mexico **83%** |
+| Ivory Coast vs Norway ⚑ | Norway **59%** |
+| Mexico vs Ecuador | Mexico **82%** |
 | England vs DR Congo | England **94%** |
 | United States vs Bosnia | USA **91%** |
 | Belgium vs Senegal | Belgium **78%** |
-| Portugal vs Croatia | Portugal **71%** |
-| Spain vs Austria | Spain **92%** |
+| Portugal vs Croatia | Portugal **74%** |
+| Spain vs Austria | Spain **91%** |
 | Switzerland vs Algeria | Switzerland **81%** |
-| Argentina vs Cape Verde | Argentina **98%** |
+| Argentina vs Cape Verde | Argentina **97%** |
 | Colombia vs Ghana | Colombia **92%** |
-| Australia vs Egypt ⚑ | Egypt **63%** |
+| Australia vs Egypt ⚑ | Egypt **67%** |
 
 ## 9. How to tune the model
 
-- **SI weights** → dictionary `W` in `build_dataset.py`. Raising `form` gives more weight to tournament form; raising `fifa` makes it more conservative.
-- **Elo coefficients** → `ELO_ADJ` (Elo points per standard deviation of form/value/pedigree).
+- **SI weights** → `weights_strength_index` in the dataset meta (`fifa`, `value`, `form`; they should sum to 1). Raising `form` gives more weight to tournament form; raising `fifa` makes it more conservative.
+- **Elo coefficients** → `elo_adjustment_coeffs` (Elo points per standard deviation of form/value).
 - **Elo denominator `D` and scale `S`** → in `predict.py`. Higher `D` = flatter predictions (less dominant favorites).
 - After changing weights: re-run `build_dataset.py` and then `predict.py`.
 
 ## 10. Limitations and warnings (important)
 
 - **Tournament in progress:** the `live` figures and the standings change with each matchday; the dataset is a snapshot as of Jun 28–29, 2026.
-- **Pedigree:** it is a reproducible proxy (titles + best finish + appearances). It **underestimates** finalists/semifinalists without a title (Netherlands, Sweden, Portugal, Croatia). If you care about honours, raise the weight or replace the formula.
+- **World Cup honours are not a model input.** `pedigree_score` is kept only as descriptive history: the honours axis was removed from `strength_index`/`effective_elo` because the proxy skewed toward past champions and underestimated finalists/semifinalists without a title (Netherlands, Sweden, Portugal, Croatia). To restore it, re-add a `pedigree` weight/coefficient and the `norm_pedigree` term.
 - **The model does not capture**: injuries/suspensions for the specific match, rest between rounds, actual venue/home advantage, motivation, or the opponent's tactical style. Treat it as a **quantitative baseline**, not as truth.
 - **Transfermarkt in EUR**: there are equivalent listings in USD with different figures; do not mix currencies.
 
@@ -273,16 +281,16 @@ Semifinals:    101:(97,98)  102:(99,100)            Final: 104:(101,102)
 
 | Team | Round of 16 | Quarterfinals | Semifinals | Final | **Champion** |
 |---|--:|--:|--:|--:|--:|
-| Argentina | 97.7% | 92.0% | 81.6% | 62.7% | **36.4%** |
-| France | 94.5% | 79.5% | 68.6% | 52.5% | **34.0%** |
-| Spain | 92.1% | 78.0% | 67.2% | 30.0% | **13.4%** |
-| England | 94.4% | 80.1% | 55.5% | 20.9% | **8.1%** |
-| Brazil | 85.7% | 76.1% | 35.0% | 11.3% | **3.6%** |
-| Germany | 91.6% | 19.2% | 13.6% | 5.7% | **1.5%** |
-| Netherlands | 63.0% | 56.0% | 11.0% | 4.0% | **0.8%** |
-| Belgium | 78.2% | 52.8% | 12.6% | 2.4% | **0.4%** |
+| France | 93.8% | 79.9% | 67.6% | 50.5% | **35.3%** |
+| Argentina | 97.0% | 90.0% | 77.9% | 56.4% | **29.1%** |
+| Spain | 91.3% | 76.1% | 64.8% | 30.7% | **16.4%** |
+| England | 93.5% | 78.1% | 61.2% | 27.7% | **11.2%** |
+| Brazil | 83.0% | 71.6% | 26.2% | 8.5% | **2.4%** |
+| Netherlands | 61.0% | 53.7% | 13.9% | 5.3% | **1.4%** |
+| Germany | 90.0% | 18.3% | 9.3% | 3.3% | **0.8%** |
+| Morocco | 39.0% | 34.1% | 7.8% | 2.7% | **0.7%** |
 
-> **Reading the bracket:** Argentina and France are in opposite halves (they can only meet in the Final), hence their high probabilities of reaching the Final. **Germany** illustrates the asymmetry of the bracket: 92% to pass the Round of 16 but only 19% to reach the Quarterfinals, because its Round of 16 opponent (match 89) is very likely **France**. The draw matters as much as quality.
+> **Reading the bracket:** Argentina and France are in opposite halves (they can only meet in the Final). Argentina's easier half sends it to the Final more often (**56%** vs France's **50%**), but France is the Final favorite and converts its knockouts better, so **France is champion more often** (35% vs 29%). **Germany** illustrates the asymmetry of the bracket: 90% to pass the Round of 16 but only 18% to reach the Quarterfinals, because its Round of 16 opponent (match 89) is very likely **France**. The draw decides who reaches the Final; quality decides who wins it.
 
 ## 12. Reproduce
 ```bash

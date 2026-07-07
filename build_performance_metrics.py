@@ -152,31 +152,27 @@ def _pool_stats(values):
             "mean": round(mean, 4), "pstdev": round(pstdev, 4)}
 
 
-def _team_si_elo(t, form, form_stats, weights, coeffs, log10_value_agg,
-                 pedigree_agg):
+def _team_si_elo(t, form, form_stats, weights, coeffs, log10_value_agg):
     """Strength index, effective Elo and norm_form for one team at ``form``."""
     dm = t["derived_metrics"]
     log10v = math.log10(t["squad_value_transfermarkt"]["value_eur_millions"])
-    ped = t["world_cup_history"]["pedigree_raw"]
     norm_form = minmax(form, form_stats["min"], form_stats["max"])
-    si = strength_index(dm["norm_fifa"], dm["norm_value"], norm_form,
-                        dm["norm_pedigree"], weights)
+    si = strength_index(dm["norm_fifa"], dm["norm_value"], norm_form, weights)
     elo = effective_elo(
         t["fifa_ranking"]["points_official_2026_06_11"],
         zscore(form, form_stats["mean"], form_stats["pstdev"]),
         zscore(log10v, log10_value_agg["mean"], log10_value_agg["pstdev"]),
-        zscore(ped, pedigree_agg["mean"], pedigree_agg["pstdev"]),
         coeffs)
     return norm_form, round(si, 2), round(elo, 1)
 
 
 def _validate_norms(data, agg):
-    """Assert the recompute reproduces the stored fifa/value/pedigree norms.
+    """Assert the recompute reproduces the stored fifa/value norms.
 
     These axes never change, so this stays true on every re-run and proves the
     min-max normalisation and pool aggregates match how the dataset was built.
     """
-    fifa, lv, pd = agg["fifa_points"], agg["log10_value"], agg["pedigree_raw"]
+    fifa, lv = agg["fifa_points"], agg["log10_value"]
     for t in data["teams"]:
         dm = t["derived_metrics"]
         checks = (
@@ -185,8 +181,6 @@ def _validate_norms(data, agg):
             ("norm_value", minmax(math.log10(
                 t["squad_value_transfermarkt"]["value_eur_millions"]),
                 lv["min"], lv["max"])),
-            ("norm_pedigree", minmax(t["world_cup_history"]["pedigree_raw"],
-                                     pd["min"], pd["max"])),
         )
         for name, got in checks:
             if abs(round(got, 4) - dm[name]) > 1e-3:
@@ -204,7 +198,7 @@ def recompute_strength_and_elo(data):
     meta = data["meta"]
     weights, coeffs = meta["weights_strength_index"], meta["elo_adjustment_coeffs"]
     agg = meta["pool_aggregates"]
-    lv, pd = agg["log10_value"], agg["pedigree_raw"]
+    lv = agg["log10_value"]
     _validate_norms(data, agg)
 
     # Refresh the raw-form pool from the current (authoritative) form_raw_index
@@ -223,9 +217,10 @@ def recompute_strength_and_elo(data):
         dm = t["derived_metrics"]
         raw_index = t["world_cup_2026_performance"]["form_raw_index"]
         _, ro_si, ro_elo = _team_si_elo(t, raw_index, raw_stats, weights,
-                                        coeffs, lv, pd)
+                                        coeffs, lv)
         norm_form, si, elo = _team_si_elo(t, form, adj_stats, weights,
-                                          coeffs, lv, pd)
+                                          coeffs, lv)
+        dm.pop("norm_pedigree", None)
         pm = t.get("performance_metrics")
         if pm is not None:
             pm["strength_index_results_only"] = ro_si
